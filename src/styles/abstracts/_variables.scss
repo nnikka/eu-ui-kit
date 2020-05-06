@@ -1,0 +1,42 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Application colors
+/// @type Color
+$primary: rgba(240, 90, 34, 1);
+/// @type Color
+$color-success: rgba(13, 169, 60, 1);
+/// @type Color
+$color-error: rgba(227, 0, 0, 1);
+
+/// Background colors
+/// @type Color
+$background-light-black: rgba(37, 41, 43, 1);
+/// @type Color
+$background-medium-black: rgba(28, 29, 30, 1);
+/// @type Color
+$background-dark-black: rgba(23, 23, 24, 1);
+
+/// Text colors
+/// @type Color
+$text-white: rgba(255, 255, 255, 1);
+/// @type Color
+$text-grey: rgba(187, 187, 187, 1);
+/// @type Color
+$text-dark-grey: rgba(125, 125, 125, 1);
+
+/// Elements colors
+$element-color-blue: rgba(17, 81, 243, 1);
+/// @type Color
+$element-color-green: rgba(9, 157, 128, 1);
+/// @type Color
+$element-color-red: rgba(238, 63, 71, 1);
+/// @type Color
+$element-color-skyblue: rgba(31, 133, 186, 1);
+/// @type Color
+$element-color-blueviolet: rgba(109, 55, 172, 1);
+/// @type Color
+$element-color-violet: rgba(163, 66, 122, 1);
+/// @type Color
+$element-color-yellow: rgba(232, 168, 13, 1);
