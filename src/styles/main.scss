@@ -1,13 +1,16 @@
-@import 'abstracts/variables';
-@import 'abstracts/functions';
-@import 'abstracts/mixins';
-@import 'abstracts/placeholders';
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/placeholders";
 
-@import 'base/reset';
-@import 'base/typography';
+@import "base/reset";
+@import "base/typography";
 
-@import 'layout/grid';
+@import "layout/grid";
 
-@import 'themes/default';
+@import "themes/default";
 
-@import 'hacks';
+@import "hacks";
+
+/// Eu-icons
+@import "icons/icons";

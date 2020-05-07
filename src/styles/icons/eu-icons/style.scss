@@ -1,0 +1,774 @@
+@import "variables";
+
+@font-face {
+  font-family: "#{$eu-icons-font-family}";
+  src: url("#{$eu-icons-font-path}/#{$eu-icons-font-family}.eot?rm00w5");
+  src: url("#{$eu-icons-font-path}/#{$eu-icons-font-family}.eot?rm00w5#iefix") format("embedded-opentype"),
+    url("#{$eu-icons-font-path}/#{$eu-icons-font-family}.ttf?rm00w5") format("truetype"),
+    url("#{$eu-icons-font-path}/#{$eu-icons-font-family}.woff?rm00w5") format("woff"),
+    url("#{$eu-icons-font-path}/#{$eu-icons-font-family}.svg?rm00w5##{$eu-icons-font-family}") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="eu-icon-"],
+[class*=" eu-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "#{$eu-icons-font-family}" !important;
+  // speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.eu-icon-not-verify .path1 {
+  &:before {
+    content: $eu-icon-not-verify-path1;
+    color: rgb(208, 11, 11);
+  }
+}
+.eu-icon-not-verify .path2 {
+  &:before {
+    content: $eu-icon-not-verify-path2;
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+}
+.eu-icon-not-verify-white .path1 {
+  &:before {
+    content: $eu-icon-not-verify-white-path1;
+    color: rgb(255, 255, 255);
+  }
+}
+.eu-icon-not-verify-white .path2 {
+  &:before {
+    content: $eu-icon-not-verify-white-path2;
+    margin-left: -1em;
+    color: rgb(208, 11, 11);
+  }
+}
+.eu-icon-verify-success .path1 {
+  &:before {
+    content: $eu-icon-verify-success-path1;
+    color: rgb(13, 169, 60);
+  }
+}
+.eu-icon-verify-success .path2 {
+  &:before {
+    content: $eu-icon-verify-success-path2;
+    margin-left: -1em;
+    color: rgb(255, 255, 255);
+  }
+}
+.eu-icon-monitor {
+  &:before {
+    content: $eu-icon-monitor;
+  }
+}
+.eu-icon-armchair {
+  &:before {
+    content: $eu-icon-armchair;
+  }
+}
+.eu-icon-arrow-left {
+  &:before {
+    content: $eu-icon-arrow-left;
+  }
+}
+.eu-icon-arrow-right {
+  &:before {
+    content: $eu-icon-arrow-right;
+  }
+}
+.eu-icon-blackjack {
+  &:before {
+    content: $eu-icon-blackjack;
+  }
+}
+.eu-icon-bonus {
+  &:before {
+    content: $eu-icon-bonus;
+  }
+}
+.eu-icon-bonus-game {
+  &:before {
+    content: $eu-icon-bonus-game;
+  }
+}
+.eu-icon-by-bonus {
+  &:before {
+    content: $eu-icon-by-bonus;
+  }
+}
+.eu-icon-casino {
+  &:before {
+    content: $eu-icon-casino;
+  }
+}
+.eu-icon-cross {
+  &:before {
+    content: $eu-icon-cross;
+  }
+}
+.eu-icon-fast-deposit {
+  &:before {
+    content: $eu-icon-fast-deposit;
+  }
+}
+.eu-icon-four-game {
+  &:before {
+    content: $eu-icon-four-game;
+  }
+}
+.eu-icon-full-creen {
+  &:before {
+    content: $eu-icon-full-creen;
+  }
+}
+.eu-icon-full-view {
+  &:before {
+    content: $eu-icon-full-view;
+  }
+}
+.eu-icon-history {
+  &:before {
+    content: $eu-icon-history;
+  }
+}
+.eu-icon-jackpot {
+  &:before {
+    content: $eu-icon-jackpot;
+  }
+}
+.eu-icon-like {
+  &:before {
+    content: $eu-icon-like;
+  }
+}
+.eu-icon-like-heart {
+  &:before {
+    content: $eu-icon-like-heart;
+  }
+}
+.eu-icon-like-heart-outline {
+  &:before {
+    content: $eu-icon-like-heart-outline;
+  }
+}
+.eu-icon-log-out {
+  &:before {
+    content: $eu-icon-log-out;
+  }
+}
+.eu-icon-messenger {
+  &:before {
+    content: $eu-icon-messenger;
+  }
+}
+.eu-icon-messenger-writing {
+  &:before {
+    content: $eu-icon-messenger-writing;
+  }
+}
+.eu-icon-new {
+  &:before {
+    content: $eu-icon-new;
+  }
+}
+.eu-icon-new-window {
+  &:before {
+    content: $eu-icon-new-window;
+  }
+}
+.eu-icon-notification {
+  &:before {
+    content: $eu-icon-notification;
+  }
+}
+.eu-icon-one-game {
+  &:before {
+    content: $eu-icon-one-game;
+  }
+}
+.eu-icon-phone {
+  &:before {
+    content: $eu-icon-phone;
+  }
+}
+.eu-icon-promo {
+  &:before {
+    content: $eu-icon-promo;
+  }
+}
+.eu-icon-refresh {
+  &:before {
+    content: $eu-icon-refresh;
+  }
+}
+.eu-icon-search {
+  &:before {
+    content: $eu-icon-search;
+  }
+}
+.eu-icon-sidebar-view {
+  &:before {
+    content: $eu-icon-sidebar-view;
+  }
+}
+.eu-icon-slots {
+  &:before {
+    content: $eu-icon-slots;
+  }
+}
+.eu-icon-sport {
+  &:before {
+    content: $eu-icon-sport;
+  }
+}
+.eu-icon-table {
+  &:before {
+    content: $eu-icon-table;
+  }
+}
+.eu-icon-tel {
+  &:before {
+    content: $eu-icon-tel;
+  }
+}
+.eu-icon-two-game {
+  &:before {
+    content: $eu-icon-two-game;
+  }
+}
+.eu-icon-user {
+  &:before {
+    content: $eu-icon-user;
+  }
+}
+.eu-icon-warning {
+  &:before {
+    content: $eu-icon-warning;
+  }
+}
+.eu-icon-smile {
+  &:before {
+    content: $eu-icon-smile;
+  }
+}
+.eu-icon-bar-chart {
+  &:before {
+    content: $eu-icon-bar-chart;
+  }
+}
+.eu-icon-wifi {
+  &:before {
+    content: $eu-icon-wifi;
+  }
+}
+.eu-icon-key {
+  &:before {
+    content: $eu-icon-key;
+  }
+}
+.eu-icon-equalizer {
+  &:before {
+    content: $eu-icon-equalizer;
+  }
+}
+.eu-icon-credit-card {
+  &:before {
+    content: $eu-icon-credit-card;
+  }
+}
+.eu-icon-share {
+  &:before {
+    content: $eu-icon-share;
+  }
+}
+.eu-icon-loading {
+  &:before {
+    content: $eu-icon-loading;
+  }
+}
+.eu-icon-link {
+  &:before {
+    content: $eu-icon-link;
+  }
+}
+.eu-icon-broken-link {
+  &:before {
+    content: $eu-icon-broken-link;
+  }
+}
+.eu-icon-smile-extra {
+  &:before {
+    content: $eu-icon-smile-extra;
+  }
+}
+.eu-icon-crop {
+  &:before {
+    content: $eu-icon-crop;
+  }
+}
+.eu-icon-sad {
+  &:before {
+    content: $eu-icon-sad;
+  }
+}
+.eu-icon-cursor {
+  &:before {
+    content: $eu-icon-cursor;
+  }
+}
+.eu-icon-move {
+  &:before {
+    content: $eu-icon-move;
+  }
+}
+.eu-icon-cloud-computing-down {
+  &:before {
+    content: $eu-icon-cloud-computing-down;
+  }
+}
+.eu-icon-cloud-computing-up {
+  &:before {
+    content: $eu-icon-cloud-computing-up;
+  }
+}
+.eu-icon-star {
+  &:before {
+    content: $eu-icon-star;
+  }
+}
+.eu-icon-briefcase {
+  &:before {
+    content: $eu-icon-briefcase;
+  }
+}
+.eu-icon-cancel {
+  &:before {
+    content: $eu-icon-cancel;
+  }
+}
+.eu-icon-shield {
+  &:before {
+    content: $eu-icon-shield;
+  }
+}
+.eu-icon-calculator {
+  &:before {
+    content: $eu-icon-calculator;
+  }
+}
+.eu-icon-photo-camera {
+  &:before {
+    content: $eu-icon-photo-camera;
+  }
+}
+.eu-icon-cut-dashed {
+  &:before {
+    content: $eu-icon-cut-dashed;
+  }
+}
+.eu-icon-shuffle {
+  &:before {
+    content: $eu-icon-shuffle;
+  }
+}
+.eu-icon-compass {
+  &:before {
+    content: $eu-icon-compass;
+  }
+}
+.eu-icon-minus {
+  &:before {
+    content: $eu-icon-minus;
+  }
+}
+.eu-icon-plus {
+  &:before {
+    content: $eu-icon-plus;
+  }
+}
+.eu-icon-file {
+  &:before {
+    content: $eu-icon-file;
+  }
+}
+.eu-icon-expand {
+  &:before {
+    content: $eu-icon-expand;
+  }
+}
+.eu-icon-earth-grid {
+  &:before {
+    content: $eu-icon-earth-grid;
+  }
+}
+.eu-icon-justify {
+  &:before {
+    content: $eu-icon-justify;
+  }
+}
+.eu-icon-copy {
+  &:before {
+    content: $eu-icon-copy;
+  }
+}
+.eu-icon-tag {
+  &:before {
+    content: $eu-icon-tag;
+  }
+}
+.eu-icon-minimize {
+  &:before {
+    content: $eu-icon-minimize;
+  }
+}
+.eu-icon-clip {
+  &:before {
+    content: $eu-icon-clip;
+  }
+}
+.eu-icon-information {
+  &:before {
+    content: $eu-icon-information;
+  }
+}
+.eu-icon-log-out1 {
+  &:before {
+    content: $eu-icon-log-out1;
+  }
+}
+.eu-icon-align-left {
+  &:before {
+    content: $eu-icon-align-left;
+  }
+}
+.eu-icon-pin {
+  &:before {
+    content: $eu-icon-pin;
+  }
+}
+.eu-icon-refresh1 {
+  &:before {
+    content: $eu-icon-refresh1;
+  }
+}
+.eu-icon-filter {
+  &:before {
+    content: $eu-icon-filter;
+  }
+}
+.eu-icon-pencil {
+  &:before {
+    content: $eu-icon-pencil;
+  }
+}
+.eu-icon-log-in {
+  &:before {
+    content: $eu-icon-log-in;
+  }
+}
+.eu-icon-reply-all {
+  &:before {
+    content: $eu-icon-reply-all;
+  }
+}
+.eu-icon-reply {
+  &:before {
+    content: $eu-icon-reply;
+  }
+}
+.eu-icon-silence {
+  &:before {
+    content: $eu-icon-silence;
+  }
+}
+.eu-icon-email-down {
+  &:before {
+    content: $eu-icon-email-down;
+  }
+}
+.eu-icon-email-up {
+  &:before {
+    content: $eu-icon-email-up;
+  }
+}
+.eu-icon-alarm-ringing {
+  &:before {
+    content: $eu-icon-alarm-ringing;
+  }
+}
+.eu-icon-qr-code {
+  &:before {
+    content: $eu-icon-qr-code;
+  }
+}
+.eu-icon-dashboard {
+  &:before {
+    content: $eu-icon-dashboard;
+  }
+}
+.eu-icon-headphones {
+  &:before {
+    content: $eu-icon-headphones;
+  }
+}
+.eu-icon-target {
+  &:before {
+    content: $eu-icon-target;
+  }
+}
+.eu-icon-smartphone {
+  &:before {
+    content: $eu-icon-smartphone;
+  }
+}
+.eu-icon-screenshot {
+  &:before {
+    content: $eu-icon-screenshot;
+  }
+}
+.eu-icon-question {
+  &:before {
+    content: $eu-icon-question;
+  }
+}
+.eu-icon-push-pin {
+  &:before {
+    content: $eu-icon-push-pin;
+  }
+}
+.eu-icon-flag {
+  &:before {
+    content: $eu-icon-flag;
+  }
+}
+.eu-icon-video-camera {
+  &:before {
+    content: $eu-icon-video-camera;
+  }
+}
+.eu-icon-music {
+  &:before {
+    content: $eu-icon-music;
+  }
+}
+.eu-icon-printer {
+  &:before {
+    content: $eu-icon-printer;
+  }
+}
+.eu-icon-paste {
+  &:before {
+    content: $eu-icon-paste;
+  }
+}
+.eu-icon-microphone-mute {
+  &:before {
+    content: $eu-icon-microphone-mute;
+  }
+}
+.eu-icon-straight {
+  &:before {
+    content: $eu-icon-straight;
+  }
+}
+.eu-icon-surprise {
+  &:before {
+    content: $eu-icon-surprise;
+  }
+}
+.eu-icon-trash-open {
+  &:before {
+    content: $eu-icon-trash-open;
+  }
+}
+.eu-icon-trash {
+  &:before {
+    content: $eu-icon-trash;
+  }
+}
+.eu-icon-phone-call-cancelled {
+  &:before {
+    content: $eu-icon-phone-call-cancelled;
+  }
+}
+.eu-icon-phone-call {
+  &:before {
+    content: $eu-icon-phone-call;
+  }
+}
+.eu-icon-eraser {
+  &:before {
+    content: $eu-icon-eraser;
+  }
+}
+.eu-icon-thunderbolt {
+  &:before {
+    content: $eu-icon-thunderbolt;
+  }
+}
+.eu-icon-snowflake {
+  &:before {
+    content: $eu-icon-snowflake;
+  }
+}
+.eu-icon-home {
+  &:before {
+    content: $eu-icon-home;
+  }
+}
+.eu-icon-microphone {
+  &:before {
+    content: $eu-icon-microphone;
+  }
+}
+.eu-icon-upload {
+  &:before {
+    content: $eu-icon-upload;
+  }
+}
+.eu-icon-download {
+  &:before {
+    content: $eu-icon-download;
+  }
+}
+.eu-icon-medal {
+  &:before {
+    content: $eu-icon-medal;
+  }
+}
+.eu-icon-open-lock {
+  &:before {
+    content: $eu-icon-open-lock;
+  }
+}
+.eu-icon-check {
+  &:before {
+    content: $eu-icon-check;
+  }
+}
+.eu-icon-followers {
+  &:before {
+    content: $eu-icon-followers;
+  }
+}
+.eu-icon-bookmark {
+  &:before {
+    content: $eu-icon-bookmark;
+  }
+}
+.eu-icon-sound-mute {
+  &:before {
+    content: $eu-icon-sound-mute;
+  }
+}
+.eu-icon-volume {
+  &:before {
+    content: $eu-icon-volume;
+  }
+}
+.eu-icon-email {
+  &:before {
+    content: $eu-icon-email;
+  }
+}
+.eu-icon-chat {
+  &:before {
+    content: $eu-icon-chat;
+  }
+}
+.eu-icon-alarm {
+  &:before {
+    content: $eu-icon-alarm;
+  }
+}
+.eu-icon-edit {
+  &:before {
+    content: $eu-icon-edit;
+  }
+}
+.eu-icon-calendar {
+  &:before {
+    content: $eu-icon-calendar;
+  }
+}
+.eu-icon-hourglass {
+  &:before {
+    content: $eu-icon-hourglass;
+  }
+}
+.eu-icon-wall-clock {
+  &:before {
+    content: $eu-icon-wall-clock;
+  }
+}
+.eu-icon-padlock {
+  &:before {
+    content: $eu-icon-padlock;
+  }
+}
+.eu-icon-arrow-down {
+  &:before {
+    content: $eu-icon-arrow-down;
+  }
+}
+.eu-icon-arrow-up {
+  &:before {
+    content: $eu-icon-arrow-up;
+  }
+}
+.eu-icon-calendar1 {
+  &:before {
+    content: $eu-icon-calendar1;
+  }
+}
+.eu-icon-eye-closed {
+  &:before {
+    content: $eu-icon-eye-closed;
+  }
+}
+.eu-icon-eye-opened {
+  &:before {
+    content: $eu-icon-eye-opened;
+  }
+}
+.eu-icon-globe {
+  &:before {
+    content: $eu-icon-globe;
+  }
+}
+.eu-icon-icon-notification-ringing {
+  &:before {
+    content: $eu-icon-icon-notification-ringing;
+  }
+}
+.eu-icon-logout {
+  &:before {
+    content: $eu-icon-logout;
+  }
+}
+.eu-icon-rounded-lock {
+  &:before {
+    content: $eu-icon-rounded-lock;
+  }
+}
+.eu-icon-royal {
+  &:before {
+    content: $eu-icon-royal;
+  }
+}
+.eu-icon-settings {
+  &:before {
+    content: $eu-icon-settings;
+  }
+}
