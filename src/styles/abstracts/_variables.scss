@@ -6,25 +6,27 @@
 /// @type Color
 $primary: rgba(240, 90, 34, 1);
 /// @type Color
+$secondary: rgba(52, 58, 60, 1);
+/// @type Color
 $color-success: rgba(13, 169, 60, 1);
 /// @type Color
 $color-error: rgba(227, 0, 0, 1);
+/// @type Color
+$color-white: rgba(255, 255, 255, 1);
+/// @type Color
+$color-grey: rgba(187, 187, 187, 1);
+/// @type Color
+$color-dark-grey: rgba(125, 125, 125, 1);
+/// @type Color
+$color-light-black: rgba(37, 41, 43, 1);
+/// @type Color
+$color-medium-black: rgba(28, 29, 30, 1);
+/// @type Color
+$color-dark-black: rgba(23, 23, 24, 1);
 
-/// Background colors
+/// Specific usecase: only for disabled buttons
 /// @type Color
-$background-light-black: rgba(37, 41, 43, 1);
-/// @type Color
-$background-medium-black: rgba(28, 29, 30, 1);
-/// @type Color
-$background-dark-black: rgba(23, 23, 24, 1);
-
-/// Text colors
-/// @type Color
-$text-white: rgba(255, 255, 255, 1);
-/// @type Color
-$text-grey: rgba(187, 187, 187, 1);
-/// @type Color
-$text-dark-grey: rgba(125, 125, 125, 1);
+$color-swamp: rgba(45, 49, 51, 1);
 
 /// Elements colors
 $element-color-blue: rgba(17, 81, 243, 1);
@@ -40,3 +42,19 @@ $element-color-blueviolet: rgba(109, 55, 172, 1);
 $element-color-violet: rgba(163, 66, 122, 1);
 /// @type Color
 $element-color-yellow: rgba(232, 168, 13, 1);
+
+/// Text colors
+/// @type Color
+$text-light: $color-white;
+/// @type Color
+$text-medium: $color-grey;
+/// @type Color
+$text-dark: $color-dark-grey;
+
+/// Background colors
+/// @type Color
+$background-light-black: $color-light-black;
+/// @type Color
+$background-medium-black: $color-medium-black;
+/// @type Color
+$background-dark-black: $color-dark-black;
