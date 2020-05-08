@@ -33,6 +33,14 @@ export class EuButtonComponent implements OnInit {
   hoverActive: Boolean;
   // disabled: Boolean;
 
+  get styleClass(): string {
+    let colorClass = "";
+    if (EEuButtonColor[this.color]) {
+      colorClass = `eu-btn-color-${this.color}`
+    }
+    return `${colorClass} eu-btn-size-${this.size} eu-btn-type-${this.type} eu-btn-content-${this.position}`;
+  }
+
   constructor() {
     // this.size = 'small';
     // this.type = 'primary';
