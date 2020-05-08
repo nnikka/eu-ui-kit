@@ -1,0 +1,137 @@
+:host {
+    --circle-overlay: 90px;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: normal;
+    color: #ffffff;
+}
+
+.btn {
+    padding: 9px 15px 8px 15px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.2s ease;
+}
+
+/* circle-hover */
+
+.circle-hover {
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #52525245;
+    transition: all 0.4s ease;
+}
+
+.circle-hover:active {
+    background-color: #74747400;
+}
+
+.circle-hover.active {
+    padding: var(--circle-overlay);
+    margin-top: calc(-1 * var(--circle-overlay));
+    margin-left: calc(-1 * var(--circle-overlay));
+}
+
+.circle-hover-wrapper {
+    position: absolute;
+}
+
+.icon-container {
+    margin-right: 10px;
+}
+
+/* btn type, position and size */
+
+.btn-mini {
+    height: 36px;
+    min-width: 60px;
+    --circle-overlay: 90px;
+}
+
+.btn-small {
+    height: 36px;
+    min-width: 112px;
+    --circle-overlay: 142px;
+}
+
+.btn-medium {
+    height: 48px;
+    min-width: 180px;
+    --circle-overlay: 210px;
+}
+
+.btn-large {
+    height: 48px;
+    min-width: 270px;
+    --circle-overlay: 300px;
+}
+
+.btn-xlarge {
+    height: 48px;
+    min-width: 320px;
+    --circle-overlay: 350px;
+}
+
+.btn-primary {
+    background-color: #f05a22;
+}
+
+.btn-error {
+    background-color: #e30000;
+}
+
+.btn-success {
+    background-color: #0da93c;
+}
+
+.btn-dark {
+    background-color: #343a3c;
+}
+
+.btn-disabled {
+    color: #7d7d7d;
+    background-color: #272d2e;
+    cursor: default;
+}
+
+.btn-outline {
+    border: 1px solid #ffffff;
+}
+
+.btn-outline .circle-hover {
+    background-color: #c5c5c545;
+}
+.btn-outline .circle-hover:active {
+    background-color: #c5c5c500;
+}
+
+.btn-text .circle-hover {
+    background-color: #ffffff00;
+}
+
+.btn-text:hover {
+    color: #ffffff7c;
+}
+
+.btn-text:active {
+    color: #ffffff;
+}
+
+.btn-left {
+    justify-content: flex-start;
+}
+
+.btn-center {
+    justify-content: center;
+}
+
+.btn-right {
+    justify-content: flex-end;
+}

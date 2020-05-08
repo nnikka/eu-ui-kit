@@ -1,0 +1,17 @@
+<div class="btn-container">
+    <div 
+      class="btn btn-orange" 
+      [ngClass]="getBtnClasses()" 
+      (mouseenter)="!disabled && mouseEnter($event)"
+      (mouseleave)="!disabled && mouseLeave($event)"
+      >
+      <div class="icon-container" *ngIf="icon">
+        <i [ngClass]="icon"></i>
+      </div>
+      <ng-content></ng-content>
+      <div class="circle-hover-wrapper" #hoverBackdrop>
+        <div class="circle-hover" [ngClass]="{'active': hoverActive}"></div>
+      </div>
+    </div>
+  </div>
+  
