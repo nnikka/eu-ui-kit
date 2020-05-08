@@ -1,51 +1,37 @@
 import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
-
-export enum EEuButtonSize {
-  mini = "mini",
-  small = "small",
-  medium = "medium",
-  large = "large",
-  xlarge = "xlarge"
-}
-export type EEuButtonSizeType = EEuButtonSize.mini | EEuButtonSize.small | EEuButtonSize.medium | EEuButtonSize.large | EEuButtonSize.xlarge;
-
-export enum EEuButtonContentPosition {
-  left = "left",
-  right = "right",
-  center = "center"
-}
-export type EEuButtonContentPositionType = EEuButtonContentPosition.left | EEuButtonContentPosition.right | EEuButtonContentPosition.center;
-
-export enum EEuButtonColor {
-  primary = "primary",
-  secondary = "secondary",
-  success = "success",
-  error = "error",
-  warning = "warning"
-}
-export type EEuButtonColorType = EEuButtonColor.primary | EEuButtonColor.secondary | EEuButtonColor.success | EEuButtonColor.error | EEuButtonColor.warning;
-
-export enum EEuButtonType {
-  normal = "normal",
-  outline = "outline",
-  text = "text"
-}
+import {
+  EEuButtonColor,
+  EEuButtonColorType,
+  EEuButtonContentPositionType,
+  EEuButtonContentPosition,
+  EEuButtonSize,
+  EEuButtonSizeType,
+  EEuButtonTypeType,
+  EEuButtonType,
+} from './eu-button.schematics';
 
 @Component({
   selector: 'eu-button',
   templateUrl: './eu-button.component.html',
-  styleUrls: ['./eu-button.component.scss']
+  styleUrls: ['./eu-button.component.scss'],
 })
 export class EuButtonComponent implements OnInit {
+  @Input() size: EEuButtonSizeType = EEuButtonSize.medium;
+  @Input() position: EEuButtonContentPositionType =
+    EEuButtonContentPosition.center;
+  @Input() color: EEuButtonColorType = EEuButtonColor.primary;
+  @Input() type: EEuButtonTypeType = EEuButtonType.normal;
+  @Input() stretched: boolean = false;
+  @Input() disabled: boolean = false;
+  @Input() icon: string = null;
+  @Input() text: string = null;
+  @Input() to: string = null;
+  @Input() loading: boolean = false;
+
   @ViewChild('hoverBackdrop', { read: ElementRef }) hoverBackdrop: ElementRef;
 
-  @Input() size: EEuButtonSizeType = EEuButtonSize.medium;
-  @Input() type: string;
-  @Input() icon: string;
-  @Input() position: EEuButtonContentPosition.center | EEuButtonContentPosition.left | EEuButtonContentPosition.right = EEuButtonContentPosition.center;
-
   hoverActive: Boolean;
-  disabled: Boolean;
+  // disabled: Boolean;
 
   constructor() {
     // this.size = 'small';
@@ -56,7 +42,7 @@ export class EuButtonComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.disabled = this.type === 'disabled';
+    // this.disabled = this.type === 'disabled';
   }
 
   mouseEnter(e): void {
