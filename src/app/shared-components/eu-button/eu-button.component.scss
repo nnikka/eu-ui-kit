@@ -1,137 +1,179 @@
+@import "abstracts/variables";
+
+$eu-btn-primary: $primary;
+$eu-btn-secondary: $secondary;
+$eu-btn-success: $color-success;
+$eu-btn-error: $color-error;
+$eu-btn-warning: $element-color-yellow;
+
 :host {
-    --circle-overlay: 90px;
-    display: inline-block;
-    font-size: 15px;
-    font-weight: normal;
-    color: #ffffff;
+  --circle-overlay: 90px;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: normal;
+  color: #ffffff;
 }
 
-.btn {
-    padding: 9px 15px 8px 15px;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    box-sizing: border-box;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    transition: color 0.2s ease;
+.eu-btn {
+  padding: 9px 15px 8px 15px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.2s ease;
 }
 
-/* circle-hover */
+/// ----------------------------
+/// Button colors
+/// ----------------------------
+$eu-btn-colors: (
+    primary: $eu-btn-primary,
+    secondary: $eu-btn-secondary,
+    success: $eu-btn-success,
+    error: $eu-btn-error,
+    warning: $eu-btn-warning
+);
 
+$button-color-types: "primary", "secondary", "success", "error", "warning";
+@each $current-type in $button-color-types {
+    .eu-btn-color-#{$current-type} {
+        background: map-get($eu-btn-colors, $current-type);
+        border-color: map-get($eu-btn-colors, $current-type);
+    }
+}
+
+/// ----------------------------
+/// Button types
+/// ----------------------------
+.eu-btn-type-outline {
+  border: 1px solid;
+  background-color: transparent;
+}
+
+.eu-btn-type-text {
+  border: none;
+  background: none;
+}
+
+/// ----------------------------
+/// Cirle hover
+/// ----------------------------
 .circle-hover {
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    position: absolute;
-    background-color: #52525245;
-    transition: all 0.4s ease;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  position: absolute;
+  background-color: #52525245;
+  transition: all 0.4s ease;
 }
 
 .circle-hover:active {
-    background-color: #74747400;
+  background-color: #74747400;
 }
 
 .circle-hover.active {
-    padding: var(--circle-overlay);
-    margin-top: calc(-1 * var(--circle-overlay));
-    margin-left: calc(-1 * var(--circle-overlay));
+  padding: var(--circle-overlay);
+  margin-top: calc(-1 * var(--circle-overlay));
+  margin-left: calc(-1 * var(--circle-overlay));
 }
 
 .circle-hover-wrapper {
-    position: absolute;
+  position: absolute;
 }
 
 .icon-container {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 /* btn type, position and size */
 
 .btn-mini {
-    height: 36px;
-    min-width: 60px;
-    --circle-overlay: 90px;
+  height: 36px;
+  min-width: 60px;
+  --circle-overlay: 90px;
 }
 
 .btn-small {
-    height: 36px;
-    min-width: 112px;
-    --circle-overlay: 142px;
+  height: 36px;
+  min-width: 112px;
+  --circle-overlay: 142px;
 }
 
 .btn-medium {
-    height: 48px;
-    min-width: 180px;
-    --circle-overlay: 210px;
+  height: 48px;
+  min-width: 180px;
+  --circle-overlay: 210px;
 }
 
 .btn-large {
-    height: 48px;
-    min-width: 270px;
-    --circle-overlay: 300px;
+  height: 48px;
+  min-width: 270px;
+  --circle-overlay: 300px;
 }
 
 .btn-xlarge {
-    height: 48px;
-    min-width: 320px;
-    --circle-overlay: 350px;
+  height: 48px;
+  min-width: 320px;
+  --circle-overlay: 350px;
 }
 
 .btn-primary {
-    background-color: #f05a22;
+  background-color: #f05a22;
 }
 
 .btn-error {
-    background-color: #e30000;
+  background-color: #e30000;
 }
 
 .btn-success {
-    background-color: #0da93c;
+  background-color: #0da93c;
 }
 
 .btn-dark {
-    background-color: #343a3c;
+  background-color: #343a3c;
 }
 
 .btn-disabled {
-    color: #7d7d7d;
-    background-color: #272d2e;
-    cursor: default;
+  color: #7d7d7d;
+  background-color: #272d2e;
+  cursor: default;
 }
 
 .btn-outline {
-    border: 1px solid #ffffff;
+  border: 1px solid #ffffff;
 }
 
 .btn-outline .circle-hover {
-    background-color: #c5c5c545;
+  background-color: #c5c5c545;
 }
+
 .btn-outline .circle-hover:active {
-    background-color: #c5c5c500;
+  background-color: #c5c5c500;
 }
 
 .btn-text .circle-hover {
-    background-color: #ffffff00;
+  background-color: #ffffff00;
 }
 
 .btn-text:hover {
-    color: #ffffff7c;
+  color: #ffffff7c;
 }
 
 .btn-text:active {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .btn-left {
-    justify-content: flex-start;
+  justify-content: flex-start;
 }
 
 .btn-center {
-    justify-content: center;
+  justify-content: center;
 }
 
 .btn-right {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }

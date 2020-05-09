@@ -41,12 +41,12 @@ export type EEuButtonColorType =
   | string;
 
 export enum EEuButtonType {
-  normal = 'normal',
+  default = 'default',
   outline = 'outline',
   text = 'text',
 }
 
 export type EEuButtonTypeType =
-  | EEuButtonType.normal
+  | EEuButtonType.default
   | EEuButtonType.outline
   | EEuButtonType.text;

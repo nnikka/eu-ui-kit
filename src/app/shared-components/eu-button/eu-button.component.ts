@@ -20,7 +20,7 @@ export class EuButtonComponent implements OnInit {
   @Input() position: EEuButtonContentPositionType =
     EEuButtonContentPosition.center;
   @Input() color: EEuButtonColorType = EEuButtonColor.primary;
-  @Input() type: EEuButtonTypeType = EEuButtonType.normal;
+  @Input() type: EEuButtonTypeType = EEuButtonType.default;
   @Input() stretched: boolean = false;
   @Input() disabled: boolean = false;
   @Input() icon: string = null;
@@ -31,12 +31,11 @@ export class EuButtonComponent implements OnInit {
   @ViewChild('hoverBackdrop', { read: ElementRef }) hoverBackdrop: ElementRef;
 
   hoverActive: Boolean;
-  // disabled: Boolean;
 
   get styleClass(): string {
     let colorClass = "";
     if (EEuButtonColor[this.color]) {
-      colorClass = `eu-btn-color-${this.color}`
+      colorClass = `eu-btn-${this.color}-color`
     }
     return `${colorClass} eu-btn-size-${this.size} eu-btn-type-${this.type} eu-btn-content-${this.position}`;
   }
@@ -69,9 +68,5 @@ export class EuButtonComponent implements OnInit {
     this.hoverBackdrop.nativeElement.style.left = `${x}px`;
     this.hoverBackdrop.nativeElement.style.top = `${y}px`;
     this.hoverActive = false;
-  }
-
-  getBtnClasses(): string {
-    return `btn-${this.size} btn-${this.type} btn-${this.position}`;
   }
 }
