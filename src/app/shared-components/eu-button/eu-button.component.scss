@@ -40,8 +40,8 @@ $eu-btn-disabled-color: $color-dark-grey;
 /// ----------------------------
 /// Button sizes
 /// ----------------------------
-$eu-btn-paddings: (small: 8px,
-  medium: 15px,
+$eu-btn-paddings: (small: 8px 12px,
+  medium: 15px 20px,
   large: 15px 30px);
 
 $eu-btn-font-sizes: (small: 15px,
@@ -118,6 +118,13 @@ $color in $eu-btn-colors {
 
 .eu-btn-content-right .eu-btn-content-container {
   float: right;
+}
+
+/// ----------------------------
+/// Icons
+/// ----------------------------
+.eu-btn-icon {
+  font-size: inherit;
 }
 
 /// ----------------------------

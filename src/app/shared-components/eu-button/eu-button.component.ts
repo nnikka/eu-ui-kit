@@ -25,7 +25,7 @@ export class EuButtonComponent implements OnInit {
   @Input() color: EEuButtonColorType = EEuButtonColor.primary;
   @Input() type: EEuButtonTypeType = EEuButtonType.default;
   @Input() disabled: boolean = false;
-  @Input() icon: string = null;
+  @Input() iconClass: string = null;
   @Input() text: string = null;
   @Input() to: string = null;
   @Input() loading: boolean = false;
