@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, HostBinding } from '@angular/core';
 import {
   EEuButtonColor,
   EEuButtonColorType,
@@ -8,6 +8,8 @@ import {
   EEuButtonSizeType,
   EEuButtonTypeType,
   EEuButtonType,
+  EEuButtonWidth,
+  EEuButtonWidthType
 } from './eu-button.schematics';
 
 @Component({
@@ -17,39 +19,43 @@ import {
 })
 export class EuButtonComponent implements OnInit {
   @Input() size: EEuButtonSizeType = EEuButtonSize.medium;
-  @Input() position: EEuButtonContentPositionType =
+  @Input() width: EEuButtonWidth = null;
+  @Input() contentPosition: EEuButtonContentPositionType =
     EEuButtonContentPosition.center;
   @Input() color: EEuButtonColorType = EEuButtonColor.primary;
   @Input() type: EEuButtonTypeType = EEuButtonType.default;
-  @Input() stretched: boolean = false;
   @Input() disabled: boolean = false;
   @Input() icon: string = null;
   @Input() text: string = null;
   @Input() to: string = null;
   @Input() loading: boolean = false;
 
-  @ViewChild('hoverBackdrop', { read: ElementRef }) hoverBackdrop: ElementRef;
+  @HostBinding('style.display') hostElementDisplay = 'inline-block';
 
-  hoverActive: Boolean;
+  @ViewChild('hoverBackdrop', { read: ElementRef }) hoverBackdrop: ElementRef;
+  @ViewChild('hoverBackdropCircle', { read: ElementRef }) hoverBackdropCircle: ElementRef;
+  @ViewChild('btnElement', { read: ElementRef }) btnElement: ElementRef;
 
   get styleClass(): string {
     let colorClass = "";
     if (EEuButtonColor[this.color]) {
-      colorClass = `eu-btn-${this.color}-color`
+      colorClass = `eu-btn-color-${this.color}`
     }
-    return `${colorClass} eu-btn-size-${this.size} eu-btn-type-${this.type} eu-btn-content-${this.position}`;
+    let widthClass = "";
+    if (EEuButtonWidth[this.width]) {
+      widthClass = `eu-btn-width-${this.width}`
+    }
+    return `${colorClass} eu-btn-size-${this.size} ${widthClass} eu-btn-type-${this.type} eu-btn-content-${this.contentPosition}`;
   }
 
   constructor() {
-    // this.size = 'small';
-    // this.type = 'primary';
-    // this.position = 'center';
-    // this.hoverActive = false;
-    // this.disabled = false;
+
   }
 
   ngOnInit(): void {
-    // this.disabled = this.type === 'disabled';
+    if (this.width && EEuButtonWidth[this.width] === EEuButtonWidth.full) {
+      this.hostElementDisplay = "block";
+    }
   }
 
   mouseEnter(e): void {
@@ -58,7 +64,9 @@ export class EuButtonComponent implements OnInit {
     const y = e.clientY - rect.top; //y position within the btn.
     this.hoverBackdrop.nativeElement.style.left = `${x}px`;
     this.hoverBackdrop.nativeElement.style.top = `${y}px`;
-    this.hoverActive = true;
+    const circleOverlay = (this.btnElement.nativeElement.offsetWidth + 10) + "px";
+    this.hoverBackdropCircle.nativeElement.setAttribute('style',
+      `padding: ${circleOverlay}; margin-top: calc(-1 * ${circleOverlay}); margin-left: calc(-1 * ${circleOverlay});`);
   }
 
   mouseLeave(e): void {
@@ -67,6 +75,7 @@ export class EuButtonComponent implements OnInit {
     const y = e.clientY - rect.top; //y position within the btn.
     this.hoverBackdrop.nativeElement.style.left = `${x}px`;
     this.hoverBackdrop.nativeElement.style.top = `${y}px`;
-    this.hoverActive = false;
+    this.hoverBackdropCircle.nativeElement.setAttribute('style',
+      `padding: none; margin-top: none; margin-left: none;`);
   }
 }

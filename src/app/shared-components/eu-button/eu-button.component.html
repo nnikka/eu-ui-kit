@@ -1,16 +1,16 @@
-<button
-  class="eu-btn btn-orange"
-  [ngClass]="styleClass"
-  (mouseenter)="!disabled && mouseEnter($event)"
-  (mouseleave)="!disabled && mouseLeave($event)"
->
-  <div class="icon-container" *ngIf="icon">
-    <i [ngClass]="icon"></i>
-  </div>
+<button class="eu-btn" [ngClass]="styleClass" [disabled]="disabled" (mouseenter)="!disabled && mouseEnter($event)"
+  (mouseleave)="!disabled && mouseLeave($event)" #btnElement>
 
-  <ng-content></ng-content>
+  <!-- <div class="icon-container" *ngIf="icon">
+    <i [ngClass]="icon"></i>
+  </div> -->
+  <span class="eu-btn-content-container">
+    <span *ngIf="text">{{text}}</span>
+
+    <ng-content *ngIf="!text && !icon"></ng-content>
+  </span>
 
   <div class="circle-hover-wrapper" #hoverBackdrop>
-    <div class="circle-hover" [ngClass]="{ active: hoverActive }"></div>
+    <div class="circle-hover" #hoverBackdropCircle></div>
   </div>
 </button>

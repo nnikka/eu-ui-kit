@@ -1,17 +1,29 @@
 export enum EEuButtonSize {
-  mini = 'mini',
+  small = 'small',
+  medium = 'medium',
+  large = 'large',
+}
+
+export type EEuButtonSizeType =
+  | EEuButtonSize.small
+  | EEuButtonSize.medium
+  | EEuButtonSize.large;
+
+export enum EEuButtonWidth {
   small = 'small',
   medium = 'medium',
   large = 'large',
   xlarge = 'xlarge',
+  full = 'full'
 }
 
-export type EEuButtonSizeType =
-  | EEuButtonSize.mini
-  | EEuButtonSize.small
-  | EEuButtonSize.medium
-  | EEuButtonSize.large
-  | EEuButtonSize.xlarge;
+export type EEuButtonWidthType =
+  | EEuButtonWidth.small
+  | EEuButtonWidth.medium
+  | EEuButtonWidth.large
+  | EEuButtonWidth.xlarge
+  | EEuButtonWidth.full
+  | number;
 
 export enum EEuButtonContentPosition {
   left = 'left',
@@ -30,6 +42,7 @@ export enum EEuButtonColor {
   success = 'success',
   error = 'error',
   warning = 'warning',
+  white = 'white'
 }
 
 export type EEuButtonColorType =
