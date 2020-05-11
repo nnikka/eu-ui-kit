@@ -10,6 +10,7 @@ $eu-btn-disabled-background: $color-swamp;
 $eu-btn-disabled-color: $color-dark-grey;
 
 :host {
+  position: relative;
   font-size: 15px;
   font-weight: normal;
   color: $color-white;
@@ -63,7 +64,7 @@ $padding in $eu-btn-paddings {
     padding: 0;
     border-radius: 50%;
     width: map-get($eu-btn-rounded-sizes, $name);
-    height :map-get($eu-btn-rounded-sizes, $name);
+    height: map-get($eu-btn-rounded-sizes, $name);
   }
 }
 
@@ -216,6 +217,19 @@ $color in $eu-btn-colors {
   100% {
     transform: rotate(360deg);
   }
+}
+
+/// ----------------------------
+/// Button label
+/// ----------------------------
+.eu-btn-label {
+  position: absolute;
+  top: -2px;
+  right: -12px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background-color: $eu-btn-primary;
+  font-size: 12px;
 }
 
 /// ----------------------------

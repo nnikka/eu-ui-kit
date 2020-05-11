@@ -1,5 +1,5 @@
-<button class="eu-btn" [ngClass]="styleClass" [disabled]="disabled || loading" (mouseenter)="!disabled && mouseEnter($event)"
-  (mouseleave)="!disabled && mouseLeave($event)" #btnElement>
+<button class="eu-btn" [ngClass]="btnClass" [ngStyle]="btnStyle" [disabled]="disabled || loading"
+  (mouseenter)="!disabled && mouseEnter($event)" (mouseleave)="!disabled && mouseLeave($event)" #btnElement>
 
   <div class="eu-btn-lds-ring" *ngIf="loading">
     <div></div>
@@ -22,3 +22,4 @@
     <div class="eu-btn-circle-hover" #hoverBackdropCircle></div>
   </div>
 </button>
+<span class="eu-btn-label" [ngStyle]="labelStyle" *ngIf="label">{{ label }}</span>
