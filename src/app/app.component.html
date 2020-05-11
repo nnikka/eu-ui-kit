@@ -17,6 +17,10 @@
   <eu-button size="small" iconClass="eu-icon-armchair" color="primary" type="default" contentPosition="left">
     Button
   </eu-button>
+  &nbsp; &nbsp; &nbsp;
+  <eu-button size="small" iconClass="eu-icon-armchair" color="primary" type="default"
+    [rounded]="'true'">
+  </eu-button>
   <br><br>
   <eu-button size="small" width="small" iconClass="eu-icon-armchair" color="error" type="default" [loading]="'true'">
     Button
@@ -38,7 +42,8 @@
     Button
   </eu-button>
   <br><br>
-  <eu-button (click)="mc($event)" size="large" width="small" iconClass="eu-icon-armchair" color="success" type="default" [loading]="'true'">
+  <eu-button (click)="mc($event)" size="large" width="small" iconClass="eu-icon-armchair" color="success" type="default"
+    [loading]="'true'">
     Button
   </eu-button>
   <br><br>
@@ -51,16 +56,28 @@
   </eu-button>
   <br><br>
 
-  <eu-button size="medium" width="medium" iconClass="eu-icon-armchair" color="error" type="default">
-      Button
-    </eu-button>
-    <br><br>
-  <eu-button (click)="mc($event)" size="medium" iconClass="eu-icon-armchair" width="medium" color="primary" type="default" [disabled]="'true'">
+  <eu-button size="medium" width="medium" iconClass="eu-icon-armchair" color="error" type="default" contentPosition="left">
     Button
+  </eu-button>
+  &nbsp;&nbsp;
+  <eu-button size="medium" width="medium" [rounded]="'true'" iconClass="eu-icon-armchair" color="secondary" type="default">
+  </eu-button>
+  <br><br>
+  <eu-button (click)="mc($event)" size="medium" iconClass="eu-icon-armchair" width="medium" color="primary"
+    type="default" [disabled]="'true'">
+    Button
+  </eu-button>
+  &nbsp;&nbsp;
+  <eu-button (click)="mc($event)" size="medium" iconClass="eu-icon-armchair" width="medium" color="primary"
+    type="default" [disabled]="'true'" [rounded]="'true'">
   </eu-button>
   <br><br>
   <eu-button size="medium" width="medium" color="primary" type="outline">
     Button
+  </eu-button>
+  &nbsp;&nbsp;
+  <eu-button size="medium" width="medium" color="primary" type="outline" [rounded]="'true'">
+    2
   </eu-button>
   <br><br>
   <eu-button size="medium" width="medium" color="primary" type="text">

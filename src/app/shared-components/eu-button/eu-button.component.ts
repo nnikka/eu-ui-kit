@@ -24,6 +24,7 @@ export class EuButtonComponent implements OnInit {
     EEuButtonContentPosition.center;
   @Input() color: EEuButtonColorType = EEuButtonColor.primary;
   @Input() type: EEuButtonTypeType = EEuButtonType.default;
+  @Input() rounded: boolean = false;
   @Input() disabled: boolean = false;
   @Input() iconClass: string = null;
   @Input() text: string = null;
@@ -42,7 +43,8 @@ export class EuButtonComponent implements OnInit {
     let widthClass = EEuButtonWidth[this.width] ? `eu-btn-width-${this.width}` : "";
     let disabledClass = this.disabled ? `eu-btn-disabled` : "";
     let loadingClass = this.loading ? `eu-btn-loading` : "";
-    return `${disabledClass} ${loadingClass} ${colorClass} eu-btn-size-${this.size} ${widthClass}
+    let roundedClass = this.rounded ? `eu-btn-rounded` : "";
+    return `${disabledClass} ${loadingClass} ${colorClass} ${roundedClass} eu-btn-size-${this.size} ${widthClass}
       eu-btn-type-${this.type} eu-btn-content-${this.contentPosition}`;
   }
 

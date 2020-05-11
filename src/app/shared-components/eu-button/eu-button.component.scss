@@ -16,7 +16,7 @@ $eu-btn-disabled-color: $color-dark-grey;
 }
 
 .eu-btn {
-  display: inherit;
+  display: block;
   width: 100%;
   border-radius: 3px;
   box-sizing: border-box;
@@ -30,8 +30,8 @@ $eu-btn-disabled-color: $color-dark-grey;
 /// Button sizes
 /// ----------------------------
 $eu-btn-paddings: (small: 8px 12px,
-  medium: 15px 20px,
-  large: 15px 30px);
+  medium: 15px 22px,
+  large: 15px 32px);
 
 $eu-btn-font-sizes: (small: 15px,
   medium: 15px,
@@ -40,6 +40,10 @@ $eu-btn-font-sizes: (small: 15px,
 $eu-btn-loader-sizes: (small: 22px,
   medium: 28px,
   large: 34px);
+
+$eu-btn-rounded-sizes: (small: 36px,
+  medium: 48px,
+  large: 58px);
 
 @each $name,
 $padding in $eu-btn-paddings {
@@ -53,6 +57,13 @@ $padding in $eu-btn-paddings {
     height: map-get($eu-btn-loader-sizes, $name);
     margin-top: calc(-1 * #{map-get($eu-btn-loader-sizes, $name)} / 2);
     margin-left: calc(-1 * #{map-get($eu-btn-loader-sizes, $name)} / 2);
+  }
+
+  .eu-btn-size-#{$name}.eu-btn-rounded {
+    padding: 0;
+    border-radius: 50%;
+    width: map-get($eu-btn-rounded-sizes, $name);
+    height :map-get($eu-btn-rounded-sizes, $name);
   }
 }
 
@@ -89,12 +100,15 @@ $color in $eu-btn-colors {
     border-color: $color;
     color: $color;
   }
+
   .eu-btn-color-#{$name}.eu-btn-type-default .eu-btn-lds-ring div {
     border-color: $color-white transparent transparent transparent;
   }
+
   .eu-btn-color-#{$name}.eu-btn-type-text .eu-btn-lds-ring div {
     border-color: #{$color} transparent transparent transparent;
   }
+
   .eu-btn-color-#{$name}.eu-btn-type-outline .eu-btn-lds-ring div {
     border-color: #{$color} transparent transparent transparent;
   }
@@ -121,12 +135,16 @@ $color in $eu-btn-colors {
 /// ----------------------------
 /// Content positions
 /// ----------------------------
-.eu-btn-content-left .eu-btn-content-container {
-  float: left;
+.eu-btn-content-left {
+  text-align: center;
 }
 
-.eu-btn-content-right .eu-btn-content-container {
-  float: right;
+.eu-btn-content-left {
+  text-align: left;
+}
+
+.eu-btn-content-right {
+  text-align: right;
 }
 
 /// ----------------------------
