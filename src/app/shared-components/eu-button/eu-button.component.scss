@@ -139,7 +139,7 @@ $color in $eu-btn-colors {
 /// ----------------------------
 /// Cirle hover
 /// ----------------------------
-.circle-hover {
+.eu-btn-circle-hover {
   width: 0;
   height: 0;
   border-radius: 50%;
@@ -148,11 +148,11 @@ $color in $eu-btn-colors {
   transition: all 0.4s ease;
 }
 
-.circle-hover:active {
+.eu-btn-circle-hover:active {
   background-color: rgba(82, 82, 82, 0.35);
 }
 
-.circle-hover-wrapper {
+.eu-btn-circle-hover-wrapper {
   position: absolute;
 }
 

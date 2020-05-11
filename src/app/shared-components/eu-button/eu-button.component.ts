@@ -19,7 +19,7 @@ import {
 })
 export class EuButtonComponent implements OnInit {
   @Input() size: EEuButtonSizeType = EEuButtonSize.medium;
-  @Input() width: EEuButtonWidth = null;
+  @Input() width: EEuButtonWidthType = null;
   @Input() contentPosition: EEuButtonContentPositionType =
     EEuButtonContentPosition.center;
   @Input() color: EEuButtonColorType = EEuButtonColor.primary;
