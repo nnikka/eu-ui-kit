@@ -1,0 +1,90 @@
+@import "abstracts/variables";
+
+$eu-lbl-primary: $primary;
+$eu-lbl-secondary: $secondary;
+$eu-lbl-success: $color-success;
+$eu-lbl-error: $color-error;
+$eu-lbl-warning: $element-color-yellow;
+$eu-lbl-white: $color-white;
+$eu-lbl-grey: $color-grey;
+$eu-lbl-disabled-background: $color-swamp;
+$eu-lbl-disabled-color: $color-dark-grey;
+$eu-lbl-black: $color-dark-black;
+
+:host {
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.eu-lbl-container {
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/// ----------------------------
+/// Label colors
+/// ----------------------------
+$eu-lbl-colors: (primary: $eu-lbl-primary,
+  secondary: $eu-lbl-secondary,
+  success: $eu-lbl-success,
+  error: $eu-lbl-error,
+  warning: $eu-lbl-warning,
+  white: $eu-lbl-white);
+
+@each $name,
+$color in $eu-lbl-colors {
+  .eu-lbl-color-#{$name} {
+    background-color: $color;
+  }
+}
+
+$eu-lbl-text-colors: (black: $eu-lbl-black,
+  white: $eu-lbl-white,
+  grey: $eu-lbl-grey);
+
+@each $name,
+$color in $eu-lbl-text-colors {
+  .eu-lbl-text-color-#{$name} {
+    color: $color;
+  }
+}
+
+/// ----------------------------
+/// Label sizes
+/// ----------------------------
+
+$eu-lbl-paddings: (small: 3px 5px,
+  medium: 5px 6px,
+  large: 7px 9px);
+
+@each $name,
+$padding in $eu-lbl-paddings {
+  .eu-lbl-size-#{$name} {
+    padding: $padding;
+  }
+}
+
+
+/// ----------------------------
+/// Label types
+/// ----------------------------
+
+$eu-lbl-types: (round: 20px,
+  default: 3px);
+
+@each $name,
+$radius in $eu-lbl-types {
+  .eu-lbl-type-#{$name} {
+    border-radius: $radius;
+  }
+}
+
+
+/// ----------------------------
+/// Icons
+/// ----------------------------
+.eu-lbl-icon {
+    font-size: inherit;
+    margin-right: 8px;
+}
