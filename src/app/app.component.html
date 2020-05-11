@@ -18,11 +18,31 @@
     Button
   </eu-button>
   <br><br>
-  <eu-button size="small" width="small" iconClass="eu-icon-armchair" color="error" type="default">
+  <eu-button size="small" width="small" iconClass="eu-icon-armchair" color="error" type="default" [loading]="'true'">
     Button
   </eu-button>
   <br><br>
-  <eu-button size="small" width="full" color="primary" type="outline">
+  <eu-button size="small" width="small" iconClass="eu-icon-armchair" color="error" type="outline" [loading]="'true'">
+    Button
+  </eu-button>
+  <br><br>
+  <eu-button size="small" width="small" iconClass="eu-icon-armchair" color="success" type="text" [loading]="'true'">
+    Button
+  </eu-button>
+  <br><br>
+  <eu-button size="small" width="small" iconClass="eu-icon-armchair" color="error" type="default" [loading]="'true'">
+    Button
+  </eu-button>
+  <br><br>
+  <eu-button size="medium" width="small" iconClass="eu-icon-armchair" color="error" type="default" [loading]="'true'">
+    Button
+  </eu-button>
+  <br><br>
+  <eu-button (click)="mc($event)" size="large" width="small" iconClass="eu-icon-armchair" color="success" type="default" [loading]="'true'">
+    Button
+  </eu-button>
+  <br><br>
+  <eu-button (click)="mc($event)" size="small" width="full" color="primary" type="outline">
     Button
   </eu-button>
   <br><br>
@@ -35,7 +55,7 @@
       Button
     </eu-button>
     <br><br>
-  <eu-button size="medium" iconClass="eu-icon-armchair" width="medium" color="primary" type="default" [disabled]="'true'">
+  <eu-button (click)="mc($event)" size="medium" iconClass="eu-icon-armchair" width="medium" color="primary" type="default" [disabled]="'true'">
     Button
   </eu-button>
   <br><br>

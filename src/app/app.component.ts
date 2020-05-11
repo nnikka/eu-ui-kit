@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ui-kit';
+
+  mc(e) {
+    console.log("from app")
+  }
 }

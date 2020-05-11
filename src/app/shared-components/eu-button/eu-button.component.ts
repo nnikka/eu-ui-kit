@@ -27,8 +27,9 @@ export class EuButtonComponent implements OnInit {
   @Input() disabled: boolean = false;
   @Input() iconClass: string = null;
   @Input() text: string = null;
-  @Input() to: string = null;
   @Input() loading: boolean = false;
+  //not implemented
+  @Input() to: string = null;
 
   @HostBinding('style.display') hostElementDisplay = 'inline-block';
 
@@ -37,15 +38,12 @@ export class EuButtonComponent implements OnInit {
   @ViewChild('btnElement', { read: ElementRef }) btnElement: ElementRef;
 
   get styleClass(): string {
-    let colorClass = "";
-    if (EEuButtonColor[this.color]) {
-      colorClass = `eu-btn-color-${this.color}`
-    }
-    let widthClass = "";
-    if (EEuButtonWidth[this.width]) {
-      widthClass = `eu-btn-width-${this.width}`
-    }
-    return `${colorClass} eu-btn-size-${this.size} ${widthClass} eu-btn-type-${this.type} eu-btn-content-${this.contentPosition}`;
+    let colorClass = EEuButtonColor[this.color] ? `eu-btn-color-${this.color}` : "";
+    let widthClass = EEuButtonWidth[this.width] ? `eu-btn-width-${this.width}` : "";
+    let disabledClass = this.disabled ? `eu-btn-disabled` : "";
+    let loadingClass = this.loading ? `eu-btn-loading` : "";
+    return `${disabledClass} ${loadingClass} ${colorClass} eu-btn-size-${this.size} ${widthClass}
+      eu-btn-type-${this.type} eu-btn-content-${this.contentPosition}`;
   }
 
   constructor() {
@@ -58,23 +56,23 @@ export class EuButtonComponent implements OnInit {
     }
   }
 
-  mouseEnter(e): void {
+  handleCircleOverlay(e): void {
     const rect = e.target.getBoundingClientRect();
-    const x = e.clientX - rect.left; //x position within the btn.
-    const y = e.clientY - rect.top; //y position within the btn.
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
     this.hoverBackdrop.nativeElement.style.left = `${x}px`;
     this.hoverBackdrop.nativeElement.style.top = `${y}px`;
+  }
+
+  mouseEnter(e): void {
+    this.handleCircleOverlay(e);
     const circleOverlay = (this.btnElement.nativeElement.offsetWidth + 10) + "px";
     this.hoverBackdropCircle.nativeElement.setAttribute('style',
       `padding: ${circleOverlay}; margin-top: calc(-1 * ${circleOverlay}); margin-left: calc(-1 * ${circleOverlay});`);
   }
 
   mouseLeave(e): void {
-    const rect = e.target.getBoundingClientRect();
-    const x = e.clientX - rect.left; //x position within the btn.
-    const y = e.clientY - rect.top; //y position within the btn.
-    this.hoverBackdrop.nativeElement.style.left = `${x}px`;
-    this.hoverBackdrop.nativeElement.style.top = `${y}px`;
+    this.handleCircleOverlay(e);
     this.hoverBackdropCircle.nativeElement.setAttribute('style',
       `padding: none; margin-top: none; margin-left: none;`);
   }

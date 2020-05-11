@@ -12,7 +12,7 @@ $eu-btn-disabled-color: $color-dark-grey;
 :host {
   font-size: 15px;
   font-weight: normal;
-  color: #ffffff;
+  color: $color-white;
 }
 
 .eu-btn {
@@ -26,17 +26,6 @@ $eu-btn-disabled-color: $color-dark-grey;
   transition: color 0.25s ease;
 }
 
-.eu-btn:focus {
-  outline: none;
-}
-
-.eu-btn:disabled {
-  cursor: auto;
-  background-color: $eu-btn-disabled-background;
-  color: $eu-btn-disabled-color;
-  border: none;
-}
-
 /// ----------------------------
 /// Button sizes
 /// ----------------------------
@@ -48,16 +37,27 @@ $eu-btn-font-sizes: (small: 15px,
   medium: 15px,
   large: 22px);
 
+$eu-btn-loader-sizes: (small: 22px,
+  medium: 28px,
+  large: 34px);
+
 @each $name,
 $padding in $eu-btn-paddings {
   .eu-btn-size-#{$name} {
     padding: $padding;
-    font-size: map-get($eu-btn-font-sizes, $name)
+    font-size: map-get($eu-btn-font-sizes, $name);
+  }
+
+  .eu-btn-size-#{$name} .eu-btn-lds-ring div {
+    width: map-get($eu-btn-loader-sizes, $name);
+    height: map-get($eu-btn-loader-sizes, $name);
+    margin-top: calc(-1 * #{map-get($eu-btn-loader-sizes, $name)} / 2);
+    margin-left: calc(-1 * #{map-get($eu-btn-loader-sizes, $name)} / 2);
   }
 }
 
 /// ----------------------------
-/// Button sizes
+/// Button widthes
 /// ----------------------------
 $eu-btn-widthes: (small: 112px,
   medium: 180px,
@@ -89,6 +89,15 @@ $color in $eu-btn-colors {
     border-color: $color;
     color: $color;
   }
+  .eu-btn-color-#{$name}.eu-btn-type-default .eu-btn-lds-ring div {
+    border-color: $color-white transparent transparent transparent;
+  }
+  .eu-btn-color-#{$name}.eu-btn-type-text .eu-btn-lds-ring div {
+    border-color: #{$color} transparent transparent transparent;
+  }
+  .eu-btn-color-#{$name}.eu-btn-type-outline .eu-btn-lds-ring div {
+    border-color: #{$color} transparent transparent transparent;
+  }
 }
 
 /// ----------------------------
@@ -96,7 +105,7 @@ $color in $eu-btn-colors {
 /// ----------------------------
 .eu-btn-type-default {
   border: none;
-  color: white;
+  color: $color-white;
 }
 
 .eu-btn-type-outline {
@@ -110,7 +119,7 @@ $color in $eu-btn-colors {
 }
 
 /// ----------------------------
-/// Button colors
+/// Content positions
 /// ----------------------------
 .eu-btn-content-left .eu-btn-content-container {
   float: left;
@@ -145,4 +154,66 @@ $color in $eu-btn-colors {
 
 .circle-hover-wrapper {
   position: absolute;
+}
+
+/// ----------------------------
+/// Loader
+/// ----------------------------
+.eu-btn-lds-ring {
+  left: 0;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+}
+
+.eu-btn-lds-ring div {
+  box-sizing: border-box;
+  display: inline-block;
+  position: absolute;
+  border: 1px solid;
+  border-radius: 50%;
+  animation: eu-btn-lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.eu-btn-lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.eu-btn-lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.eu-btn-lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes eu-btn-lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/// ----------------------------
+/// Button states
+/// ----------------------------
+.eu-btn:focus {
+  outline: none;
+}
+
+.eu-btn-disabled {
+  cursor: auto;
+  background-color: $eu-btn-disabled-background;
+  color: $eu-btn-disabled-color;
+  border: none;
+}
+
+.eu-btn-loading {
+  cursor: progress;
 }

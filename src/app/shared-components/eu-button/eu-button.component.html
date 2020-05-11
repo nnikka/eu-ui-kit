@@ -1,7 +1,15 @@
-<button class="eu-btn" [ngClass]="styleClass" [disabled]="disabled" (mouseenter)="!disabled && mouseEnter($event)"
+<button class="eu-btn" [ngClass]="styleClass" [disabled]="disabled || loading" (mouseenter)="!disabled && mouseEnter($event)"
   (mouseleave)="!disabled && mouseLeave($event)" #btnElement>
 
-  <span class="eu-btn-content-container">
+  <div class="eu-btn-lds-ring" *ngIf="loading">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <span *ngIf="loading">&nbsp;</span>
+
+  <span class="eu-btn-content-container" *ngIf="!loading">
     <span class="eu-btn-icon" [ngClass]="iconClass" *ngIf="iconClass"></span>
     <span *ngIf="text">{{text}}</span>
 
@@ -10,7 +18,7 @@
     </span>
   </span>
 
-  <div class="circle-hover-wrapper" #hoverBackdrop>
+  <div class="circle-hover-wrapper" #hoverBackdrop *ngIf="!loading">
     <div class="circle-hover" #hoverBackdropCircle></div>
   </div>
 </button>
