@@ -11,6 +11,7 @@
 
   <span class="eu-btn-content-container" *ngIf="!loading">
     <span class="eu-btn-icon" [ngClass]="iconClass" *ngIf="iconClass"></span>
+    <span *ngIf="text && iconClass">&nbsp;&nbsp;</span>
     <span *ngIf="text">{{text}}</span>
 
     <span>
