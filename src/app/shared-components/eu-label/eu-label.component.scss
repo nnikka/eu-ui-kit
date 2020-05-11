@@ -7,8 +7,6 @@ $eu-lbl-error: $color-error;
 $eu-lbl-warning: $element-color-yellow;
 $eu-lbl-white: $color-white;
 $eu-lbl-grey: $color-grey;
-$eu-lbl-disabled-background: $color-swamp;
-$eu-lbl-disabled-color: $color-dark-grey;
 $eu-lbl-black: $color-dark-black;
 
 :host {
@@ -54,8 +52,8 @@ $color in $eu-lbl-text-colors {
 /// Label sizes
 /// ----------------------------
 
-$eu-lbl-paddings: (small: 3px 5px,
-  medium: 5px 6px,
+$eu-lbl-paddings: (small: 1px 4px,
+  medium: 4px 6px,
   large: 7px 9px);
 
 @each $name,
