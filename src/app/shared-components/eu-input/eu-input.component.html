@@ -1,0 +1,13 @@
+<div class="container" [ngClass]="{'icon-input': icon, 'error-input': error, 'password-input': type === 'password'}">
+  <input [type]="inputType" required [(ngModel)]="value">
+  <span class="bar"></span>
+  <div class="icon-container">
+    <i [ngClass]="icon"></i>
+  </div>
+  <div class="password-icon-container" (click)="togglePass()">
+    <div class="show-pass-btn">{{showPassBtnText}}</div>
+    <i [ngClass]="'fa fa-eye'"></i>
+  </div>
+  <label>Name</label>
+  <div *ngIf="error" class="error">{{error}}</div>
+</div>

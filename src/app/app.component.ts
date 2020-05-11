@@ -7,8 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ui-kit';
+  euInputValue: string = "okkok";
 
   mc(e) {
     console.log("from app")
+  }
+
+  testfunction() {
+    // this.euInputValue += "a"
   }
 }
