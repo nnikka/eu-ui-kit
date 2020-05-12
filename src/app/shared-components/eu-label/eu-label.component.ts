@@ -22,11 +22,7 @@ export class EuLabelComponent implements OnInit {
   @Input() type: EEuLabelTypeType = EEuLabelType.default;
   @Input() iconClass: string = null;
 
-  @HostBinding('style.display') hostElementDisplay = 'inline-block';
-  @HostBinding('style.background-color') hostElementColor;
-  @HostBinding('style.color') hostElementTextColor;
-
-  constructor() {}
+  constructor() { }
 
   get styleClass(): string {
     const colorClass = EEuLabelColor[this.color] ? `eu-lbl-color-${this.color}` : '';
@@ -36,8 +32,17 @@ export class EuLabelComponent implements OnInit {
     return `${colorClass} ${textColorClass} ${sizeClass} ${typeClass}`;
   }
 
+  get styleObject(): object {
+    let styleObj = {};
+    if (this.color && !EEuLabelColor[this.color]) {
+      styleObj["background-color"] = this.color
+    }
+    if (this.textColor && !EEuLabelTextColor[this.textColor]) {
+      styleObj["color"] = this.textColor
+    }
+    return styleObj;
+  }
+
   ngOnInit(): void {
-    if (!EEuLabelColor[this.color]) this.hostElementColor = this.color;
-    if (!EEuLabelTextColor[this.textColor]) this.hostElementTextColor = this.textColor;
   }
 }
