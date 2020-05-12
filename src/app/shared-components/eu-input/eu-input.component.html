@@ -1,13 +1,13 @@
 <div class="container" [ngClass]="{'icon-input': icon, 'error-input': error, 'password-input': type === 'password'}">
-  <input [type]="inputType" required [(ngModel)]="value">
+  <input [type]="inputType" required [(ngModel)]="value" (blur)="onBlur()">
   <span class="bar"></span>
   <div class="icon-container">
     <i [ngClass]="icon"></i>
   </div>
   <div class="password-icon-container" (click)="togglePass()">
     <div class="show-pass-btn">{{showPassBtnText}}</div>
-    <i [ngClass]="'fa fa-eye'"></i>
+    <span [ngClass]="{'eu-icon-eye-closed': showPassBtnText === 'show', 'eu-icon-eye-opened': showPassBtnText === 'hide' }"></span>
   </div>
-  <label>Name</label>
+  <label>{{label}}</label>
   <div *ngIf="error" class="error">{{error}}</div>
 </div>

@@ -6,7 +6,7 @@ import { EuButtonComponent } from './shared-components/eu-button/eu-button.compo
 import { EuTooltipComponent } from './shared-components/eu-tooltip/eu-tooltip.component';
 import { EuLabelComponent } from './shared-components/eu-label/eu-label.component';
 import { EuInputComponent } from './shared-components/eu-input/eu-input.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

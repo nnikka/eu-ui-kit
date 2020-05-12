@@ -17,13 +17,15 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
   @Input() icon: string;
   @Input() error: string;
   @Input() type: string;
+  @Input() label: string;
 
   inputType: string;
   showPassBtnText: string;
-  nativeInputvalue: string;
   disabled: boolean;
-  onChange: (value: string) => void = (value) => {};
-  onTouch: (value: string) => void = (value) => {};
+  
+  private _value: string;
+  private _onChange: (_: any) => void = (_) => {};
+  private _onTouch: () => void = () => {};
 
   constructor() {
     this.type = 'text';
@@ -31,15 +33,14 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
   }
 
   set value(value: string) {
-    if (value !== undefined && this.nativeInputvalue !== value) {
-      this.nativeInputvalue = value;
-      this.onChange(value);
-      this.onTouch(value);
+    if (value !== undefined && this._value !== value) {
+      this._value = value;
+      this._onChange(value);
     }
   }
 
   get value() {
-    return this.nativeInputvalue
+    return this._value
   }
 
   //model -> view
@@ -47,11 +48,11 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
     this.value = value;
   }
   //view -> model
-  registerOnChange(fn: (value: string) => void): void {
-    this.onChange = fn;
+  registerOnChange(fn: (_: any) => void): void {
+    this._onChange = fn;
   }
-  registerOnTouched(fn: (value: string) => void): void {
-    this.onTouch = fn;
+  registerOnTouched(fn: () => void): void {
+    this._onTouch = fn;
   }
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
@@ -64,5 +65,9 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
   togglePass() {
     this.inputType = this.inputType === 'text' ? 'password' : 'text';
     this.showPassBtnText = this.inputType === 'text' ? 'hide' : 'show';
+  }
+
+  onBlur() {
+    this._onTouch();
   }
 }

@@ -14,7 +14,8 @@
 </div> -->
 <div style="padding: 20px; background-color: rgba(23, 23, 24, 1); font-family: sans-serif;">
 
-  <eu-button text="button" size="small" iconClass="eu-icon-armchair" color="blue" textColor="black" type="default" contentPosition="left">
+  <eu-button text="button" size="small" iconClass="eu-icon-armchair" color="blue" textColor="black" type="default"
+    contentPosition="left">
   </eu-button>
   &nbsp; &nbsp; &nbsp;
   <eu-button text="button" size="small" iconClass="eu-icon-armchair" color="blue" type="outline" [width]="400">
@@ -26,36 +27,42 @@
 
   <br><br>
 
-  <eu-button text="button" size="small" iconClass="eu-icon-armchair" color="secondary" type="default" contentPosition="left"
-    [label]="4" labelColor="red" labelTextColor="black">
+  <eu-button text="button" size="small" iconClass="eu-icon-armchair" color="secondary" type="default"
+    contentPosition="left" [label]="4" labelColor="red" labelTextColor="black">
   </eu-button>
   &nbsp; &nbsp; &nbsp;
   <eu-button size="small" iconClass="eu-icon-armchair" color="secondary" type="default" [rounded]="'true'" label="4">
   </eu-button>
   <br><br>
-  <eu-button text="button" size="small" iconClass="eu-icon-armchair" color="primary" type="default" contentPosition="left">
+  <eu-button text="button" size="small" iconClass="eu-icon-armchair" color="primary" type="default"
+    contentPosition="left">
   </eu-button>
   &nbsp; &nbsp; &nbsp;
   <eu-button size="small" iconClass="eu-icon-armchair" color="primary" type="default" [rounded]="'true'">
   </eu-button>
   <br><br>
-  <eu-button text="button" size="small" width="small" iconClass="eu-icon-armchair" color="error" type="default" [loading]="'true'">
-  </eu-button>
-  <br><br>
-  <eu-button text="button" size="small" width="small" iconClass="eu-icon-armchair" color="error" type="outline" [loading]="'true'">
-  </eu-button>
-  <br><br>
-  <eu-button text="button" size="small" width="small" iconClass="eu-icon-armchair" color="success" type="text" [loading]="'true'">
-  </eu-button>
-  <br><br>
-  <eu-button text="button" size="small" width="small" iconClass="eu-icon-armchair" color="error" type="default" [loading]="'true'">
-  </eu-button>
-  <br><br>
-  <eu-button text="button" size="medium" width="small" iconClass="eu-icon-armchair" color="error" type="default" [loading]="'true'">
-  </eu-button>
-  <br><br>
-  <eu-button text="button" (click)="mc($event)" size="large" width="small" iconClass="eu-icon-armchair" color="success" type="default"
+  <eu-button text="button" size="small" width="small" iconClass="eu-icon-armchair" color="error" type="default"
     [loading]="'true'">
+  </eu-button>
+  <br><br>
+  <eu-button text="button" size="small" width="small" iconClass="eu-icon-armchair" color="error" type="outline"
+    [loading]="'true'">
+  </eu-button>
+  <br><br>
+  <eu-button text="button" size="small" width="small" iconClass="eu-icon-armchair" color="success" type="text"
+    [loading]="'true'">
+  </eu-button>
+  <br><br>
+  <eu-button text="button" size="small" width="small" iconClass="eu-icon-armchair" color="error" type="default"
+    [loading]="'true'">
+  </eu-button>
+  <br><br>
+  <eu-button text="button" size="medium" width="small" iconClass="eu-icon-armchair" color="error" type="default"
+    [loading]="'true'">
+  </eu-button>
+  <br><br>
+  <eu-button text="button" (click)="mc($event)" size="large" width="small" iconClass="eu-icon-armchair" color="success"
+    type="default" [loading]="'true'">
   </eu-button>
   <br><br>
   <eu-button text="button" (click)="mc($event)" size="small" width="full" color="primary" type="outline">
@@ -73,8 +80,8 @@
     type="default">
   </eu-button>
   <br><br>
-  <eu-button text="button" (click)="mc($event)" size="medium" iconClass="eu-icon-armchair" width="medium" color="primary"
-    type="default" [disabled]="'true'">
+  <eu-button text="button" (click)="mc($event)" size="medium" iconClass="eu-icon-armchair" width="medium"
+    color="primary" type="default" [disabled]="'true'">
   </eu-button>
   &nbsp;&nbsp;
   <eu-button (click)="mc($event)" size="medium" iconClass="eu-icon-armchair" width="medium" color="primary"
@@ -136,34 +143,6 @@
         Outline
     </eu-button> -->
 
-<<<<<<< HEAD
-    <eu-label color="primary" textColor="white" size="small" type="default">3</eu-label>
-    <br><br>
-    <eu-label color="primary" textColor="white" size="small" type="default">New</eu-label>
-    <br><br>
-    <eu-label color="primary" textColor="white" size="medium" type="default">New</eu-label>
-    <br><br>
-    <eu-label color="primary" textColor="white" size="large" type="default">New</eu-label>
-    <br><br>
-    <eu-label color="secondary" textColor="grey" size="large" type="default">Promo</eu-label>
-    <br><br>
-    <eu-label color="secondary" textColor="grey" size="large" type="round">Promo</eu-label>
-    <br><br>
-    <eu-label color="success" textColor="white" size="medium" type="default">Buy Bonus</eu-label>
-    <br><br>
-    <eu-label color="success" textColor="white" size="large" type="round">Buy Bonus</eu-label>
-    <br><br>
-    <eu-label color="warning" textColor="black" size="large" type="default">Buy Bonus</eu-label>
-    <br><br>
-    <eu-label color="secondary" textColor="grey" size="large" type="round">Buy Bonus Buy</eu-label>
-    <br><br>
-    <eu-label color="error" textColor="white" size="large" type="round" iconClass="eu-icon-armchair">Buy Bonus Buy ₾</eu-label>
-
-    <br><br>
-    <br><br>
-    <eu-input [(ngModel)]="euInputValue"></eu-input><br>
-    <div style="color: grey;">Input value : {{euInputValue}}</div>
-=======
   <eu-label color="primary" textColor="white" size="small" type="default">3</eu-label>
   <br><br>
   <eu-label color="primary" textColor="white" size="small" type="default">New</eu-label>
@@ -186,5 +165,30 @@
   <br><br>
   <eu-label color="error" textColor="white" size="large" type="round" iconClass="eu-icon-armchair">Buy Bonus Buy ₾
   </eu-label>
->>>>>>> 2f1244f371c5bea2ca6f704732381a118973eee6
+
+  <br><br>
+  <br><br>
+  <form [formGroup]="myForm">
+    <eu-input id="username" formControlName="username" required label="Name"></eu-input><br>
+    <eu-input id="password" formControlName="password" required type="password" label="Password"></eu-input>
+  </form>
+  <br>
+  <div style="color: grey;">Input value : {{username.value}}</div>
+  <br>
+  <div style="color: brown;" *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+    <div *ngIf="username.errors.required">
+      Name is required.
+    </div>
+    <div *ngIf="username.errors.minlength">
+      Name must be at least 4 characters long.
+    </div>
+  </div>
+  <div style="color: brown;" *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+    <div *ngIf="password.errors.required">
+      Password is required.
+    </div>
+    <div *ngIf="password.errors.minlength">
+      Password must be at least 6 characters long.
+    </div>
+  </div>
 </div>
