@@ -1,55 +1,51 @@
+@import "abstracts/variables";
+
+$eu-inpt-grey: $color-grey;
+$eu-inpt-medium-grey: $color-medium-grey;
+$eu-inpt-dark-grey: $color-dark-grey;
+$eu-inpt-grey: $color-grey;
+$eu-inpt-light-black: $color-light-black;
+$eu-inpt-error: $color-error;
+$eu-inpt-yellow: $element-color-yellow;
+$eu-inpt-success: $color-success;
+
 :host {
   display: inline-block;
   width: 320px;
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 50px;
-}
-
-h2 small {
-  font-weight: normal;
-  color: #888;
-  display: block;
-}
-
-.footer {
-  text-align: center;
-}
-
-.footer a {
-  color: #7D7D7D;
-}
-
 /* form starting stylings ------------------------------- */
-.container {
+.eu-inpt-container {
   position: relative;
   width: 100%;
-  height: 75px;
+  min-height: 75px;
+}
+
+.eu-inpt-password-input {
+  min-height: 105px;
 }
 
 /* input stylings ------------------------------- */
 
-input {
+.eu-inpt {
   font-size: 15px;
   padding: 20px 10px 9px 10px;
   display: block;
   width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid #7D7D7D;
+  border-bottom: 1px solid $eu-inpt-medium-grey;
   box-sizing: border-box;
   caret-color: #FFFFFF;
   color: #FFFFFF;
 }
 
-input:focus {
+.eu-inpt:focus {
   outline: none;
 }
 
 /* LABEL ======================================= */
-label {
+.eu-inpt-label {
   color: #999;
   font-size: 15px;
   font-weight: normal;
@@ -63,22 +59,22 @@ label {
 }
 
 /* active state */
-input:focus~label,
-input:valid~label {
+.eu-inpt:focus~.eu-inpt-label,
+.eu-inpt:valid~.eu-inpt-label {
   top: 2px;
   font-size: 13px;
   color: #F05A22;
 }
 
 /* BOTTOM BARS ================================= */
-.bar {
+.eu-inpt-bar {
   position: relative;
   display: block;
   width: 100%;
 }
 
-.bar:before,
-.bar:after {
+.eu-inpt-bar:before,
+.eu-inpt-bar:after {
   content: '';
   height: 1px;
   width: 0;
@@ -90,84 +86,140 @@ input:valid~label {
   -webkit-transition: 0.2s ease all;
 }
 
-.bar:before {
+.eu-inpt-bar:before {
   left: 50%;
 }
 
-.bar:after {
+.eu-inpt-bar:after {
   right: 50%;
 }
 
 /* active state */
-input:focus~.bar:before,
-input:focus~.bar:after {
+.eu-inpt:focus~.eu-inpt-bar:before,
+.eu-inpt:focus~.eu-inpt-bar:after {
   width: 50%;
 }
 
 /* Icons =================================== */
 
-.icon-container {
+.eu-inpt-icon-container {
   display: none;
   position: absolute;
   top: 20px;
   font-size: 15px;
-  color: #7D7D7D;
+  color: $eu-inpt-medium-grey;
 }
 
-.icon-input .icon-container {
+.eu-inpt-icon-input .eu-inpt-icon-container {
   display: block;
 }
 
-.icon-input input {
+.eu-inpt-icon-input .eu-inpt {
   padding: 20px 10px 9px 23px;
 }
 
-.icon-input label {
+.eu-inpt-icon-input .eu-inpt-label {
   left: 23px;
 }
 
 /* Errors =================================== */
 
-.error {
+.eu-inpt-error {
   color: #EE3F47;
   font-size: 14px;
   margin-top: 10px;
 }
 
-.error-input input {
-  border-bottom: 1px solid #EE3F47 !important;
+.eu-inpt-error-input .eu-inpt {
+  border-bottom: 1px solid #EE3F47;
 }
 
-.error-input label {
+.eu-inpt-error-input .eu-inpt-label {
   color: #EE3F47 !important;
 }
 
-.error-input .bar:before,
-.error-input .bar:after {
-  background-color: #EE3F47 !important;
+.eu-inpt-error-input .eu-inpt-bar:before,
+.eu-inpt-error-input .eu-inpt-bar:after {
+  background-color: #EE3F47;
 }
 
 /* Password type =================================== */
 
-.password-input input {
+.eu-inpt-password-input .eu-inpt {
   padding-right: 65px !important;
 }
 
-.password-icon-container {
+.eu-inpt-password-spec-container {
   display: none;
+}
+
+.eu-inpt-password-input .eu-inpt-password-spec-container {
+  display: flex;
+}
+
+.eu-inpt-password-toggle-btn {
   position: absolute;
   right: 0;
   top: 20px;
   font-size: 15px;
-  color: #7D7D7D;
+  color: $eu-inpt-medium-grey;
 }
 
-.password-input .password-icon-container {
+.eu-inpt-password-input .eu-inpt-password-toggle-btn {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.show-pass-btn {
+.eu-inpt-password-toggle-txt {
   margin-right: 6px;
+}
+
+.eu-inpt-password-strength-container {
+  display: flex;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.eu-inpt-password-strength-bar:not(:last-child) {
+  width: 30px;
+  height: 8px;
+  background-color: $eu-inpt-dark-grey;
+  margin-right: 8px;
+  border-radius: 10px;
+}
+
+.eu-inpt-password-strength-text {
+  margin-left: 4px;
+  font-size: 15px;
+}
+
+$eu-inpt-pass-strengthes: (default: $eu-inpt-dark-grey,
+  weak: $eu-inpt-error,
+  soso: $eu-inpt-yellow,
+  strong: $eu-inpt-success);
+
+$eu-inpt-pass-strength-nums: (default: 0,
+  weak: 1,
+  soso: 2,
+  strong: 3);
+
+$eu-inpt-pass-strength-names: (default: '',
+  weak: 'Weak',
+  soso: 'So-so',
+  strong: 'Strong');
+
+@each $name,
+$color in $eu-inpt-pass-strengthes {
+  .eu-inpt-password-strength-#{$name} >
+  .eu-inpt-password-strength-bar:nth-child(-n + #{map-get($eu-inpt-pass-strength-nums, $name)}) {
+    background-color: $color;
+  }
+  .eu-inpt-password-strength-#{$name} {
+    color: $color;
+  }
+  .eu-inpt-password-strength-#{$name} >
+  .eu-inpt-password-strength-text:before {
+    content: map-get($eu-inpt-pass-strength-names, $name);
+  }
 }

@@ -36,14 +36,28 @@ export class AppComponent implements OnInit {
           Validators.required,
           Validators.minLength(4),
         ],
-        updateOn: 'blur'
+        updateOn: 'change'
+      }),
+      disabledUsername: new FormControl({value: '', disabled: true}, {
+        validators: [
+          Validators.required,
+          Validators.minLength(4),
+        ],
+        updateOn: 'change',
       }),
       password: new FormControl(this.euInputPassword, {
         validators: [
           Validators.required,
           Validators.minLength(6),
         ],
-        updateOn: 'blur'
+        updateOn: 'change'
+      }),
+      errorPassword: new FormControl('', {
+        validators: [
+          Validators.required,
+          Validators.minLength(6),
+        ],
+        updateOn: 'change'
       })
     });
   }

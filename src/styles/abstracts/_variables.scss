@@ -16,7 +16,9 @@ $color-white: rgba(255, 255, 255, 1);
 /// @type Color
 $color-grey: rgba(187, 187, 187, 1);
 /// @type Color
-$color-dark-grey: rgba(125, 125, 125, 1);
+$color-medium-grey: rgba(125, 125, 125, 1);
+/// @type Color
+$color-dark-grey: rgb(82, 83, 83);
 /// @type Color
 $color-light-black: rgba(37, 41, 43, 1);
 /// @type Color
@@ -49,7 +51,7 @@ $text-light: $color-white;
 /// @type Color
 $text-medium: $color-grey;
 /// @type Color
-$text-dark: $color-dark-grey;
+$text-dark: $color-medium-grey;
 
 /// Background colors
 /// @type Color

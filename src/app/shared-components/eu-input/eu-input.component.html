@@ -1,13 +1,19 @@
-<div class="container" [ngClass]="{'icon-input': icon, 'error-input': error, 'password-input': type === 'password'}">
-  <input [type]="inputType" required [(ngModel)]="value" (blur)="onBlur()">
-  <span class="bar"></span>
-  <div class="icon-container">
-    <i [ngClass]="icon"></i>
+<div class="eu-inpt-container" [ngClass]="inptClass">
+  <input class="eu-inpt" [type]="inputType" required [(ngModel)]="value" (blur)="onBlur()" [disabled]="disabled">
+  <span class="eu-inpt-bar"></span>
+  <div class="eu-inpt-icon-container">
+    <span [ngClass]="iconClass"></span>
   </div>
-  <div class="password-icon-container" (click)="togglePass()">
-    <div class="show-pass-btn">{{showPassBtnText}}</div>
-    <span [ngClass]="{'eu-icon-eye-closed': showPassBtnText === 'show', 'eu-icon-eye-opened': showPassBtnText === 'hide' }"></span>
+  <div class="eu-inpt-password-spec-container">
+    <div class="eu-inpt-password-toggle-btn" (click)="togglePassVisibility()">
+      <div class="eu-inpt-password-toggle-txt">{{passVisibilityBtnText}}</div>
+      <span [ngClass]="passVisibilityIcon"></span>
+    </div>
+    <div class="eu-inpt-password-strength-container" [ngClass]="passStrengthClass">
+      <div class="eu-inpt-password-strength-bar" *ngFor="let number of [0,1,2]"></div>
+      <div class="eu-inpt-password-strength-text"></div>
+    </div>
   </div>
-  <label>{{label}}</label>
-  <div *ngIf="error" class="error">{{error}}</div>
+  <label class="eu-inpt-label">{{label}}</label>
+  <div *ngIf="error" class="eu-inpt-error">{{error}}</div>
 </div>

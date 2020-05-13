@@ -166,7 +166,7 @@
   <eu-label color="error" textColor="white" size="large" type="round" iconClass="eu-icon-armchair">Buy Bonus Buy ₾
   </eu-label>
   <br>
-  <be>
+  <br>
     <eu-label color="blue" textColor="red" size="small" type="default" iconClass="eu-icon-armchair">Buy Bonus Buy ₾
     </eu-label>
     <br><br>
@@ -179,10 +179,16 @@
     <br><br>
     <br><br>
     <form [formGroup]="myForm">
-      <eu-input id="username" formControlName="username" required label="Name"></eu-input><br>
-      <eu-input id="password" formControlName="password" required type="password" label="Password"></eu-input>
+      <eu-input id="username" formControlName="username" required type="text" label="Name" iconClass="eu-icon-user"></eu-input><br>
+      <eu-input id="disabledUsername" formControlName="disabledUsername" required type="text" label="Disabled" iconClass="eu-icon-user"></eu-input><br>
+      <eu-input id="password" formControlName="password" required type="password" label="Password" iconClass="eu-icon-rounded-lock"></eu-input><br>
+      <eu-input id="password" formControlName="password" required type="password" label="Password" iconClass="eu-icon-rounded-lock" passStrength="weak"></eu-input><br>
+      <eu-input id="password" formControlName="password" required type="password" label="Password" iconClass="eu-icon-rounded-lock" passStrength="soso"></eu-input><br>
+      <eu-input id="password" formControlName="password" required type="password" label="Password" iconClass="eu-icon-rounded-lock" passStrength="strong"></eu-input><br>
+      <eu-input id="password" formControlName="password" required type="password" label="Password" iconClass="eu-icon-rounded-lock" error="Error text"></eu-input><br>
+      <eu-input id="errorPassword" formControlName="errorPassword" required type="text" label="Invalid" error="Error text"></eu-input>
     </form>
     <br>
-    <div style="color: grey;">Input value : {{username.value}}</div>
+    <!-- <div style="color: grey;">Input value : {{username.value}}</div> -->
     <br>
 </div>
