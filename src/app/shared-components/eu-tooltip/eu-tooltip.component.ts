@@ -55,6 +55,14 @@ export class EuTooltipComponent implements OnInit {
     return this.data.parentElementPosition;
   }
 
+  get tooltipStyle(): object {
+    let styleObj = {};
+    if (this.maxWidth) {
+      styleObj["max-width"] = this.maxWidth + "px";
+    }
+    return styleObj;
+  }
+
   get tooltipClass(): string {
     let className = "eu-tooltip-position-" + this.position;
     if (this.backgroundColor && EEuTooltipBackgroundColor[this.backgroundColor]) {
@@ -67,9 +75,6 @@ export class EuTooltipComponent implements OnInit {
     let styleObj = {};
     if (this.textColor) {
       styleObj["color"] = this.textColor;
-    }
-    if (this.maxWidth) {
-      styleObj["max-width"] = this.maxWidth + "px";
     }
     return styleObj;
   }

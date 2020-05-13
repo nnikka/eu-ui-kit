@@ -32,7 +32,7 @@ $eu-lbl-colors: (primary: $eu-lbl-primary,
 
 @each $name,
 $color in $eu-lbl-colors {
-  .eu-lbl-color-#{$name} {
+  .eu-lbl-color-#{"" + $name} {
     background-color: $color;
   }
 }
@@ -43,7 +43,7 @@ $eu-lbl-text-colors: (black: $eu-lbl-black,
 
 @each $name,
 $color in $eu-lbl-text-colors {
-  .eu-lbl-text-color-#{$name} {
+  .eu-lbl-text-color-#{"" + $name} {
     color: $color;
   }
 }
@@ -61,7 +61,7 @@ $eu-lbl-font-sizes: (small: 11px,
 
 @each $name,
 $padding in $eu-lbl-paddings {
-  .eu-lbl-size-#{$name} {
+  .eu-lbl-size-#{"" + $name} {
     padding: $padding;
     font-size: map-get($eu-lbl-font-sizes, $name)
   }
@@ -76,7 +76,7 @@ $eu-lbl-types: (round: 20px,
 
 @each $name,
 $radius in $eu-lbl-types {
-  .eu-lbl-type-#{$name} {
+  .eu-lbl-type-#{"" + $name} {
     border-radius: $radius;
   }
 }

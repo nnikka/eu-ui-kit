@@ -41,7 +41,7 @@ export const EuTooltipDefaultOptions: IEuTooltipOptions = {
   text: "",
   backgroundColor: EEuTooltipBackgroundColor.secondary,
   textColor: "white",
-  maxWidth: 200,
+  maxWidth: 260,
   position: EEuTooltipPosition.top
 }
 

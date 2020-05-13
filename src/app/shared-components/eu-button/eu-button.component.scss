@@ -48,19 +48,19 @@ $eu-btn-rounded-sizes: (small: 36px,
 
 @each $name,
 $padding in $eu-btn-paddings {
-  .eu-btn-size-#{$name} {
+  .eu-btn-size-#{"" + $name} {
     padding: $padding;
     font-size: map-get($eu-btn-font-sizes, $name);
   }
 
-  .eu-btn-size-#{$name} .eu-btn-lds-ring div {
+  .eu-btn-size-#{"" + $name} .eu-btn-lds-ring div {
     width: map-get($eu-btn-loader-sizes, $name);
     height: map-get($eu-btn-loader-sizes, $name);
     margin-top: calc(-1 * #{map-get($eu-btn-loader-sizes, $name)} / 2);
     margin-left: calc(-1 * #{map-get($eu-btn-loader-sizes, $name)} / 2);
   }
 
-  .eu-btn-size-#{$name}.eu-btn-rounded {
+  .eu-btn-size-#{"" + $name}.eu-btn-rounded {
     padding: 0;
     border-radius: 50%;
     width: map-get($eu-btn-rounded-sizes, $name);
@@ -79,7 +79,7 @@ $eu-btn-widthes: (small: 112px,
 
 @each $name,
 $size in $eu-btn-widthes {
-  .eu-btn-width-#{$name} {
+  .eu-btn-width-#{"" + $name} {
     width: $size;
   }
 }
@@ -96,21 +96,21 @@ $eu-btn-colors: (primary: $eu-btn-primary,
 
 @each $name,
 $color in $eu-btn-colors {
-  .eu-btn-color-#{$name} {
+  .eu-btn-color-#{"" + $name} {
     background: $color;
     border-color: $color;
     color: $color;
   }
 
-  .eu-btn-color-#{$name}.eu-btn-type-default .eu-btn-lds-ring div {
+  .eu-btn-color-#{"" + $name}.eu-btn-type-default .eu-btn-lds-ring div {
     border-color: $color-white transparent transparent transparent;
   }
 
-  .eu-btn-color-#{$name}.eu-btn-type-text .eu-btn-lds-ring div {
+  .eu-btn-color-#{"" + $name}.eu-btn-type-text .eu-btn-lds-ring div {
     border-color: #{$color} transparent transparent transparent;
   }
 
-  .eu-btn-color-#{$name}.eu-btn-type-outline .eu-btn-lds-ring div {
+  .eu-btn-color-#{"" + $name}.eu-btn-type-outline .eu-btn-lds-ring div {
     border-color: #{$color} transparent transparent transparent;
   }
 }

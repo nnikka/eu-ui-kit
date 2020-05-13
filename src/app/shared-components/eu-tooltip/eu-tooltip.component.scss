@@ -29,6 +29,7 @@ $eu-tooltip-white: $color-white;
   font-size: 14px;
   text-align: left;
   color: $eu-tooltip-white;
+  word-break: break-all;
 }
 
 /// ----------------------------
@@ -43,19 +44,19 @@ $eu-tooltip-colors: (primary: $eu-tooltip-primary,
 
 @each $name,
 $color in $eu-tooltip-colors {
-  .eu-tooltip-background-#{$name} {
+  .eu-tooltip-background-#{"" + $name} {
     background-color: $color;
   }
-  .eu-tooltip-background-#{$name}.eu-tooltip-position-top:after {
+  .eu-tooltip-background-#{"" + $name}.eu-tooltip-position-top:after {
     border-color: $color transparent transparent transparent;
   }
-  .eu-tooltip-background-#{$name}.eu-tooltip-position-bottom:after {
+  .eu-tooltip-background-#{"" + $name}.eu-tooltip-position-bottom:after {
     border-color: transparent transparent $color transparent;
   }
-  .eu-tooltip-background-#{$name}.eu-tooltip-position-left:after {
+  .eu-tooltip-background-#{"" + $name}.eu-tooltip-position-left:after {
     border-color: transparent transparent transparent $color;
   }
-  .eu-tooltip-background-#{$name}.eu-tooltip-position-right:after {
+  .eu-tooltip-background-#{"" + $name}.eu-tooltip-position-right:after {
     border-color: transparent $color transparent transparent;
   }
 }
