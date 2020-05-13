@@ -1,0 +1,122 @@
+@import "abstracts/variables";
+
+$eu-tooltip-primary: $primary;
+$eu-tooltip-secondary: $secondary;
+$eu-tooltip-success: $color-success;
+$eu-tooltip-error: $color-error;
+$eu-tooltip-warning: $element-color-yellow;
+$eu-tooltip-white: $color-white;
+
+:host {
+  position: absolute;
+  display: block;
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+:host.eu-tooltip-show {
+  opacity: 1;
+}
+
+.eu-tooltip {
+  border-radius: 5px;
+  padding: 8px 14px;
+}
+
+.eu-tooltip-text {
+  display: inline-block;
+  font-size: 14px;
+  text-align: left;
+  color: $eu-tooltip-white;
+}
+
+/// ----------------------------
+/// Tooltip background
+/// ----------------------------
+$eu-tooltip-colors: (primary: $eu-tooltip-primary,
+  secondary: $eu-tooltip-secondary,
+  success: $eu-tooltip-success,
+  error: $eu-tooltip-error,
+  warning: $eu-tooltip-warning,
+  white: $eu-tooltip-white);
+
+@each $name,
+$color in $eu-tooltip-colors {
+  .eu-tooltip-background-#{$name} {
+    background-color: $color;
+  }
+  .eu-tooltip-background-#{$name}.eu-tooltip-position-top:after {
+    border-color: $color transparent transparent transparent;
+  }
+  .eu-tooltip-background-#{$name}.eu-tooltip-position-bottom:after {
+    border-color: transparent transparent $color transparent;
+  }
+  .eu-tooltip-background-#{$name}.eu-tooltip-position-left:after {
+    border-color: transparent transparent transparent $color;
+  }
+  .eu-tooltip-background-#{$name}.eu-tooltip-position-right:after {
+    border-color: transparent $color transparent transparent;
+  }
+}
+
+/// ----------------------------
+/// Tooltip position
+/// ----------------------------
+.eu-tooltip-position-top:after {
+  border: solid 5px;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 1000;
+  content: '';
+  top: 100%;
+  left: 50%;
+  height: 0;
+  width: 0;
+}
+
+.eu-tooltip-position-bottom:after {
+  border: solid 5px;
+  border-right: solid 5px transparent;
+  border-left: solid 5px transparent;
+  border-top: solid 5px transparent;
+  border-bottom: solid 5px #e15915;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 1000;
+  content: "";
+  top: -10px;
+  left: 50%;
+  height: 0;
+  width: 0;
+}
+
+.eu-tooltip-position-left:after {
+  border-left: solid 5px #e15915;
+  border-right: solid 5px transparent;
+  border-top: solid 5px transparent;
+  border-bottom: solid 5px transparent;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 1000;
+  content: '';
+  top: 50%;
+  left: 100%;
+  height: 0;
+  width: 0;
+}
+
+.eu-tooltip-position-right:after {
+  border-right: solid 5px #e15915;
+  border-left: solid 5px transparent;
+  border-top: solid 5px transparent;
+  border-bottom: solid 5px transparent;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 1000;
+  content: '';
+  top: 50%;
+  left: -10px;
+  height: 0;
+  width: 0;
+}
