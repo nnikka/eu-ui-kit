@@ -34,7 +34,9 @@ $lower-border-gap: 6px;
   font-size: 15px;
   padding: 0;
   display: block;
-  width: 100%;
+  width: calc(100% - 40px);
+  padding-right: 40px;
+  padding-top: 5px;
   background: transparent;
   border: none;
   caret-color: $eu-txtarea-color-white;
@@ -42,7 +44,7 @@ $lower-border-gap: 6px;
   resize: vertical;
   min-height: 45px;
   line-height: 15px;
-  max-width: 100%;
+  max-width: calc(100% - 40px);
 }
 
 .eu-txtarea:focus {
@@ -56,7 +58,7 @@ $lower-border-gap: 6px;
   font-weight: normal;
   position: absolute;
   pointer-events: none;
-  left: 10px;
+  left: 0px;
   top: 20px;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
@@ -116,9 +118,9 @@ $lower-border-gap: 6px;
   margin-top: 10px;
 }
 
-.eu-txtarea-error-txtarea .eu-txtarea-label {
-  color: $eu-txtarea-color-red !important;
-}
+// .eu-txtarea-error-txtarea .eu-txtarea-label {
+//   color: $eu-txtarea-color-red !important;
+// }
 
 .eu-txtarea-error-txtarea .eu-txtarea-bar:before,
 .eu-txtarea-error-txtarea .eu-txtarea-bar:after {
@@ -128,3 +130,32 @@ $lower-border-gap: 6px;
 .eu-txtarea-error-txtarea .eu-txtarea-field-wrapper {
   border-bottom: 1px solid $eu-txtarea-color-red;
 }
+
+/* Scrollbar ================================== */
+// :host textarea::-webkit-scrollbar {
+//   width: 12px;
+//   height: 12px;
+// }
+
+// :host textarea::-webkit-scrollbar-button:start:decrement,
+// :host textarea::-webkit-scrollbar-button:end:increment {
+//   background: url('https://pixabay.com/static/uploads/photo/2015/10/07/10/55/arrow-975992_960_720.png') no-repeat center center;
+//   background-size: cover;
+// }
+
+// :host textarea::-webkit-scrollbar-track-piece {
+//   background-color: transparent;
+// }
+
+// :host textarea::-webkit-scrollbar-thumb {
+//   background-color: transparent;
+// }
+
+// :host textarea::-webkit-scrollbar-corner {
+//   background-color: red;
+// }
+
+// :host textarea::-webkit-resizer {
+//   background: url('https://pixabay.com/static/uploads/photo/2015/10/07/10/55/arrow-975992_960_720.png') no-repeat center center;
+//   background-size: cover;
+// }

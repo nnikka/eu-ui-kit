@@ -30,7 +30,7 @@ $eu-inpt-color-red: $element-color-red;
 
 .eu-inpt {
   font-size: 15px;
-  padding: 20px 10px 9px 10px;
+  padding: 20px 0px 9px 0px;
   display: block;
   width: 100%;
   background: transparent;
@@ -52,7 +52,7 @@ $eu-inpt-color-red: $element-color-red;
   font-weight: normal;
   position: absolute;
   pointer-events: none;
-  left: 10px;
+  left: 0px;
   top: 20px;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
@@ -82,7 +82,7 @@ $eu-inpt-color-red: $element-color-red;
   content: '';
   height: 1px;
   width: 0;
-  bottom: 1px;
+  bottom: -1px;
   position: absolute;
   background-color: $eu-inpt-color-white;
   transition: 0.2s ease all;
@@ -138,9 +138,9 @@ $eu-inpt-color-red: $element-color-red;
   border-bottom: 1px solid $eu-inpt-color-red;
 }
 
-.eu-inpt-error-input .eu-inpt-label {
-  color: $eu-inpt-color-red !important;
-}
+// .eu-inpt-error-input .eu-inpt-label {
+//   color: $eu-inpt-color-red !important;
+// }
 
 .eu-inpt-error-input .eu-inpt-bar:before,
 .eu-inpt-error-input .eu-inpt-bar:after {
@@ -177,7 +177,7 @@ $eu-inpt-color-red: $element-color-red;
 
 .eu-inpt-password-toggle-text {
   margin-right: 6px;
-  -webkit-user-select: none; /* Safari */        
+  -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
   user-select: none; /* Standard */
