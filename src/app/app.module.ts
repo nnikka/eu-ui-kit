@@ -7,6 +7,7 @@ import { EuTooltipComponent } from './shared-components/eu-tooltip/eu-tooltip.co
 import { EuLabelComponent } from './shared-components/eu-label/eu-label.component';
 import { EuInputComponent } from './shared-components/eu-input/eu-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EuTextareaComponent } from './shared-components/eu-textarea/eu-textarea.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     EuTooltipComponent,
     EuLabelComponent,
     EuInputComponent,
+    EuTextareaComponent,
   ],
   imports: [
     BrowserModule,

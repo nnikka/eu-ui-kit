@@ -179,14 +179,18 @@
     <br><br>
     <br><br>
     <form [formGroup]="myForm">
-      <eu-input id="username" formControlName="username" required type="text" label="Name" iconClass="eu-icon-user"></eu-input><br>
-      <eu-input id="disabledUsername" formControlName="disabledUsername" required type="text" label="Disabled" iconClass="eu-icon-user"></eu-input><br>
-      <eu-input id="password" formControlName="password" required type="password" label="Password" iconClass="eu-icon-rounded-lock"></eu-input><br>
-      <eu-input id="password" formControlName="password" required type="password" label="Password" iconClass="eu-icon-rounded-lock" passStrength="weak"></eu-input><br>
-      <eu-input id="password" formControlName="password" required type="password" label="Password" iconClass="eu-icon-rounded-lock" passStrength="soso"></eu-input><br>
-      <eu-input id="password" formControlName="password" required type="password" label="Password" iconClass="eu-icon-rounded-lock" passStrength="strong"></eu-input><br>
-      <eu-input id="password" formControlName="password" required type="password" label="Password" iconClass="eu-icon-rounded-lock" error="Error text"></eu-input><br>
-      <eu-input id="errorPassword" formControlName="errorPassword" required type="text" label="Invalid" error="Error text"></eu-input>
+      <eu-input formControlName="username" type="text" label="Name" iconClass="eu-icon-user"></eu-input><br><br>
+      <eu-input formControlName="disabledUsername" type="text" label="Disabled" iconClass="eu-icon-user"></eu-input><br><br>
+      <eu-input formControlName="password1" type="password" label="Password" iconClass="eu-icon-rounded-lock"></eu-input><br><br>
+      <eu-input formControlName="password2" type="password" label="Password" iconClass="eu-icon-rounded-lock" passStrength="weak"></eu-input><br><br>
+      <eu-input formControlName="password3" type="password" label="Password" iconClass="eu-icon-rounded-lock" passStrength="soso"></eu-input><br><br>
+      <eu-input formControlName="password4" type="password" label="Password" iconClass="eu-icon-rounded-lock" passStrength="strong"></eu-input><br><br>
+      <eu-input formControlName="password5" type="password" label="Password" iconClass="eu-icon-rounded-lock" error="Error text"></eu-input><br><br>
+      <eu-input formControlName="errorPassword" type="text" label="Invalid" error="Error text"></eu-input><br><br>
+      <eu-textarea formControlName="textarea" label="Textarea"></eu-textarea><br><br>
+      <eu-textarea formControlName="textarea" label="Textarea" error="Invalid"></eu-textarea><br><br>
+      <eu-textarea formControlName="textarea" label="Textarea"></eu-textarea><br><br>
+
     </form>
     <br>
     <!-- <div style="color: grey;">Input value : {{username.value}}</div> -->

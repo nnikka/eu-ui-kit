@@ -1,0 +1,130 @@
+@import "abstracts/variables";
+
+$eu-txtarea-medium-grey: $color-medium-grey;
+$eu-txtarea-error: $color-error;
+$eu-txtarea-primary: $primary;
+$eu-txtarea-color-white: $color-white;
+$eu-txtarea-color-red: $element-color-red;
+
+$lower-border-gap: 6px;
+
+:host {
+  display: inline-block;
+  width: 320px;
+}
+
+/* form starting stylings ------------------------------- */
+.eu-txtarea-container {
+  position: relative;
+  width: 100%;
+  min-height: 105px;
+  box-sizing: border-box;
+}
+
+.eu-txtarea-field-wrapper {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: $lower-border-gap;
+  border-bottom: 1px solid $eu-txtarea-medium-grey;
+}
+
+/* input stylings ------------------------------- */
+
+.eu-txtarea {
+  font-size: 15px;
+  padding: 0;
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  caret-color: $eu-txtarea-color-white;
+  color: $eu-txtarea-color-white;
+  resize: vertical;
+  min-height: 45px;
+  line-height: 15px;
+  max-width: 100%;
+}
+
+.eu-txtarea:focus {
+  outline: none;
+}
+
+/* LABEL ======================================= */
+.eu-txtarea-label {
+  color: $color-medium-grey;
+  font-size: 15px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 10px;
+  top: 20px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+.eu-txtarea:focus~.eu-txtarea-label,
+.eu-txtarea:valid~.eu-txtarea-label {
+  top: 2px;
+  font-size: 13px;
+}
+
+.eu-txtarea:focus~.eu-txtarea-label {
+  color: $eu-txtarea-primary;
+}
+
+/* BOTTOM BARS ================================= */
+.eu-txtarea-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.eu-txtarea-bar:before,
+.eu-txtarea-bar:after {
+  content: '';
+  height: 1px;
+  width: 0;
+  bottom: calc(-1 * #{$lower-border-gap});
+  position: absolute;
+  background-color: $eu-txtarea-color-white;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.eu-txtarea-bar:before {
+  left: 50%;
+}
+
+.eu-txtarea-bar:after {
+  right: 50%;
+}
+
+/* active state */
+.eu-txtarea:focus~.eu-txtarea-bar:before,
+.eu-txtarea:focus~.eu-txtarea-bar:after {
+  width: 50%;
+}
+
+/* Errors =================================== */
+
+.eu-txtarea-error {
+  color: $eu-txtarea-color-red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.eu-txtarea-error-txtarea .eu-txtarea-label {
+  color: $eu-txtarea-color-red !important;
+}
+
+.eu-txtarea-error-txtarea .eu-txtarea-bar:before,
+.eu-txtarea-error-txtarea .eu-txtarea-bar:after {
+  background-color: $eu-txtarea-color-red;
+}
+
+.eu-txtarea-error-txtarea .eu-txtarea-field-wrapper {
+  border-bottom: 1px solid $eu-txtarea-color-red;
+}

@@ -3,8 +3,6 @@ import {
   FormGroup,
   FormControl,
   Validators,
-  ValidatorFn,
-  AbstractControl,
 } from '@angular/forms';
 
 @Component({
@@ -15,8 +13,6 @@ import {
 export class AppComponent implements OnInit {
   title = 'ui-kit';
   myForm: FormGroup;
-  euInputUsername: string;
-  euInputPassword: string;
 
   mc(e) {
     console.log('from app');
@@ -25,40 +21,25 @@ export class AppComponent implements OnInit {
   get username() {
     return this.myForm.get('username');
   }
-  get password() {
-    return this.myForm.get('password');
-  }
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
-      username: new FormControl(this.euInputUsername, {
-        validators: [
-          Validators.required,
-          Validators.minLength(4),
-        ],
-        updateOn: 'change'
+      username: new FormControl('', {
+        // validators: [
+        //   Validators.required,
+        //   Validators.minLength(2),
+        //   Validators.maxLength(30)
+        // ],
+        // updateOn: 'blur'
       }),
-      disabledUsername: new FormControl({value: '', disabled: true}, {
-        validators: [
-          Validators.required,
-          Validators.minLength(4),
-        ],
-        updateOn: 'change',
-      }),
-      password: new FormControl(this.euInputPassword, {
-        validators: [
-          Validators.required,
-          Validators.minLength(6),
-        ],
-        updateOn: 'change'
-      }),
-      errorPassword: new FormControl('', {
-        validators: [
-          Validators.required,
-          Validators.minLength(6),
-        ],
-        updateOn: 'change'
-      })
+      disabledUsername: new FormControl({value: '', disabled: true}),
+      password1: new FormControl(''),
+      password2: new FormControl(''),
+      password3: new FormControl(''),
+      password4: new FormControl(''),
+      password5: new FormControl(''),
+      errorPassword: new FormControl(''),
+      textarea: new FormControl(''),
     });
   }
 }

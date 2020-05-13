@@ -53,11 +53,10 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
       this._onChange(value);
     }
   }
-
+  
   get value() {
     return this._value
   }
-
   
   ngOnInit(): void {
     this.inputType = this.type;

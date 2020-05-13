@@ -1,13 +1,14 @@
 @import "abstracts/variables";
 
-$eu-inpt-grey: $color-grey;
 $eu-inpt-medium-grey: $color-medium-grey;
 $eu-inpt-dark-grey: $color-dark-grey;
-$eu-inpt-grey: $color-grey;
 $eu-inpt-light-black: $color-light-black;
 $eu-inpt-error: $color-error;
 $eu-inpt-yellow: $element-color-yellow;
 $eu-inpt-success: $color-success;
+$eu-inpt-primary: $primary;
+$eu-inpt-color-white: $color-white;
+$eu-inpt-color-red: $element-color-red;
 
 :host {
   display: inline-block;
@@ -21,7 +22,7 @@ $eu-inpt-success: $color-success;
   min-height: 75px;
 }
 
-.eu-inpt-password-input {
+.eu-inpt-password-input.eu-inpt-container {
   min-height: 105px;
 }
 
@@ -36,8 +37,8 @@ $eu-inpt-success: $color-success;
   border: none;
   border-bottom: 1px solid $eu-inpt-medium-grey;
   box-sizing: border-box;
-  caret-color: #FFFFFF;
-  color: #FFFFFF;
+  caret-color: $eu-inpt-color-white;
+  color: $eu-inpt-color-white;
 }
 
 .eu-inpt:focus {
@@ -46,7 +47,7 @@ $eu-inpt-success: $color-success;
 
 /* LABEL ======================================= */
 .eu-inpt-label {
-  color: #999;
+  color: $eu-inpt-medium-grey;
   font-size: 15px;
   font-weight: normal;
   position: absolute;
@@ -63,8 +64,11 @@ $eu-inpt-success: $color-success;
 .eu-inpt:valid~.eu-inpt-label {
   top: 2px;
   font-size: 13px;
-  color: #F05A22;
 }
+.eu-inpt:focus~.eu-inpt-label {
+  color: $eu-inpt-primary;
+}
+
 
 /* BOTTOM BARS ================================= */
 .eu-inpt-bar {
@@ -80,7 +84,7 @@ $eu-inpt-success: $color-success;
   width: 0;
   bottom: 1px;
   position: absolute;
-  background-color: #FFFFFF;
+  background-color: $eu-inpt-color-white;
   transition: 0.2s ease all;
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
@@ -125,22 +129,22 @@ $eu-inpt-success: $color-success;
 /* Errors =================================== */
 
 .eu-inpt-error {
-  color: #EE3F47;
+  color: $eu-inpt-color-red;
   font-size: 14px;
   margin-top: 10px;
 }
 
 .eu-inpt-error-input .eu-inpt {
-  border-bottom: 1px solid #EE3F47;
+  border-bottom: 1px solid $eu-inpt-color-red;
 }
 
 .eu-inpt-error-input .eu-inpt-label {
-  color: #EE3F47 !important;
+  color: $eu-inpt-color-red !important;
 }
 
 .eu-inpt-error-input .eu-inpt-bar:before,
 .eu-inpt-error-input .eu-inpt-bar:after {
-  background-color: #EE3F47;
+  background-color: $eu-inpt-color-red;
 }
 
 /* Password type =================================== */
@@ -171,8 +175,12 @@ $eu-inpt-success: $color-success;
   cursor: pointer;
 }
 
-.eu-inpt-password-toggle-txt {
+.eu-inpt-password-toggle-text {
   margin-right: 6px;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 .eu-inpt-password-strength-container {
