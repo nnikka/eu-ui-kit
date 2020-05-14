@@ -15,6 +15,7 @@ $eu-inpt-color-red: $element-color-red;
   width: 320px;
 }
 
+
 /* form starting stylings ------------------------------- */
 .eu-inpt-container {
   position: relative;
@@ -61,10 +62,11 @@ $eu-inpt-color-red: $element-color-red;
 
 /* active state */
 .eu-inpt:focus~.eu-inpt-label,
-.eu-inpt:valid~.eu-inpt-label {
+.eu-inpt-opened .eu-inpt-label {
   top: 2px;
   font-size: 13px;
 }
+
 .eu-inpt:focus~.eu-inpt-label {
   color: $eu-inpt-primary;
 }
@@ -230,4 +232,31 @@ $color in $eu-inpt-pass-strengthes {
   .eu-inpt-password-strength-text:before {
     content: map-get($eu-inpt-pass-strength-names, $name);
   }
+}
+
+// Override browser defaults ===================================
+// Chrome, Safari, Edge, Opera
+:host input::-webkit-outer-spin-button,
+:host input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+// Firefox
+:host input[type=number] {
+  -moz-appearance: textfield;
+}
+
+// :host input:-webkit-autofill {
+//   background-color: red !important;
+//   background-image:none !important;
+//   color: #000000 !important;
+// }
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #fff !important;
 }

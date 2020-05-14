@@ -9,6 +9,9 @@ import { EuInputComponent } from './shared-components/eu-input/eu-input.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EuTextareaComponent } from './shared-components/eu-textarea/eu-textarea.component';
 import { EuTooltipDirective } from './shared-components/eu-tooltip/eu-tooltip.directive';
+import { EuRadioComponent } from './shared-components/eu-radio/eu-radio.component';
+import { EuCheckboxComponent } from './shared-components/eu-checkbox/eu-checkbox.component';
+import { EuToggleComponent } from './shared-components/eu-toggle/eu-toggle.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { EuTooltipDirective } from './shared-components/eu-tooltip/eu-tooltip.di
     EuInputComponent,
     EuTextareaComponent,
     EuTooltipDirective,
+    EuRadioComponent,
+    EuCheckboxComponent,
+    EuToggleComponent,
   ],
   imports: [
     BrowserModule,

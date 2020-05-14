@@ -1,8 +1,14 @@
 <div class="eu-txtarea-container" [ngClass]="txtareaClass">
   <div class="eu-txtarea-field-wrapper">
-    <textarea class="eu-txtarea" required [(ngModel)]="value" (blur)="onBlur()" [disabled]="disabled"></textarea>
+    <textarea class="eu-txtarea" 
+      [required]="required" 
+      [minlength]="minlength" 
+      [(ngModel)]="value" 
+      [disabled]="disabled"
+      (blur)="onBlur()" 
+      ></textarea>
     <span class="eu-txtarea-bar"></span>
     <label class="eu-txtarea-label">{{label}}</label>
   </div>
-  <div *ngIf="error" class="eu-txtarea-error">{{error}}</div>
+  <div *ngIf="showError" class="eu-txtarea-error">{{errors[0]}}</div>
 </div>

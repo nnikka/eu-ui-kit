@@ -1,50 +1,96 @@
-import { Component, OnInit, Input, forwardRef, ViewChild, ElementRef } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { EEuInputTypeType, EEuInputType, EEuInputPasswordStrengthType, EEuInputPasswordStrength } from './eu-input.schematics';
+import {
+  Component,
+  OnInit,
+  Input,
+  forwardRef,
+  ViewChild,
+  ElementRef,
+  Self,
+  Optional,
+} from '@angular/core';
+import {
+  ControlValueAccessor,
+  NG_VALUE_ACCESSOR,
+  NgControl,
+} from '@angular/forms';
+import {
+  EEuInputTypeType,
+  EEuInputType,
+  EEuInputPasswordStrengthType,
+  EEuInputPasswordStrength,
+} from './eu-input.schematics';
 
 @Component({
   selector: 'eu-input',
   templateUrl: './eu-input.component.html',
   styleUrls: ['./eu-input.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => EuInputComponent),
-      multi: true,
-    },
-  ],
 })
 export class EuInputComponent implements OnInit, ControlValueAccessor {
   @Input() iconClass: string;
-  @Input() error: string;
   @Input() label: string;
   @Input() type: EEuInputTypeType = EEuInputType.text;
-  @Input() passStrength: EEuInputPasswordStrengthType = EEuInputPasswordStrength.default;
+  @Input() passStrength: EEuInputPasswordStrengthType =
+    EEuInputPasswordStrength.none;
   @Input() disabled: boolean;
+  @Input() errorMessages: any = {};
 
   inputType: string;
-  passVisibilityBtnText: string  = 'show';
-  
+  passVisibilityBtnText: string = 'show';
+
   private _value: string;
   private _onChange: (_: any) => void = (_) => {};
   private _onTouch: () => void = () => {};
 
-  constructor() {
+  constructor(@Self() @Optional() public control: NgControl) {
+    this.control && (this.control.valueAccessor = this);
+  }
+
+  get invalid(): boolean {
+    return this.control ? this.control.invalid : false;
+  }
+
+  get showError(): boolean {
+    if (!this.control) {
+      return false;
+    }
+    const { dirty, touched } = this.control;
+    return this.invalid ? touched : false;
+  }
+
+  get errors(): Array<string> {
+    if (!this.control) {
+      return [];
+    }
+    const { errors } = this.control;
+    console.log(Object.keys(errors))
+    return Object.keys(errors).map((key) =>
+      this.errorMessages[key]
+        ? this.errorMessages[key]
+        : ''
+    );
   }
 
   get inptClass() {
-    const iconClass = this.iconClass ? 'eu-inpt-icon-input' : '';
-    const errorClass = this.error ? 'eu-inpt-error-input' : '';
-    const passwordClass = this.type === 'password' ? 'eu-inpt-password-input' : '';
-    return `${iconClass} ${errorClass} ${passwordClass}`
+    let iconClass = this.iconClass ? 'eu-inpt-icon-input' : '';
+    let errorClass = this.showError ? 'eu-inpt-error-input' : '';
+    let passwordClass =
+      this.type === 'password' ? 'eu-inpt-password-input' : '';
+    let inputOpenedClass = this.value? 'eu-inpt-opened' : '';
+    return `${iconClass} ${errorClass} ${passwordClass} ${inputOpenedClass}`;
   }
 
   get passStrengthClass() {
-    return `eu-inpt-password-strength-${this.passStrength}`
+    return `eu-inpt-password-strength-${this.passStrength}`;
+  }
+
+  get usePassStrength() {
+    return this.passStrength !== 'none' && this.passStrength;
   }
 
   get passVisibilityIcon() {
-    return this.passVisibilityBtnText === 'show' ? 'eu-icon-eye-closed' : 'eu-icon-eye-opened';
+    return this.passVisibilityBtnText === 'show'
+      ? 'eu-icon-eye-closed'
+      : 'eu-icon-eye-opened';
   }
 
   set value(value: string) {
@@ -53,11 +99,11 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
       this._onChange(value);
     }
   }
-  
+
   get value() {
-    return this._value
+    return this._value;
   }
-  
+
   ngOnInit(): void {
     this.inputType = this.type;
   }

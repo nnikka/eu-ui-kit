@@ -25,10 +25,10 @@ export class EuLabelComponent implements OnInit {
   constructor() { }
 
   get styleClass(): string {
-    const colorClass = EEuLabelColor[this.color] ? `eu-lbl-color-${this.color}` : '';
-    const textColorClass = EEuLabelTextColor[this.textColor] ? `eu-lbl-text-color-${this.textColor}` : '';
-    const sizeClass = EEuLabelSize[this.size] ? `eu-lbl-size-${this.size}` : '';
-    const typeClass = EEuLabelType[this.type] ? `eu-lbl-type-${this.type}` : '';
+    let colorClass = EEuLabelColor[this.color] ? `eu-lbl-color-${this.color}` : '';
+    let textColorClass = EEuLabelTextColor[this.textColor] ? `eu-lbl-text-color-${this.textColor}` : '';
+    let sizeClass = EEuLabelSize[this.size] ? `eu-lbl-size-${this.size}` : '';
+    let typeClass = EEuLabelType[this.type] ? `eu-lbl-type-${this.type}` : '';
     return `${colorClass} ${textColorClass} ${sizeClass} ${typeClass}`;
   }
 

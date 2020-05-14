@@ -67,10 +67,11 @@ $lower-border-gap: 6px;
 
 /* active state */
 .eu-txtarea:focus~.eu-txtarea-label,
-.eu-txtarea:valid~.eu-txtarea-label {
+.eu-txtarea-opened .eu-txtarea-label {
   top: 2px;
   font-size: 13px;
 }
+
 
 .eu-txtarea:focus~.eu-txtarea-label {
   color: $eu-txtarea-primary;

@@ -1,0 +1,9 @@
+<div class="eu-checkbox" [ngClass]="checkboxClass">
+  <label class="eu-checkbox-label">
+    <input type="checkbox" class="eu-checkbox-input" (change)="onInputChange($event)" (blur)="onBlur()"
+      [disabled]="disabled" [checked]="checked">
+    <span class="eu-checkbox-box"></span>
+    {{label}}
+  </label>
+  <div *ngIf="error" class="eu-checkbox-error">{{error}}</div>
+</div>
