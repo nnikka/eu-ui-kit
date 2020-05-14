@@ -1,29 +1,48 @@
-import { Component, OnInit, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Component, OnInit, forwardRef, Input, Self, Optional } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
 
 @Component({
   selector: 'eu-checkbox',
   templateUrl: './eu-checkbox.component.html',
-  styleUrls: ['./eu-checkbox.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => EuCheckboxComponent),
-      multi: true,
-    },
-  ],
+  styleUrls: ['./eu-checkbox.component.scss']
 })
 export class EuCheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() disabled: boolean;
   @Input() checked: boolean = false;
   @Input() label: string;
-  @Input() error: string;
+  @Input() errorMessages: any = {};
 
   private _value: boolean;
   private _onChange: (_: boolean) => void = (_) => {};
   private _onTouch: () => void = () => {};
 
-  constructor() {}
+  constructor(@Self() @Optional() public control: NgControl) {
+    this.control && (this.control.valueAccessor = this);
+  }
+
+  get invalid(): boolean {
+    return this.control ? this.control.invalid : false;
+  }
+
+  get showError(): boolean {
+    console.log(this.control)
+
+    if (!this.control) {
+      return false;
+    }
+    const { dirty, touched } = this.control;
+    return this.invalid ? touched || dirty : false;
+  }
+
+  get errors(): Array<string> {
+    if (!this.control) {
+      return [];
+    }
+    const { errors } = this.control;
+    return Object.keys(errors).map((key) =>
+      this.errorMessages[key] ? this.errorMessages[key] : ''
+    );
+  }
 
   get checkboxClass() {
     let disabledClass = this.disabled ? 'eu-checkbox-disabled' : '';

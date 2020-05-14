@@ -13,9 +13,6 @@ import {
 export class AppComponent implements OnInit {
   title = 'ui-kit';
   myForm: FormGroup;
-  checkbox1: boolean = true;
-  checkbox2: boolean = true;
-  checkbox3: boolean = false;
   errorMessages: any = {};
 
   mc(e) {
@@ -28,9 +25,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.errorMessages = {
-      'required': 'Name is required',
+      'required': 'Field is required',
       'minlength': 'The number of characters should not be less than 2'
     }
+
     this.myForm = new FormGroup({
       username: new FormControl('', [
         Validators.required,
@@ -49,7 +47,14 @@ export class AppComponent implements OnInit {
       textarea1: new FormControl(''),
       textarea2: new FormControl(''),
       textarea3: new FormControl(''),
-      
+
+      checkbox1: new FormControl(true),
+      checkbox2: new FormControl({value: '', disabled: true}),
+      checkbox3: new FormControl(''),
+      checkbox4: new FormControl(false, [
+        Validators.requiredTrue
+      ])
     });
+    this.myForm.get('checkbox4').markAsDirty();
   }
 }

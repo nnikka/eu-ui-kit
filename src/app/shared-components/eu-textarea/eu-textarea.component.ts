@@ -19,7 +19,6 @@ export class EuTextareaComponent implements OnInit, ControlValueAccessor {
 
   constructor(@Self() @Optional() public control: NgControl) {
     this.control && (this.control.valueAccessor = this);
-    console.log(this.control)
     this.errorMessages.set('required', () => `${this.label} is required.`);
     this.errorMessages.set(
       'minlength',

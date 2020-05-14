@@ -1,18 +1,5 @@
-import {
-  Component,
-  OnInit,
-  Input,
-  forwardRef,
-  ViewChild,
-  ElementRef,
-  Self,
-  Optional,
-} from '@angular/core';
-import {
-  ControlValueAccessor,
-  NG_VALUE_ACCESSOR,
-  NgControl,
-} from '@angular/forms';
+import { Component, OnInit, Input, Self, Optional } from '@angular/core';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
 import {
   EEuInputTypeType,
   EEuInputType,
@@ -62,11 +49,8 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
       return [];
     }
     const { errors } = this.control;
-    console.log(Object.keys(errors))
     return Object.keys(errors).map((key) =>
-      this.errorMessages[key]
-        ? this.errorMessages[key]
-        : ''
+      this.errorMessages[key] ? this.errorMessages[key] : ''
     );
   }
 
@@ -75,7 +59,7 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
     let errorClass = this.showError ? 'eu-inpt-error-input' : '';
     let passwordClass =
       this.type === 'password' ? 'eu-inpt-password-input' : '';
-    let inputOpenedClass = this.value? 'eu-inpt-opened' : '';
+    let inputOpenedClass = this.value ? 'eu-inpt-opened' : '';
     return `${iconClass} ${errorClass} ${passwordClass} ${inputOpenedClass}`;
   }
 

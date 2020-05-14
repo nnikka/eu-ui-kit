@@ -215,14 +215,12 @@
       <eu-textarea formControlName="textarea1" label="Textarea"></eu-textarea><br><br>
       <eu-textarea formControlName="textarea2" label="Textarea" [required]="true"></eu-textarea><br><br>
       <eu-textarea formControlName="textarea3" label="Textarea"></eu-textarea><br><br>
-      <button type="submit">Bla</button>
+
+      <eu-checkbox formControlName="checkbox1" label="Checkbox checked"></eu-checkbox> <br>
+      <eu-checkbox formControlName="checkbox2" label="Disabled"></eu-checkbox> <br>
+      <eu-checkbox formControlName="checkbox3" label="Checkbox not checked"></eu-checkbox> <br>
+      <eu-checkbox formControlName="checkbox4" label="Error" [errorMessages]="errorMessages"></eu-checkbox> <br>
     </form>
-
-    <eu-checkbox [(ngModel)]="checkbox1" [label]="'Checkbox checked. ' + 'value: ' + checkbox1"></eu-checkbox> <br>
-    <eu-checkbox [(ngModel)]="checkbox2" [disabled]="true" [label]="'Disabled. ' + 'value: ' + checkbox2"></eu-checkbox> <br>
-    <eu-checkbox [(ngModel)]="checkbox3" [label]="'Checkbox not checked. ' + 'value: ' + checkbox3"></eu-checkbox> <br>
-    <eu-checkbox [label]="'Error'" error="Required"></eu-checkbox> <br>
-
     <br>
     <br>
 </div>
