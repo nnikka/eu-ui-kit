@@ -12,26 +12,27 @@ $eu-toggle-red: $element-color-red;
 }
 
 .eu-toggle {
-  color: $eu-toggle-grey;
   height: 45px;
 }
 
-.eu-toggle:hover {
-  color: $eu-toggle-white;
-}
-
 .eu-toggle-label {
+  color: $eu-toggle-grey;
   margin-top: 10px;
   padding: 0;
   font-size: 15px;
   line-height: 15px;
   display: flex;
+  transition: color .3s;
   cursor: pointer;
 
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.eu-toggle-label:hover {
+  color: $eu-toggle-white;
 }
 
 .eu-toggle-input {
@@ -70,8 +71,8 @@ $eu-toggle-red: $element-color-red;
   }
 }
 
-.eu-toggle-disabled,
-.eu-toggle-disabled:hover {
+.eu-toggle-disabled .eu-toggle-label,
+.eu-toggle-disabled .eu-toggle-label:hover {
   color: $eu-toggle-medium-grey;
 }
 

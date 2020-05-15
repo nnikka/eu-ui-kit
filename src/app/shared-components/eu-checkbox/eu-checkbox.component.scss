@@ -13,26 +13,25 @@ $eu-checkbox-red: $element-color-red;
 .eu-checkbox {
   position: relative;
   margin-top: 10px;
-  color: $eu-checkbox-grey;
-  transition: color .3s;
   min-height: 45px;
 }
-
-.eu-checkbox:hover {
-  color: $eu-checkbox-white;
-}
-
 
 .eu-checkbox-label {
   padding-left: 30px;
   max-width: 100%;
   font-size: 16px;
+  color: $eu-checkbox-grey;
+  transition: color .3s;
   cursor: pointer;
 
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.eu-checkbox-label:hover {
+  color: $eu-checkbox-white;
 }
 
 .eu-checkbox-input {
@@ -56,7 +55,7 @@ $eu-checkbox-red: $element-color-red;
   border-radius: 2px;
 }
 
-.eu-checkbox:hover .eu-checkbox-box:after {
+.eu-checkbox-label:hover .eu-checkbox-box:after {
   border: 2px solid $eu-checkbox-white;
 }
 
@@ -81,14 +80,14 @@ $eu-checkbox-red: $element-color-red;
   z-index: 1;
 }
 
-.eu-checkbox-disabled,
-.eu-checkbox-disabled:hover {
-  color: $eu-checkbox-medium-grey;
-}
-
 .eu-checkbox-disabled .eu-checkbox-box:after,
 .eu-checkbox-disabled:hover .eu-checkbox-box:after {
   border: 2px solid $eu-checkbox-medium-grey;
+}
+
+.eu-checkbox-disabled .eu-checkbox-label,
+.eu-checkbox-disabled .eu-checkbox-label:hover {
+  color: $eu-checkbox-medium-grey;
 }
 
 .eu-checkbox-error {
