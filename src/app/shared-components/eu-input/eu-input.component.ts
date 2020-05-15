@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Self, Optional, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, Self, Optional, HostBinding, ChangeDetectionStrategy } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import {
   EEuInputTypeType,
@@ -11,10 +11,12 @@ import {
   selector: 'eu-input',
   templateUrl: './eu-input.component.html',
   styleUrls: ['./eu-input.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EuInputComponent implements OnInit, ControlValueAccessor {
   @Input() iconClass: string;
   @Input() label: string;
+  @Input() placeHolder: string = "";
   @Input() type: EEuInputTypeType = EEuInputType.text;
   @Input() disabled: boolean;
   @Input() showErrorMessage: boolean = true;
@@ -32,6 +34,7 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
   @HostBinding('style.width') hostElementWidth = '100%';
 
   passIsVisible: boolean = false;
+  showPlaceHolder: boolean = false;
 
   private _value: string;
   private _onChange: (_: any) => void = (_) => { };
@@ -92,6 +95,14 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
     return this.passIsVisible ? this.hidePassText : this.showPassText
   }
 
+  get placeHolderValue(): string {
+    if (this.showPlaceHolder) {
+      return this.placeHolder;
+    } else {
+      return "";
+    }
+  }
+
   set value(value: string) {
     if (value !== undefined && this._value !== value) {
       this._value = value;
@@ -118,8 +129,13 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
     }
   }
 
+  onFocus() {
+    this.showPlaceHolder = true;
+  }
+
   onBlur() {
     this._onTouch();
+    this.showPlaceHolder = false;
   }
 
   togglePassVisibility() {

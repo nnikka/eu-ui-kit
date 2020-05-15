@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding, Input } from '@angular/core';
+import { Component, OnInit, HostBinding, Input, ChangeDetectionStrategy } from '@angular/core';
 import {
   EEuLabelSize,
   EEuLabelSizeType,
@@ -14,6 +14,7 @@ import {
   selector: 'eu-label',
   templateUrl: './eu-label.component.html',
   styleUrls: ['./eu-label.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EuLabelComponent implements OnInit {
   @Input() color: EEuLabelColorType = EEuLabelColor.primary;

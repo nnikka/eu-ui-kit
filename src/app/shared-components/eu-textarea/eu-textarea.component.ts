@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, forwardRef, Self, Optional, HostBinding } from '@angular/core';
+import { Component, OnInit, Input, forwardRef, Self, Optional, HostBinding, ChangeDetectionStrategy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
 
 @Component({
   selector: 'eu-textarea',
   templateUrl: './eu-textarea.component.html',
   styleUrls: ['./eu-textarea.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EuTextareaComponent implements OnInit, ControlValueAccessor {
   @Input() label: string;

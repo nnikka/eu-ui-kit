@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Input, HostBinding } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, HostBinding, ChangeDetectionStrategy } from '@angular/core';
 import {
   EEuButtonColor,
   EEuButtonColorType,
@@ -16,6 +16,7 @@ import {
   selector: 'eu-button',
   templateUrl: './eu-button.component.html',
   styleUrls: ['./eu-button.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EuButtonComponent implements OnInit {
   @Input() size: EEuButtonSizeType = EEuButtonSize.medium;

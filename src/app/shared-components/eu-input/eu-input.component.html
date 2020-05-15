@@ -1,5 +1,6 @@
 <div class="eu-inpt-container" [ngClass]="inptClass" [ngStyle]="inputContainerStyle">
-  <input class="eu-inpt" [type]="type" [(ngModel)]="value" [disabled]="disabled" (blur)="onBlur()">
+  <input class="eu-inpt" [type]="type" [placeholder]="placeHolderValue" [(ngModel)]="value" [disabled]="disabled"
+    (blur)="onBlur()" (focus)="onFocus()">
   <span class="eu-inpt-bar"></span>
   <div class="eu-inpt-icon-container">
     <span [ngClass]="iconClass"></span>
