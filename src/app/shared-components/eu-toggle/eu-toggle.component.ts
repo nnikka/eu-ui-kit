@@ -55,7 +55,6 @@ export class EuToggleComponent implements OnInit, ControlValueAccessor {
 
   set value(value: boolean) {
     if (value !== undefined && this._value !== value) {
-      if (this.disabled) value = !this.disabled;
       this._value = value;
       this.checked = value;
       this._onChange(value);
