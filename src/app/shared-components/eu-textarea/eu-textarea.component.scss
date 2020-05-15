@@ -9,8 +9,7 @@ $eu-txtarea-color-red: $element-color-red;
 $lower-border-gap: 6px;
 
 :host {
-  display: inline-block;
-  width: 320px;
+  display: block;
 }
 
 /* form starting stylings ------------------------------- */
@@ -42,7 +41,7 @@ $lower-border-gap: 6px;
   caret-color: $eu-txtarea-color-white;
   color: $eu-txtarea-color-white;
   resize: vertical;
-  min-height: 45px;
+  // min-height: 45px;
   line-height: 15px;
   max-width: calc(100% - 40px);
 }

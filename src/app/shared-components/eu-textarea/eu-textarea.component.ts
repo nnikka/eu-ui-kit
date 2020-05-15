@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, forwardRef, Self, Optional } from '@angular/core';
+import { Component, OnInit, Input, forwardRef, Self, Optional, HostBinding } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
 
 @Component({
@@ -11,19 +11,19 @@ export class EuTextareaComponent implements OnInit, ControlValueAccessor {
   @Input() disabled: boolean;
   @Input() minlength: number;
   @Input() required: boolean;
+  @Input() errorMessages: any = {};
+  @Input() width: number = null;
+  @Input() minHeight: number = 45;
+
+  @HostBinding('style.display') hostElementDisplay = 'inline-block';
+  @HostBinding('style.width') hostElementWidth = '100%';
 
   private _value: string;
-  private _onChange: (_: any) => void = (_) => {};
-  private _onTouch: () => void = () => {};
-  errorMessages: Map<string, () => string> = new Map();
+  private _onChange: (_: any) => void = (_) => { };
+  private _onTouch: () => void = () => { };
 
   constructor(@Self() @Optional() public control: NgControl) {
     this.control && (this.control.valueAccessor = this);
-    this.errorMessages.set('required', () => `${this.label} is required.`);
-    this.errorMessages.set(
-      'minlength',
-      () => `The number of characters should not be less than ${this.minlength}.`
-    );
   }
 
   get invalid(): boolean {
@@ -44,16 +44,22 @@ export class EuTextareaComponent implements OnInit, ControlValueAccessor {
     }
     const { errors } = this.control;
     return Object.keys(errors).map((key) =>
-      this.errorMessages.has(key)
-        ? this.errorMessages.get(key)()
-        : <string>errors[key] || key
+      this.errorMessages[key] ? this.errorMessages[key] : ''
     );
   }
 
   get txtareaClass() {
     let errorClass = this.showError ? 'eu-txtarea-error-txtarea' : '';
-    let txtAreaOpenedClass = this.value? 'eu-txtarea-opened' : '';
+    let txtAreaOpenedClass = this.value ? 'eu-txtarea-opened' : '';
     return `${errorClass} ${txtAreaOpenedClass}`
+  }
+
+  get textareaStyle(): object {
+    let styleObj = {};
+    if (this.minHeight) {
+      styleObj["min-height"] = this.minHeight + "px";
+      return styleObj;
+    }
   }
 
   set value(value: string) {
@@ -62,12 +68,16 @@ export class EuTextareaComponent implements OnInit, ControlValueAccessor {
       this._onChange(value);
     }
   }
-  
+
   get value() {
     return this._value
   }
-  
+
   ngOnInit(): void {
+    if (this.width) {
+      this.hostElementDisplay = "inline-block";
+      this.hostElementWidth = this.width + "px";
+    }
   }
 
   onBlur() {
