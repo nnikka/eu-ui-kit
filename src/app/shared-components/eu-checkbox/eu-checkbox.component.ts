@@ -8,9 +8,11 @@ import { ControlValueAccessor, NgControl } from '@angular/forms';
 })
 export class EuCheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() disabled: boolean;
-  @Input() checked: boolean = false;
   @Input() label: string;
   @Input() errorMessages: any = {};
+  @Input() minHeight: "auto" | number = 45;
+
+  checked: boolean = false;
 
   private _value: boolean;
   private _onChange: (_: boolean) => void = (_) => {};
@@ -45,6 +47,14 @@ export class EuCheckboxComponent implements OnInit, ControlValueAccessor {
   get checkboxClass() {
     let disabledClass = this.disabled ? 'eu-checkbox-disabled' : '';
     return disabledClass;
+  }
+
+  get checkboxStyle(): object {
+    let styleObj = {};
+    if (this.minHeight !== "auto") {
+      styleObj['min-height'] = this.minHeight + "px";
+    }
+    return styleObj;
   }
 
   ngOnInit(): void {

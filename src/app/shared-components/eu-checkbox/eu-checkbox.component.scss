@@ -13,13 +13,12 @@ $eu-checkbox-red: $element-color-red;
 .eu-checkbox {
   position: relative;
   margin-top: 10px;
-  min-height: 45px;
 }
 
 .eu-checkbox-label {
   padding-left: 30px;
   max-width: 100%;
-  font-size: 15px;
+  font-size: 14px;
   color: $eu-checkbox-grey;
   transition: color .3s;
   cursor: pointer;
@@ -49,8 +48,8 @@ $eu-checkbox-red: $element-color-red;
   top: -3px;
   display: inline-block;
   content: ' ';
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border: 2px solid $eu-checkbox-grey;
   border-radius: 2px;
 }
@@ -69,8 +68,8 @@ $eu-checkbox-red: $element-color-red;
   position: absolute;
   left: 7px;
   top: -1px;
-  width: 5px;
-  height: 10px;
+  width: 4px;
+  height: 8px;
   border-width: 2px;
   border-style: solid;
   border-top: 0;

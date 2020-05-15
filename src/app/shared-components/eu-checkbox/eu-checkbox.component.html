@@ -1,4 +1,4 @@
-<div class="eu-checkbox" [ngClass]="checkboxClass">
+<div class="eu-checkbox" [ngClass]="checkboxClass" [ngStyle]="checkboxStyle">
   <label class="eu-checkbox-label">
     <input type="checkbox" class="eu-checkbox-input" (change)="onInputChange($event)" (blur)="onBlur()"
       [disabled]="disabled" [checked]="checked">
