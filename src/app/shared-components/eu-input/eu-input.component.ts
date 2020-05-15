@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Self, Optional } from '@angular/core';
+import { Component, OnInit, Input, Self, Optional, HostBinding } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import {
   EEuInputTypeType,
@@ -16,17 +16,26 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
   @Input() iconClass: string;
   @Input() label: string;
   @Input() type: EEuInputTypeType = EEuInputType.text;
+  @Input() disabled: boolean;
+  @Input() showErrorMessage: boolean = true;
+  @Input() errorMessages: any = {};
+  @Input() showPassText: string = "show";
+  @Input() hidePassText: string = "hide";
+  @Input() visiblePassIconClass: string = "eu-icon-eye-opened";
+  @Input() hiddenPassIConClass: string = "eu-icon-eye-closed";
   @Input() passStrength: EEuInputPasswordStrengthType =
     EEuInputPasswordStrength.none;
-  @Input() disabled: boolean;
-  @Input() errorMessages: any = {};
+  @Input() width: number = null;
+  @Input() minHeight: "auto" | number = 75;
 
-  inputType: string;
-  passVisibilityBtnText: string = 'show';
+  @HostBinding('style.display') hostElementDisplay = 'inline-block';
+  @HostBinding('style.width') hostElementWidth = '100%';
+
+  passIsVisible: boolean = false;
 
   private _value: string;
-  private _onChange: (_: any) => void = (_) => {};
-  private _onTouch: () => void = () => {};
+  private _onChange: (_: any) => void = (_) => { };
+  private _onTouch: () => void = () => { };
 
   constructor(@Self() @Optional() public control: NgControl) {
     this.control && (this.control.valueAccessor = this);
@@ -54,7 +63,7 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
     );
   }
 
-  get inptClass() {
+  get inptClass(): string {
     let iconClass = this.iconClass ? 'eu-inpt-icon-input' : '';
     let errorClass = this.showError ? 'eu-inpt-error-input' : '';
     let passwordClass =
@@ -63,18 +72,20 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
     return `${iconClass} ${errorClass} ${passwordClass} ${inputOpenedClass}`;
   }
 
-  get passStrengthClass() {
+  get passStrengthClass(): string {
     return `eu-inpt-password-strength-${this.passStrength}`;
   }
 
-  get usePassStrength() {
+  get usePassStrength(): string {
     return this.passStrength !== 'none' && this.passStrength;
   }
 
-  get passVisibilityIcon() {
-    return this.passVisibilityBtnText === 'show'
-      ? 'eu-icon-eye-closed'
-      : 'eu-icon-eye-opened';
+  get passVisibilityIcon(): string {
+    return this.passIsVisible ? this.hiddenPassIConClass : this.visiblePassIconClass
+  }
+
+  get passVisibilityBtntext(): string {
+    return this.passIsVisible ? this.hidePassText : this.showPassText
   }
 
   set value(value: string) {
@@ -88,8 +99,19 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
     return this._value;
   }
 
+  get inputContainerStyle(): object {
+    let styleObj = {};
+    if (this.minHeight !== "auto") {
+      styleObj['min-height'] = this.minHeight + "px";
+    }
+    return styleObj;
+  }
+
   ngOnInit(): void {
-    this.inputType = this.type;
+    if (this.width) {
+      this.hostElementDisplay = "inline-block";
+      this.hostElementWidth = this.width + "px";
+    }
   }
 
   onBlur() {
@@ -97,8 +119,7 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
   }
 
   togglePassVisibility() {
-    this.inputType = this.inputType === 'text' ? 'password' : 'text';
-    this.passVisibilityBtnText = this.inputType === 'text' ? 'hide' : 'show';
+    this.passIsVisible = !this.passIsVisible;
   }
 
   //model -> view

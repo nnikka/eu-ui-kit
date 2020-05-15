@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { AppComponent } from './app.component';
 import { EuButtonComponent } from './shared-components/eu-button/eu-button.component';
@@ -28,6 +29,7 @@ import { EuToggleComponent } from './shared-components/eu-toggle/eu-toggle.compo
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule
   ],

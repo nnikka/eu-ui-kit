@@ -11,8 +11,7 @@ $eu-inpt-color-white: $color-white;
 $eu-inpt-color-red: $element-color-red;
 
 :host {
-  display: inline-block;
-  width: 320px;
+  display: block;
 }
 
 
@@ -20,7 +19,6 @@ $eu-inpt-color-red: $element-color-red;
 .eu-inpt-container {
   position: relative;
   width: 100%;
-  min-height: 75px;
 }
 
 .eu-inpt-password-input.eu-inpt-container {

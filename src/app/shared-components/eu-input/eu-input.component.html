@@ -1,17 +1,12 @@
-<div class="eu-inpt-container" [ngClass]="inptClass">
-  <input class="eu-inpt" 
-    [type]="inputType" 
-    [(ngModel)]="value" 
-    [disabled]="disabled" 
-    (blur)="onBlur()" 
-    >
+<div class="eu-inpt-container" [ngClass]="inptClass" [ngStyle]="inputContainerStyle">
+  <input class="eu-inpt" [type]="type" [(ngModel)]="value" [disabled]="disabled" (blur)="onBlur()">
   <span class="eu-inpt-bar"></span>
   <div class="eu-inpt-icon-container">
     <span [ngClass]="iconClass"></span>
   </div>
   <div class="eu-inpt-password-spec-container">
     <div class="eu-inpt-password-toggle-btn" (click)="togglePassVisibility()">
-      <div class="eu-inpt-password-toggle-text">{{passVisibilityBtnText}}</div>
+      <div class="eu-inpt-password-toggle-text">{{passVisibilityBtntext}}</div>
       <span [ngClass]="passVisibilityIcon"></span>
     </div>
     <div *ngIf="usePassStrength" class="eu-inpt-password-strength-container" [ngClass]="passStrengthClass">
@@ -20,5 +15,5 @@
     </div>
   </div>
   <label class="eu-inpt-label">{{label}}</label>
-  <div *ngIf="showError" class="eu-inpt-error">{{errors[0]}}</div>
+  <div *ngIf="showErrorMessage && showError" class="eu-inpt-error">{{errors[0]}}</div>
 </div>

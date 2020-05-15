@@ -30,6 +30,10 @@ export class AppComponent implements OnInit {
     }
 
     this.myForm = new FormGroup({
+      email: new FormControl('', [
+        Validators.required,
+        Validators.email
+      ]),
       username: new FormControl('', [
         Validators.required,
         Validators.minLength(2),
