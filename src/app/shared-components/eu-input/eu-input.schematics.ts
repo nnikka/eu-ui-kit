@@ -5,7 +5,10 @@ export enum EEuInputType {
   number = 'number',
 }
 
-export type EEuInputTypeType = EEuInputType.text | EEuInputType.password;
+export type EEuInputTypeType = EEuInputType.text 
+| EEuInputType.password
+| EEuInputType.number
+| EEuInputType.email;
 
 
 export enum EEuInputPasswordStrength {
