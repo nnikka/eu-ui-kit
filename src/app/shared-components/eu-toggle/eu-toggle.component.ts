@@ -32,7 +32,7 @@ export class EuToggleComponent implements OnInit, ControlValueAccessor {
       return false;
     }
     const { dirty, touched } = this.control;
-    return this.invalid ? touched || dirty : false;
+    return this.invalid ? touched : false;
   }
 
   get errors(): Array<string> {
