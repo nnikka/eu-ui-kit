@@ -83,12 +83,12 @@ $eu-checkbox-red: $element-color-red;
 
 .eu-checkbox-disabled,
 .eu-checkbox-disabled:hover {
-  color: $color-medium-grey;
+  color: $eu-checkbox-medium-grey;
 }
 
 .eu-checkbox-disabled .eu-checkbox-box:after,
 .eu-checkbox-disabled:hover .eu-checkbox-box:after {
-  border: 2px solid $color-medium-grey;
+  border: 2px solid $eu-checkbox-medium-grey;
 }
 
 .eu-checkbox-error {

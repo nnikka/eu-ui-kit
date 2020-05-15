@@ -1,1 +1,11 @@
-<p>eu-toggle works!</p>
+<div class="eu-toggle" [ngClass]="toggleClass">
+  <label class="eu-toggle-label">
+    <input type="checkbox" class="eu-toggle-input" (change)="onInputChange($event)" (blur)="onBlur()"
+      [disabled]="disabled" [checked]="checked">
+    <span>
+      <small></small>
+    </span>
+    <span>{{label}}</span>
+  </label>
+  <div *ngIf="showError" class="eu-toggle-error">{{errors[0]}}</div>
+</div>

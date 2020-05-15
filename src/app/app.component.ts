@@ -53,8 +53,16 @@ export class AppComponent implements OnInit {
       checkbox3: new FormControl(''),
       checkbox4: new FormControl(false, [
         Validators.requiredTrue
+      ]),
+
+      toggle1: new FormControl(true),
+      toggle2: new FormControl({value: '', disabled: true}),
+      toggle3: new FormControl(''),
+      toggle4: new FormControl(false, [
+        Validators.requiredTrue
       ])
     });
     this.myForm.get('checkbox4').markAsDirty();
+    this.myForm.get('toggle4').markAsDirty();
   }
 }

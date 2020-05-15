@@ -1,5 +1,5 @@
-import { Component, OnInit, forwardRef, Input, Self, Optional } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
+import { Component, OnInit, Input, Self, Optional } from '@angular/core';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
   selector: 'eu-checkbox',
@@ -25,8 +25,6 @@ export class EuCheckboxComponent implements OnInit, ControlValueAccessor {
   }
 
   get showError(): boolean {
-    console.log(this.control)
-
     if (!this.control) {
       return false;
     }
