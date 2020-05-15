@@ -5,6 +5,7 @@
   <div class="eu-inpt-icon-container">
     <span [ngClass]="iconClass"></span>
   </div>
+  <span *ngIf="clearable" class="eu-input-clear" [ngClass]="clearIconClass" (click)="onClearInput()"></span>
   <div class="eu-inpt-password-spec-container">
     <div class="eu-inpt-password-toggle-btn" (click)="togglePassVisibility()">
       <div class="eu-inpt-password-toggle-text">{{passVisibilityBtntext}}</div>

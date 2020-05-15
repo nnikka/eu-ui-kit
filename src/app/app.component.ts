@@ -69,4 +69,8 @@ export class AppComponent implements OnInit {
     this.myForm.get('checkbox4').markAsDirty();
     this.myForm.get('toggle4').markAsDirty();
   }
+
+  formsm() {
+    console.log(this.myForm)
+  }
 }

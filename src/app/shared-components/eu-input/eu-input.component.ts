@@ -27,6 +27,8 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
   @Input() hiddenPassIConClass: string = "eu-icon-eye-closed";
   @Input() passStrength: EEuInputPasswordStrengthType =
     EEuInputPasswordStrength.none;
+  @Input() clearIconClass: string = "eu-icon-cancel";
+  @Input() clearable: boolean = false;
   @Input() width: number = null;
   @Input() minHeight: "auto" | number = 75;
 
@@ -127,6 +129,10 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
       this.hostElementDisplay = "inline-block";
       this.hostElementWidth = this.width + "px";
     }
+  }
+
+  onClearInput() {
+    this.value = null;
   }
 
   onFocus() {

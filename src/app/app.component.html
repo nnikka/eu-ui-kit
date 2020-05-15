@@ -200,7 +200,7 @@
       [errorMessages]="errorMessages" width="320" [minHeight]="'auto'" placeHolder="Enter username"></eu-input><br><br>
     <eu-input formControlName="username" type="text" label="Name" iconClass="eu-icon-user"
       [errorMessages]="errorMessages"></eu-input><br><br>
-    <eu-input formControlName="number" type="number" label="Number" iconClass="eu-icon-user"></eu-input><br><br>
+    <eu-input formControlName="number" width="200" type="number" label="" iconClass="eu-icon-user" [clearable]="true"></eu-input><br><br>
     <eu-input formControlName="disabledUsername" type="text" label="Disabled" iconClass="eu-icon-user"></eu-input>
     <br><br>
     <eu-input formControlName="password" type="password" label="Password" iconClass="eu-icon-rounded-lock">
@@ -229,7 +229,7 @@
     <eu-toggle formControlName="toggle2" label="Disabled"></eu-toggle><br>
     <eu-toggle formControlName="toggle3" label="Toggle not checked"></eu-toggle><br>
     <eu-toggle formControlName="toggle4" label="Error" [errorMessages]="errorMessages"></eu-toggle><br>
-
+    <button (click)="formsm()"></button>
   </form>
   <br>
   <br>

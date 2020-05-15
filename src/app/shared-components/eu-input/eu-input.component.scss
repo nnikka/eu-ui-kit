@@ -119,7 +119,7 @@ $eu-inpt-color-red: $element-color-red;
 }
 
 .eu-inpt-icon-input .eu-inpt {
-  padding: 20px 10px 9px 23px;
+  padding: 20px 23px 9px 23px;
 }
 
 .eu-inpt-icon-input .eu-inpt-label {
@@ -230,6 +230,16 @@ $color in $eu-inpt-pass-strengthes {
   .eu-inpt-password-strength-text:before {
     content: map-get($eu-inpt-pass-strength-names, $name);
   }
+}
+
+/* Clear ======================================= */
+.eu-input-clear {
+  position: absolute;
+  top: 21px;
+  right: 0px;
+  color: $eu-inpt-primary;
+  cursor: pointer;
+  font-size: 14px;
 }
 
 // Override browser defaults ===================================
