@@ -11,15 +11,15 @@ $eu-toggle-red: $element-color-red;
   display: inline-block;
 }
 
-.eu-toggle {
-  height: 45px;
-}
+// .eu-toggle {
+//   height: 45px;
+// }
 
 .eu-toggle-label {
   color: $eu-toggle-grey;
   margin-top: 10px;
   padding: 0;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 15px;
   display: flex;
   transition: color .3s;

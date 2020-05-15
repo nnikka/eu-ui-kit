@@ -1,10 +1,11 @@
-import { Component, OnInit, Input, Self, Optional } from '@angular/core';
+import { Component, OnInit, Input, Self, Optional, ChangeDetectionStrategy } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
   selector: 'eu-checkbox',
   templateUrl: './eu-checkbox.component.html',
-  styleUrls: ['./eu-checkbox.component.scss']
+  styleUrls: ['./eu-checkbox.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EuCheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() disabled: boolean;
@@ -15,8 +16,8 @@ export class EuCheckboxComponent implements OnInit, ControlValueAccessor {
   checked: boolean = false;
 
   private _value: boolean;
-  private _onChange: (_: boolean) => void = (_) => {};
-  private _onTouch: () => void = () => {};
+  private _onChange: (_: boolean) => void = (_) => { };
+  private _onTouch: () => void = () => { };
 
   constructor(@Self() @Optional() public control: NgControl) {
     this.control && (this.control.valueAccessor = this);
@@ -39,9 +40,13 @@ export class EuCheckboxComponent implements OnInit, ControlValueAccessor {
       return [];
     }
     const { errors } = this.control;
-    return Object.keys(errors).map((key) =>
-      this.errorMessages[key] ? this.errorMessages[key] : ''
-    );
+    if (errors) {
+      return Object.keys(errors).map((key) =>
+        this.errorMessages[key] ? this.errorMessages[key] : ''
+      );
+    } else {
+      return [];
+    }
   }
 
   get checkboxClass() {

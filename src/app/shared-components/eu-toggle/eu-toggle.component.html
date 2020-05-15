@@ -1,4 +1,4 @@
-<div class="eu-toggle" [ngClass]="toggleClass">
+<div class="eu-toggle" [ngClass]="toggleClass" [ngStyle]="toggleStyle">
   <label class="eu-toggle-label">
     <input type="checkbox" class="eu-toggle-input" (change)="onInputChange($event)" (blur)="onBlur()"
       [disabled]="disabled" [checked]="checked">

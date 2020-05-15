@@ -1,20 +1,23 @@
-import { Component, OnInit, Input, Self, Optional } from '@angular/core';
+import { Component, OnInit, Input, Self, Optional, ChangeDetectionStrategy } from '@angular/core';
 import { NgControl, ControlValueAccessor } from '@angular/forms';
 
 @Component({
   selector: 'eu-toggle',
   templateUrl: './eu-toggle.component.html',
   styleUrls: ['./eu-toggle.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EuToggleComponent implements OnInit, ControlValueAccessor {
   @Input() disabled: boolean;
-  @Input() checked: boolean = false;
   @Input() label: string;
   @Input() errorMessages: any = {};
+  @Input() minHeight: "auto" | number = 45;
+
+  checked: boolean = false;
 
   private _value: boolean;
-  private _onChange: (_: boolean) => void = (_) => {};
-  private _onTouch: () => void = () => {};
+  private _onChange: (_: boolean) => void = (_) => { };
+  private _onTouch: () => void = () => { };
 
   constructor(@Self() @Optional() public control: NgControl) {
     this.control && (this.control.valueAccessor = this);
@@ -37,9 +40,21 @@ export class EuToggleComponent implements OnInit, ControlValueAccessor {
       return [];
     }
     const { errors } = this.control;
-    return Object.keys(errors).map((key) =>
-      this.errorMessages[key] ? this.errorMessages[key] : ''
-    );
+    if (errors) {
+      return Object.keys(errors).map((key) =>
+        this.errorMessages[key] ? this.errorMessages[key] : ''
+      );
+    } else {
+      return [];
+    }
+  }
+
+  get toggleStyle(): object {
+    let styleObj = {};
+    if (this.minHeight !== "auto") {
+      styleObj['min-height'] = this.minHeight + "px";
+    }
+    return styleObj;
   }
 
   get toggleClass() {
@@ -47,7 +62,7 @@ export class EuToggleComponent implements OnInit, ControlValueAccessor {
     return disabledClass;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onBlur() {
     this._onTouch();
