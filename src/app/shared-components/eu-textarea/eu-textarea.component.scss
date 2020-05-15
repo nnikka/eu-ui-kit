@@ -16,7 +16,7 @@ $lower-border-gap: 6px;
 .eu-txtarea-container {
   position: relative;
   width: 100%;
-  min-height: 105px;
+  // min-height: 105px;
   box-sizing: border-box;
 }
 
@@ -132,30 +132,30 @@ $lower-border-gap: 6px;
 }
 
 /* Scrollbar ================================== */
-// :host textarea::-webkit-scrollbar {
-//   width: 12px;
-//   height: 12px;
-// }
+:host textarea::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
 
-// :host textarea::-webkit-scrollbar-button:start:decrement,
-// :host textarea::-webkit-scrollbar-button:end:increment {
+:host textarea::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+
+:host textarea::-webkit-scrollbar-thumb {
+  background-color: $eu-txtarea-color-white;
+}
+
+:host textarea::-webkit-scrollbar-corner {
+  background-color: $eu-txtarea-color-white;;
+}
+
+// :host textarea::-webkit-resizer {
 //   background: url('https://pixabay.com/static/uploads/photo/2015/10/07/10/55/arrow-975992_960_720.png') no-repeat center center;
 //   background-size: cover;
 // }
 
-// :host textarea::-webkit-scrollbar-track-piece {
-//   background-color: transparent;
-// }
-
-// :host textarea::-webkit-scrollbar-thumb {
-//   background-color: transparent;
-// }
-
-// :host textarea::-webkit-scrollbar-corner {
-//   background-color: red;
-// }
-
-// :host textarea::-webkit-resizer {
+// :host textarea::-webkit-scrollbar-button:start:decrement,
+// :host textarea::-webkit-scrollbar-button:end:increment {
 //   background: url('https://pixabay.com/static/uploads/photo/2015/10/07/10/55/arrow-975992_960_720.png') no-repeat center center;
 //   background-size: cover;
 // }

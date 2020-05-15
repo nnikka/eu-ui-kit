@@ -1,4 +1,4 @@
-<div class="eu-txtarea-container" [ngClass]="txtareaClass">
+<div class="eu-txtarea-container" [ngClass]="txtareaClass" [ngStyle]="textareaContainerStyle">
   <div class="eu-txtarea-field-wrapper">
     <textarea class="eu-txtarea" [ngStyle]="textareaStyle" [required]="required" [minlength]="minlength"
       [(ngModel)]="value" [disabled]="disabled" (blur)="onBlur()"></textarea>

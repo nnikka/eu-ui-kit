@@ -58,9 +58,13 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
       return [];
     }
     const { errors } = this.control;
-    return Object.keys(errors).map((key) =>
-      this.errorMessages[key] ? this.errorMessages[key] : ''
-    );
+    if (errors) {
+      return Object.keys(errors).map((key) =>
+        this.errorMessages[key] ? this.errorMessages[key] : ''
+      );
+    } else {
+      return [];
+    }
   }
 
   get inptClass(): string {

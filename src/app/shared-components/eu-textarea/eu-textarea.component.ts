@@ -43,9 +43,13 @@ export class EuTextareaComponent implements OnInit, ControlValueAccessor {
       return [];
     }
     const { errors } = this.control;
-    return Object.keys(errors).map((key) =>
-      this.errorMessages[key] ? this.errorMessages[key] : ''
-    );
+    if (errors) {
+      return Object.keys(errors).map((key) =>
+        this.errorMessages[key] ? this.errorMessages[key] : ''
+      );
+    } else {
+      return [];
+    }
   }
 
   get txtareaClass() {
@@ -58,6 +62,15 @@ export class EuTextareaComponent implements OnInit, ControlValueAccessor {
     let styleObj = {};
     if (this.minHeight) {
       styleObj["min-height"] = this.minHeight + "px";
+      return styleObj;
+    }
+  }
+
+  get textareaContainerStyle(): object {
+    let styleObj = {};
+    if (this.minHeight) {
+      let minh = this.minHeight + 60;
+      styleObj["min-height"] = minh + "px";
       return styleObj;
     }
   }
