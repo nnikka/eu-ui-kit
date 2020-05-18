@@ -1,45 +1,72 @@
-import { Component, OnInit, ViewChild, ElementRef, forwardRef, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  Component,
+  OnInit,
+  Input,
+  Self,
+  Optional,
+  ChangeDetectionStrategy,
+} from '@angular/core';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
 
 @Component({
   selector: 'eu-radio',
   templateUrl: './eu-radio.component.html',
   styleUrls: ['./eu-radio.component.scss'],
-  providers: [
-    {
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => EuRadioComponent),
-      multi: true,
-    },
-  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EuRadioComponent implements OnInit, ControlValueAccessor {
+  @Input() value: any;
+  @Input() name: any;
+  @Input() label: any;
 
+  @Input() disabled: boolean;
+  @Input() errorMessages: any = {};
+  @Input() minHeight: 'auto' | number = 45;
 
-  private _value: any;
+  private _ngValue: any;
   private _onChange: (_: any) => void = (_) => {};
   private _onTouch: () => void = () => {};
 
-  constructor() { }
+  constructor(@Self() @Optional() public control: NgControl) {
+    this.control && (this.control.valueAccessor = this);
+  }
+
+  get nameAttr() {
+    return (this.control && !this.name) ? this.control.name : this.name;
+  }
 
   ngOnInit(): void {
-
-  }
-
-  set value(value: any) {
-    if (value !== undefined && this._value !== value) {
-      this._value = value;
-      this._onChange(value);
+    if (this.control && !this.name) {
+      this.name = this.control.name;
     }
   }
-  
-  get value() {
-    return this._value
+
+  get radioClass() {
+    let disabledClass = this.disabled ? 'eu-radio-disabled' : '';
+    return disabledClass;
   }
-  
+
+  get radioStyle(): object {
+    let styleObj = {};
+    if (this.minHeight !== "auto") {
+      styleObj['min-height'] = this.minHeight + "px";
+    }
+    return styleObj;
+  }
+
+  set ngValue(value: any) {
+    if (value !== undefined && this._ngValue !== value) {
+      this.change(value);
+    }
+  }
+
+  get ngValue() {
+    return this._ngValue;
+  }
+
   //model -> view
   writeValue(value: any): void {
-    this.value = value;
+    this.ngValue = value;
   }
 
   //view -> model
@@ -52,6 +79,11 @@ export class EuRadioComponent implements OnInit, ControlValueAccessor {
   }
 
   setDisabledState?(isDisabled: boolean): void {
+    this.disabled = isDisabled;
   }
 
+  change(value: any) {
+    this._ngValue = value;
+    this._onChange(value);
+  }
 }

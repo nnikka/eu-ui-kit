@@ -12,8 +12,7 @@ export class EuCheckboxComponent implements OnInit, ControlValueAccessor {
   @Input() label: string;
   @Input() errorMessages: any = {};
   @Input() minHeight: "auto" | number = 45;
-
-  checked: boolean = false;
+  @Input() checked: boolean = false;
 
   private _value: boolean;
   private _onChange: (_: boolean) => void = (_) => { };

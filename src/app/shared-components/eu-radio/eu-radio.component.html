@@ -1,4 +1,8 @@
-<label class="radio__label">
-  <input type="radio" [(ngModel)]="value" class="radio__input">
-  Radio
-</label>
+<div class="eu-radio-container" [ngStyle]="radioStyle" [ngClass]="radioClass">
+  <label class="eu-radio">
+    <input type="radio" class="eu-radio-input" [(ngModel)]="ngValue" (ngModelChange)="change($event)" [value]="value"
+      [name]="nameAttr" [disabled]="disabled" />
+    <span class="eu-radio-label"></span>
+    <span class="eu-radio-label-content">{{label}}</span>
+  </label>
+</div>

@@ -238,7 +238,17 @@
     <eu-toggle formControlName="toggle2" label="Disabled"></eu-toggle><br>
     <eu-toggle formControlName="toggle3" label="Toggle not checked"></eu-toggle><br>
     <eu-toggle formControlName="toggle4" label="Error" [errorMessages]="errorMessages"></eu-toggle><br>
-    <button (click)="formsm()"></button>
+    <br><br>
+
+    <eu-radio value="value1" formControlName="radio1" label="Option 1"></eu-radio><br>
+    <eu-radio value="value2" formControlName="radio1" label="Option 2"></eu-radio><br>
+    <eu-radio value="value3" formControlName="radio1" label="Option 3"></eu-radio><br>
+    <eu-radio value="value4" formControlName="radio1" label="Option 4"></eu-radio><br>
+
+    <!-- {{radioValue.value}} -->
+
+    <br><br>
+    <button (click)="formsm()">Submit</button>
   </form>
   <br>
   <br>

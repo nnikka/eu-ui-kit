@@ -3,7 +3,7 @@
     <input type="checkbox" class="eu-checkbox-input" (change)="onInputChange($event)" (blur)="onBlur()"
       [disabled]="disabled" [checked]="checked">
     <span class="eu-checkbox-box"></span>
-    <span class="eu-label-content">{{label}}</span>
+    <span class="eu-checkbox-label-content">{{label}}</span>
   </label>
   <div *ngIf="showError" class="eu-checkbox-error">{{errors[0]}}</div>
 </div>

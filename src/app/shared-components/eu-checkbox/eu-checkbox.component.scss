@@ -21,8 +21,9 @@ $eu-checkbox-red: $element-color-red;
   font-size: 14px;
   color: $eu-checkbox-grey;
   transition: color .3s;
+  line-height: 16px;
   cursor: pointer;
-  vertical-align: super;
+  // vertical-align: super;
 
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -46,7 +47,7 @@ $eu-checkbox-red: $element-color-red;
 .eu-checkbox-box:after {
   position: absolute;
   left: 0;
-  top: -3px;
+  top: -1px;
   display: inline-block;
   content: ' ';
   width: 14px;
@@ -67,8 +68,8 @@ $eu-checkbox-red: $element-color-red;
 .eu-checkbox-input:checked+.eu-checkbox-box:before {
   transform: rotate(45deg);
   position: absolute;
-  left: 7px;
-  top: -1px;
+  left: 6px;
+  top: 1px;
   width: 4px;
   height: 8px;
   border-width: 2px;

@@ -23,6 +23,10 @@ export class AppComponent implements OnInit {
     return this.myForm.get('username');
   }
 
+  get radioValue() {
+    return this.myForm.get('radio1');
+  }
+
   ngOnInit(): void {
     this.errorMessages = {
       'required': 'Field is required',
@@ -64,10 +68,13 @@ export class AppComponent implements OnInit {
       toggle3: new FormControl(''),
       toggle4: new FormControl(false, [
         Validators.requiredTrue
-      ])
+      ]),
+
+      radio1: new FormControl('value1'),
     });
-    this.myForm.get('checkbox4').markAsDirty();
-    this.myForm.get('toggle4').markAsDirty();
+    this.myForm.get('checkbox4').markAsTouched();
+    this.myForm.get('toggle4').markAsTouched();
+    this.myForm.get('radio1').markAsTouched();
   }
 
   formsm() {
