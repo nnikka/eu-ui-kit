@@ -200,7 +200,8 @@
       [errorMessages]="errorMessages" width="320" [minHeight]="'auto'" placeHolder="Enter username"></eu-input><br><br>
     <eu-input formControlName="username" type="text" label="Name" iconClass="eu-icon-user"
       [errorMessages]="errorMessages"></eu-input><br><br>
-    <eu-input formControlName="number" width="200" type="number" label="" iconClass="eu-icon-user" [clearable]="true"></eu-input><br><br>
+    <eu-input formControlName="number" width="200" type="number" label="" iconClass="eu-icon-user" [clearable]="true">
+    </eu-input><br><br>
     <eu-input formControlName="disabledUsername" type="text" label="Disabled" iconClass="eu-icon-user"></eu-input>
     <br><br>
     <eu-input formControlName="password" type="password" label="Password" iconClass="eu-icon-rounded-lock">
@@ -214,12 +215,20 @@
       passStrength="soso"></eu-input><br><br>
     <eu-input formControlName="password4" type="password" label="Password" iconClass="eu-icon-rounded-lock"
       passStrength="strong"></eu-input><br><br>
-    <eu-input formControlName="errorPassword" type="text" label="Invalid"></eu-input><br><br>
+    <eu-input formControlName="errorPassword" type="text" label="Invalid"></eu-input>
+    &nbsp;&nbsp;
+    <br><br>
     <eu-textarea width="320" [minHeight]="100" formControlName="textarea1" label="Textarea"></eu-textarea><br><br>
     <eu-textarea formControlName="textarea2" label="Textarea" [required]="true"></eu-textarea><br><br>
     <eu-textarea formControlName="textarea3" label="Textarea"></eu-textarea><br><br>
 
-    <eu-checkbox formControlName="checkbox1" label="Checkbox checked" minHeight="auto"></eu-checkbox> <br>
+    <div class="eu-vertically-center-area">
+      <eu-checkbox formControlName="checkbox1" label="Checkbox checked" minHeight="auto"></eu-checkbox>
+      &nbsp;
+      <eu-label size="small" type="default">new
+      </eu-label>
+    </div>
+    <br>
     <eu-checkbox formControlName="checkbox2" label="Disabled"></eu-checkbox> <br>
     <eu-checkbox formControlName="checkbox3" label="Checkbox not checked"></eu-checkbox> <br>
     <eu-checkbox formControlName="checkbox4" label="Error" [errorMessages]="errorMessages"></eu-checkbox>

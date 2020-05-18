@@ -22,6 +22,7 @@ $eu-checkbox-red: $element-color-red;
   color: $eu-checkbox-grey;
   transition: color .3s;
   cursor: pointer;
+  vertical-align: super;
 
   -webkit-user-select: none;
   -moz-user-select: none;
