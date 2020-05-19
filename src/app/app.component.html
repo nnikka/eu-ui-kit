@@ -240,7 +240,19 @@
     <eu-toggle formControlName="toggle4" label="Error" [errorMessages]="errorMessages"></eu-toggle><br>
     <br><br>
 
-    <eu-radio value="value1" formControlName="radio1" label="Option 1"></eu-radio><br>
+    <div>
+        <eu-radio style="vertical-align: sub" minHeight="auto" value="value1" formControlName="radio1" label="Option 1"></eu-radio>
+        &nbsp;
+        <eu-toggle minHeight="auto" formControlName="toggle1" label="Toggle checked"></eu-toggle>
+        &nbsp;
+        <eu-checkbox minHeight="auto" formControlName="checkbox1" label="Disabled"></eu-checkbox>
+        &nbsp;
+        <eu-label style="vertical-align: middle" size="small" type="default">new
+        </eu-label>
+    </div>
+    <br>
+    <br>
+    <br>
     <eu-radio value="value2" formControlName="radio1" label="Option 2"></eu-radio><br>
     <eu-radio value="value3" formControlName="radio1" label="Option 3"></eu-radio><br>
     <eu-radio value="value4" formControlName="radio1" label="Option 4"></eu-radio><br>
