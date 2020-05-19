@@ -5,6 +5,7 @@ import {
   HostBinding,
   Self,
   Optional,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 
@@ -12,6 +13,7 @@ import { ControlValueAccessor, NgControl } from '@angular/forms';
   selector: 'eu-range',
   templateUrl: './eu-range.component.html',
   styleUrls: ['./eu-range.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EuRangeComponent implements OnInit, ControlValueAccessor {
   @Input() width: number = null;
