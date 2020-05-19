@@ -1,7 +1,7 @@
 <div class="eu-range-container" [ngStyle]="containerStyle" [ngClass]="containerClass">
     <div class="eu-range-bars-container">
-        <div class="eu-range-fill-bar" [ngStyle]="slideBarStyle"></div>
         <div class="eu-range-input-bar"></div>
+        <div class="eu-range-fill-bar" [ngStyle]="slideBarStyle"></div>
         <div class="eu-range-tooltip-value" [ngStyle]="tooltipStyle"><span>{{tooltipPrefix}}{{ngValue}}{{tooltipSuffix}}</span></div>
     </div>
     <input class="eu-range-input" type="range" [step]="step" [(ngModel)]="ngValue" [min]="min" [max]="max" (ngModelChange)="change($event)" />
