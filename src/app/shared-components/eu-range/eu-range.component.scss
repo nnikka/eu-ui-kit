@@ -1,0 +1,151 @@
+@import "abstracts/variables";
+
+$eu-range-primary: $primary;
+$eu-range-grey: $color-grey;
+$eu-range-medium-grey: $color-medium-grey;
+$eu-range-white: $color-white;
+$eu-range-red: $element-color-red;
+
+
+:host {
+  display: block;
+}
+
+.eu-range-container {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tooltip-container.eu-range-container {
+  padding-top: 45px !important;
+}
+
+.eu-range-input {
+  -webkit-appearance: none !important;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.3s ease;
+  margin: 12px 0 23px 0;
+  background-color: transparent;
+}
+
+.eu-range-input:focus {
+  outline: none;
+}
+
+/* Chrome, Safari track style settings */
+.eu-range-input::-webkit-slider-runnable-track {
+  cursor: pointer;
+  z-index: 2;
+}
+
+.eu-range-input::-moz-range-track {
+  cursor: pointer;
+  z-index: 2;
+}
+
+.eu-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  width: 18px;
+  height: 18px;
+  background-color: $eu-range-primary;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.eu-range-input::-moz-range-thumb {
+  -webkit-appearance: none !important;
+  width: 18px;
+  height: 18px;
+  background-color: $eu-range-primary;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+.eu-range-values {
+  font-size: 16px;
+  display: flex;
+  width: 100%;
+  color: $eu-range-medium-grey;
+  justify-content: space-between;
+}
+
+.eu-range-bars-container {
+  position: relative;
+}
+
+.eu-range-fill-bar {
+  width: 50%;
+  height: 6px;
+  border-radius: 4px;
+  background-color: $eu-range-primary;
+  position: absolute;
+  margin: 2px 0;
+  top: 8px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.eu-range-input-bar {
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: $eu-range-white;
+  position: absolute;
+  margin: 2px 0;
+  top: 10px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.eu-range-tooltip-value {
+  display: none;
+  position: absolute;
+  bottom: 40px;
+}
+
+.tooltip-container .eu-range-tooltip-value {
+  display: block;
+}
+
+.eu-range-tooltip-value span {
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  background: $eu-range-primary;
+  color: $eu-range-white;
+  font-size: 14px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 6px;
+  padding: 2px 10px;
+}
+
+.eu-range-tooltip-value span:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 8px solid $eu-range-primary;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  top: 100%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -1px;
+}
+
+.eu-range-error {
+    color: $eu-range-red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  

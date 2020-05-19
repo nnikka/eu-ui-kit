@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ChangeDetectionStrategy, HostBinding, Element
 import { IAdEuTooltipComponentData, EEuTooltipBackgroundColor, EEuTooltipPosition } from './eu-tootltip.schematics';
 
 @Component({
-  selector: 'app-eu-tooltip',
+  selector: 'eu-tooltip',
   templateUrl: './eu-tooltip.component.html',
   styleUrls: ['./eu-tooltip.component.scss',],
   changeDetection: ChangeDetectionStrategy.OnPush

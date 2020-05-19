@@ -26,7 +26,7 @@
   </eu-button>
   <br><br>
   <eu-button euTooltip [euTooltipOptions]='{
-    text: "ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssadadadsadasd",
+    text: "dddaas",
     backgroundColor: "secondary",
     textColor: "white",
     maxWidth: 200,
@@ -241,14 +241,15 @@
     <br><br>
 
     <div>
-        <eu-radio style="vertical-align: sub" minHeight="auto" value="value1" formControlName="radio1" label="Option 1"></eu-radio>
-        &nbsp;
-        <eu-toggle minHeight="auto" formControlName="toggle1" label="Toggle checked"></eu-toggle>
-        &nbsp;
-        <eu-checkbox minHeight="auto" formControlName="checkbox1" label="Disabled"></eu-checkbox>
-        &nbsp;
-        <eu-label style="vertical-align: middle" size="small" type="default">new
-        </eu-label>
+      <eu-radio style="vertical-align: sub" minHeight="auto" value="value1" formControlName="radio1" label="Option 1">
+      </eu-radio>
+      &nbsp;
+      <eu-toggle minHeight="auto" formControlName="toggle1" label="Toggle checked"></eu-toggle>
+      &nbsp;
+      <eu-checkbox minHeight="auto" formControlName="checkbox1" label="Disabled"></eu-checkbox>
+      &nbsp;
+      <eu-label style="vertical-align: middle" size="small" type="default">new
+      </eu-label>
     </div>
     <br>
     <br>
@@ -256,13 +257,13 @@
     <eu-radio value="value2" formControlName="radio1" label="Option 2"></eu-radio><br>
     <eu-radio value="value3" formControlName="radio1" label="Option 3"></eu-radio><br>
     <eu-radio value="value4" formControlName="radio1" label="Option 4"></eu-radio><br>
-
-    <!-- {{radioValue.value}} -->
+    <br><br>
+    <eu-range formControlName="range1" min="100" max="10000" step="50" tooltipSuffix="₾" width="500" padding="20"
+      [showTooltip]="true" [errorMessages]="errorMessages" minHeight="125">
+    </eu-range><br><br>
 
     <br><br>
     <button (click)="formsm()">Submit</button>
   </form>
-  <br>
-  <br>
-
+  <br><br>
 </div>

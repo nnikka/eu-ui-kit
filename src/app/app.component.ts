@@ -30,7 +30,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.errorMessages = {
       'required': 'Field is required',
-      'minlength': 'The number of characters should not be less than 2'
+      'minlength': 'The number of characters should not be less than 2',
+      'min': 'The number should be greater',
+      'max': 'The number should be smaller',
     }
 
     this.myForm = new FormGroup({
@@ -70,11 +72,18 @@ export class AppComponent implements OnInit {
         Validators.requiredTrue
       ]),
 
+      range1: new FormControl(1555, [
+        Validators.min(1000),
+        Validators.max(5000)
+      ]),
+
+
+
       radio1: new FormControl('value1'),
     });
     this.myForm.get('checkbox4').markAsTouched();
     this.myForm.get('toggle4').markAsTouched();
-    this.myForm.get('radio1').markAsTouched();
+    this.myForm.get('range1').markAsTouched();
   }
 
   formsm() {

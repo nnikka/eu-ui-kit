@@ -13,6 +13,7 @@ import { EuTooltipDirective } from './shared-components/eu-tooltip/eu-tooltip.di
 import { EuRadioComponent } from './shared-components/eu-radio/eu-radio.component';
 import { EuCheckboxComponent } from './shared-components/eu-checkbox/eu-checkbox.component';
 import { EuToggleComponent } from './shared-components/eu-toggle/eu-toggle.component';
+import { EuRangeComponent } from './shared-components/eu-range/eu-range.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { EuToggleComponent } from './shared-components/eu-toggle/eu-toggle.compo
     EuRadioComponent,
     EuCheckboxComponent,
     EuToggleComponent,
+    EuRangeComponent,
   ],
   imports: [
     BrowserModule,
