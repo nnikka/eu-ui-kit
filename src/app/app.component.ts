@@ -35,6 +35,10 @@ export class AppComponent implements OnInit {
       uri: ""
     }
   ]
+  rangeValue: any = {
+    upperValue: 5000,
+    lowerValue: 1000
+  }
 
   mc(e) {
     console.log('from app');
@@ -44,8 +48,12 @@ export class AppComponent implements OnInit {
     return this.myForm.get('username');
   }
 
-  get radioValue() {
-    return this.myForm.get('radio1');
+  get getRange() {
+    return this.myForm.get('range1');
+  }
+
+  get getSlider() {
+    return this.myForm.get('slider1');
   }
 
   ngOnInit(): void {
@@ -54,6 +62,7 @@ export class AppComponent implements OnInit {
       'minlength': 'The number of characters should not be less than 2',
       'min': 'The number should be greater',
       'max': 'The number should be smaller',
+      'range': "C'moooon... U can do better"
     }
 
     this.myForm = new FormGroup({
@@ -61,6 +70,7 @@ export class AppComponent implements OnInit {
         Validators.required,
         Validators.email
       ]),
+      email2: new FormControl(''),
       username: new FormControl('', [
         Validators.required,
         Validators.minLength(2),
@@ -93,18 +103,29 @@ export class AppComponent implements OnInit {
         Validators.requiredTrue
       ]),
 
-      range1: new FormControl(1555, [
+      slider1: new FormControl(1566655, [
         Validators.min(1000),
         Validators.max(5000)
       ]),
 
-
+      range1: new FormControl({}),
+      range2: new FormControl({}),
+      range3: new FormControl(this.rangeValue, [
+        this.emailDomainValidator
+      ]),
 
       radio1: new FormControl('value1'),
     });
     this.myForm.get('checkbox4').markAsTouched();
     this.myForm.get('toggle4').markAsTouched();
-    this.myForm.get('range1').markAsTouched();
+    this.myForm.get('slider1').markAsTouched();
+    this.myForm.get('range3').markAsTouched();
+  }
+
+  emailDomainValidator(control: FormControl) {
+    return {
+      range: true
+    }
   }
 
   formsm() {

@@ -14,7 +14,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EuInputComponent implements OnInit, ControlValueAccessor {
-  @Input() iconClass: string;
+  @Input() prefixIcon: string;
+  @Input() suffixIcon: string;
   @Input() label: string;
   @Input() placeHolder: string = "";
   @Input() type: EEuInputTypeType = EEuInputType.text;
@@ -73,12 +74,13 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
   }
 
   get inptClass(): string {
-    let iconClass = this.iconClass ? 'eu-inpt-icon-input' : '';
+    let prefixIconClass = this.prefixIcon ? 'eu-inpt-pre-icon-input' : '';
+    let suffixIconClass = this.suffixIcon ? 'eu-inpt-suf-icon-input' : '';
     let errorClass = this.showError ? 'eu-inpt-error-input' : '';
     let passwordClass =
       this.type === 'password' ? 'eu-inpt-password-input' : '';
     let inputOpenedClass = this.value ? 'eu-inpt-opened' : '';
-    return `${iconClass} ${errorClass} ${passwordClass} ${inputOpenedClass}`;
+    return `${prefixIconClass} ${suffixIconClass} ${errorClass} ${passwordClass} ${inputOpenedClass}`;
   }
 
   get passStrengthClass(): string {

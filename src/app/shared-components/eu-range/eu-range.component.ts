@@ -1,50 +1,57 @@
 import {
   Component,
   OnInit,
+  ViewChild,
+  ElementRef,
   Input,
-  HostBinding,
   Self,
   Optional,
-  ChangeDetectionStrategy,
+  HostBinding,
 } from '@angular/core';
-import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { NgControl, ControlValueAccessor } from '@angular/forms';
+import { IEuRangeValue } from './eu-range.schematics';
 
 @Component({
   selector: 'eu-range',
   templateUrl: './eu-range.component.html',
   styleUrls: ['./eu-range.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EuRangeComponent implements OnInit, ControlValueAccessor {
-  @Input() width: number = null;
   @Input() min: number = 0;
   @Input() max: number = 100;
-  @Input() tooltipPrefix: string = '';
-  @Input() tooltipSuffix: string = '';
-  @Input() padding: number = 0;
   @Input() step: number = 25;
-  @Input() showTooltip: boolean = true;
-  @Input() disabled: boolean = true;
+  @Input() width: number = null;
+  @Input() disabled: boolean = false;
+  @Input() minHeight: 'auto' | number = 150;
+  @Input() padding: number = 0;
+  @Input() showInputs: boolean = false;
+  @Input() showTooltip: boolean = false;
+  @Input() showClear: boolean = false;
+  @Input() valuePrefix: string = '';
+  @Input() valueSuffix: string = '';
   @Input() errorMessages: any = {};
-  @Input() minHeight: "auto" | number = 125;
+  @Input() minFieldLabel: string = '';
+  @Input() maxFieldLabel: string = '';
+
+  @ViewChild('lowerSlide', { read: ElementRef }) lowerSlide: ElementRef;
+  @ViewChild('upperSlide', { read: ElementRef }) upperSlide: ElementRef;
 
   @HostBinding('style.width') hostElementWidth = '100%';
   @HostBinding('style.display') hostElementDisplay = 'inline-block';
 
-  private _value: number;
+  private _value: IEuRangeValue = {
+    upperValue: null,
+    lowerValue: null,
+  };
   private _onChange: (_: any) => void = (_) => {};
   private _onTouch: () => void = () => {};
 
+  inputMin: number;
+  inputMax: number;
+  lowerDominant: boolean = false;
+
   constructor(@Self() @Optional() public control: NgControl) {
     this.control && (this.control.valueAccessor = this);
-  }
-
-  ngOnInit(): void {
-    if (this.width) {
-      this.hostElementDisplay = 'inline-block';
-      this.hostElementWidth = this.width + 'px';
-    }
-    this._value = this._value ? this._value : this.min;
   }
 
   get invalid(): boolean {
@@ -73,44 +80,137 @@ export class EuRangeComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  get slideBarStyle(): object {
-    let style = `calc(${this.currentValuePercentage}% + (${this.rangeOffset}px))`;
+  ngOnInit(): void {
+    if (this.width) {
+      this.hostElementDisplay = 'inline-block';
+      this.hostElementWidth = this.width + 'px';
+    }
+    this.inputMin = this._value.lowerValue;
+    this.inputMax = this._value.upperValue;
+  }
+
+  upperSlideOnInput(e) {
+    this.lowerDominant = false;
+    if (+this.ngValue.upperValue < this._value.lowerValue + +this.step) {
+      this._value.upperValue = +this.ngValue.upperValue;
+      this.upperSlide.nativeElement.value = this.lowerSlide.nativeElement.value;
+      this._value.upperValue = this._value.lowerValue;
+    }
+    this.change(this._value);
+  }
+
+  lowerSlideOnInput(e) {
+    this.lowerDominant = true;
+    if (+this.ngValue.lowerValue > this._value.upperValue - +this.step) {
+      this._value.lowerValue = +this.ngValue.lowerValue;
+      this.lowerSlide.nativeElement.value = this.upperSlide.nativeElement.value;
+      this._value.lowerValue = this._value.upperValue;
+    }
+    this.change(this._value);
+  }
+
+  inputValueChanged() {
+    if (this._value.lowerValue != +this.inputMin) {
+      this._value.lowerValue = Math.min(
+        Math.max(this.inputMin, this.min),
+        this._value.upperValue
+      );
+    } else {
+      this._value.upperValue = Math.max(
+        Math.min(this.inputMax, this.max),
+        this._value.lowerValue
+      );
+    }
+    this.change(this._value);
+  }
+
+  get sliderStyle() {
     let styleObj = {};
-    styleObj['width'] = style;
+    if (this._value.lowerValue > this._value.upperValue - +this.step) {
+      styleObj['margin-left'] = `calc(${this.currentValuePercentage(
+        this._value.upperValue
+      )}% + (${this.sliderOffset(this._value.upperValue)}px))`;
+    } else {
+      styleObj['margin-left'] = `calc(${this.currentValuePercentage(
+        this._value.lowerValue
+      )}% + (${this.sliderOffset(this._value.lowerValue)}px))`;
+    }
+    styleObj['width'] = `calc(${this.currentValuePercentage(
+      this._value.upperValue
+    )}% - ${this.currentValuePercentage(
+      this._value.lowerValue
+    )}% + (${this.sliderOffset(
+      this._value.upperValue
+    )}px) - (${this.sliderOffset(this._value.lowerValue)}px))`;
     return styleObj;
   }
 
-  get tooltipStyle() {
-    let style = `calc(${this.currentValuePercentage}% + (${this.rangeOffset}px))`;
-    let styleObj = {};
-    styleObj['left'] = style;
-    return styleObj;
+  get upperSliderClass() {
+    let edgeClass =
+      this._value.upperValue >= this.max || this._value.upperValue <= this.min
+        ? 'eu-edge-input'
+        : '';
+    let dominantClass = !this.lowerDominant ? 'dominant-slider' : '';
+    return `${edgeClass} ${dominantClass}`;
+  }
+
+  get lowerSliderClass() {
+    let edgeClass =
+      this._value.lowerValue >= this.max || this._value.lowerValue <= this.min
+        ? 'eu-edge-input'
+        : '';
+    let dominantClass = this.lowerDominant ? 'dominant-slider' : '';
+    return `${edgeClass} ${dominantClass}`;
   }
 
   get containerStyle() {
     let styleObj = {};
     styleObj['padding'] = `0 ${this.padding}px`;
-    if (this.minHeight !== "auto") {
-      styleObj['min-height'] = this.minHeight + "px";
+    if (this.minHeight !== 'auto') {
+      styleObj['min-height'] = this.minHeight + 'px';
     }
     return styleObj;
   }
 
-  get containerClass() {
-    let tooltipClass = this.showTooltip ? 'tooltip-container' : '';
-    return tooltipClass;
+  get lowerTooltipStyle() {
+    let styleObj = {};
+    styleObj['left'] = `calc(${this.currentValuePercentage(
+      this._value.lowerValue
+    )}% + (${this.sliderOffset(this._value.lowerValue)}px))`;
+    if (this.lowerDominant) styleObj['opacity'] = 1;
+    return styleObj;
+  }
+  get upperTooltipStyle() {
+    let styleObj = {};
+    styleObj['left'] = `calc(${this.currentValuePercentage(
+      this._value.upperValue
+    )}% + (${this.sliderOffset(this._value.upperValue)}px))`;
+    if (!this.lowerDominant) styleObj['opacity'] = 1;
+    return styleObj;
   }
 
-  get rangeOffset() {
-    return 10 - this.currentValuePercentage * 0.19;
+  get sliderInputsContainerClass() {
+    return this.showTooltip ? 'eu-range-tooltip-range' : '';
   }
 
-  get currentValuePercentage() {
-    return ((this._value - this.min) * 100) / (this.max - this.min);
-  }
-
-  set ngValue(value: any) {
-    if (value !== undefined && this._value !== value) {
+  set ngValue(value: IEuRangeValue) {
+    if (
+      value &&
+      (this._value.lowerValue !== value.lowerValue ||
+        this._value.upperValue !== value.upperValue)
+    ) {
+      value.upperValue =
+        value.upperValue &&
+        value.upperValue <= this.max &&
+        value.upperValue >= this.min
+          ? value.upperValue
+          : this.max;
+      value.lowerValue =
+        value.lowerValue &&
+        value.lowerValue <= value.upperValue &&
+        value.lowerValue >= this.min
+          ? value.lowerValue
+          : this.min;
       this.change(value);
     }
   }
@@ -137,8 +237,25 @@ export class EuRangeComponent implements OnInit, ControlValueAccessor {
     this.disabled = isDisabled;
   }
 
-  change(value) {
-    this._value = value;
+  sliderOffset(value) {
+    return 10 - this.currentValuePercentage(value) * 0.19;
+  }
+
+  currentValuePercentage(value) {
+    return ((value - this.min) * 100) / (this.max - this.min);
+  }
+
+  clearFields() {
+    this.lowerDominant = true;
+    this._value.lowerValue = this.min;
+    this._value.upperValue = this.max;
+    this.change(this._value);
+  }
+
+  change(value: IEuRangeValue) {
+    this._value = { ...value };
+    this.inputMax = value.upperValue;
+    this.inputMin = value.lowerValue;
     this._onChange(value);
   }
 }

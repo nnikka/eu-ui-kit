@@ -2,8 +2,11 @@
   <input class="eu-inpt" [type]="type" [placeholder]="placeHolderValue" [(ngModel)]="value" [disabled]="disabled"
     (blur)="onBlur()" (focus)="onFocus()">
   <span class="eu-inpt-bar"></span>
-  <div class="eu-inpt-icon-container">
-    <span [ngClass]="iconClass"></span>
+  <div class="eu-inpt-icon-container prefix">
+    <span [ngClass]="prefixIcon"></span>
+  </div>
+  <div class="eu-inpt-icon-container suffix">
+    <span [ngClass]="suffixIcon"></span>
   </div>
   <span *ngIf="clearable" class="eu-input-clear" [ngClass]="clearIconClass" (click)="onClearInput()"></span>
   <div class="eu-inpt-password-spec-container">

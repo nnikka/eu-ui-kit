@@ -114,17 +114,30 @@ $eu-inpt-color-red: $element-color-red;
   color: $eu-inpt-medium-grey;
 }
 
-.eu-inpt-icon-input .eu-inpt-icon-container {
+.eu-inpt-pre-icon-input .eu-inpt-icon-container,
+.eu-inpt-suf-icon-input .eu-inpt-icon-container {
   display: block;
 }
 
-.eu-inpt-icon-input .eu-inpt {
-  padding: 20px 23px 9px 23px;
+.eu-inpt-pre-icon-input .eu-inpt,
+.eu-inpt-suf-icon-input .eu-inpt {
+  padding-top: 20px;
+  padding-bottom: 9px;
+  padding-right: 23px;
 }
 
-.eu-inpt-icon-input .eu-inpt-label {
+.eu-inpt-pre-icon-input .eu-inpt {
+  padding-left: 23px;
+}
+
+.eu-inpt-pre-icon-input .eu-inpt-label {
   left: 23px;
 }
+
+.eu-inpt-icon-container.suffix {
+  right: 0;
+}
+
 
 /* Errors =================================== */
 
@@ -177,10 +190,14 @@ $eu-inpt-color-red: $element-color-red;
 
 .eu-inpt-password-toggle-text {
   margin-right: 6px;
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
 }
 
 .eu-inpt-password-strength-container {
@@ -219,15 +236,15 @@ $eu-inpt-pass-strength-names: (default: '',
 
 @each $name,
 $color in $eu-inpt-pass-strengthes {
-  .eu-inpt-password-strength-#{$name} >
-  .eu-inpt-password-strength-bar:nth-child(-n + #{map-get($eu-inpt-pass-strength-nums, $name)}) {
+  .eu-inpt-password-strength-#{$name}>.eu-inpt-password-strength-bar:nth-child(-n + #{map-get($eu-inpt-pass-strength-nums, $name)}) {
     background-color: $color;
   }
+
   .eu-inpt-password-strength-#{$name} {
     color: $color;
   }
-  .eu-inpt-password-strength-#{$name} >
-  .eu-inpt-password-strength-text:before {
+
+  .eu-inpt-password-strength-#{$name}>.eu-inpt-password-strength-text:before {
     content: map-get($eu-inpt-pass-strength-names, $name);
   }
 }
@@ -249,6 +266,7 @@ $color in $eu-inpt-pass-strengthes {
   -webkit-appearance: none;
   margin: 0;
 }
+
 // Firefox
 :host input[type=number] {
   -moz-appearance: textfield;
@@ -265,6 +283,6 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-    -webkit-text-fill-color: #fff !important;
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff !important;
 }

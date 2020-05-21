@@ -1,13 +1,30 @@
-<div class="eu-range-container" [ngStyle]="containerStyle" [ngClass]="containerClass">
+<div class="eu-range-container" [ngStyle]="containerStyle">
+  <div *ngIf="showInputs" class="eu-range-fields-container">
+    <eu-input type="number" [label]="minFieldLabel" suffixIcon="eu-icon-dashboard" [(ngModel)]="inputMin"
+      (change)="inputValueChanged()"></eu-input>
+    <eu-input type="number" [label]="maxFieldLabel" suffixIcon="eu-icon-dashboard" [(ngModel)]="inputMax"
+      (change)="inputValueChanged()"></eu-input>
+  </div>
+  <div class="eu-range-input-bars-wrapper" [ngClass]="sliderInputsContainerClass">
+    <div class="eu-range-tooltip-value" [ngStyle]="lowerTooltipStyle"><span>{{valuePrefix}}{{ngValue.lowerValue}}{{valueSuffix}}</span></div>
+    <div class="eu-range-tooltip-value" [ngStyle]="upperTooltipStyle"><span>{{valuePrefix}}{{ngValue.upperValue}}{{valueSuffix}}</span></div>
     <div class="eu-range-bars-container">
-        <div class="eu-range-input-bar"></div>
-        <div class="eu-range-fill-bar" [ngStyle]="slideBarStyle"></div>
-        <div class="eu-range-tooltip-value" [ngStyle]="tooltipStyle"><span>{{tooltipPrefix}}{{ngValue}}{{tooltipSuffix}}</span></div>
+      <div class="eu-range-input-bar"></div>
+      <span class="eu-range-fill-bar" [ngStyle]="sliderStyle"></span>
     </div>
-    <input class="eu-range-input" type="range" [step]="step" [(ngModel)]="ngValue" [min]="min" [max]="max" (ngModelChange)="change($event)" />
-    <div class="eu-range-values">
-        <div class="eu-range-min-value">{{tooltipPrefix}}{{min}}{{tooltipSuffix}}</div>
-        <div class="eu-range-max-value">{{tooltipPrefix}}{{max}}{{tooltipSuffix}}</div>
+    <div class="eu-range-inputs-container">
+      <input class="eu-range-input" type="range" [ngClass]="upperSliderClass" [min]="min" [max]="max" [value]="max"
+        [step]="step" #upperSlide (input)="upperSlideOnInput($event)" [(ngModel)]="ngValue.upperValue">
+      <input class="eu-range-input" type="range" [ngClass]="lowerSliderClass" [min]="min" [max]="max" [value]="min"
+        [step]="step" #lowerSlide (input)="lowerSlideOnInput($event)" [(ngModel)]="ngValue.lowerValue">
     </div>
-    <div *ngIf="showError" class="eu-range-error">{{errors[0]}}</div>
+    <div *ngIf="showClear" class="eu-range-clear-container">
+        <div class="eu-range-clear" (click)="clearFields()">
+            <span class="eu-range-clear-text">Clear</span>
+            <span class="eu-icon-cancel"></span>
+        </div>
+    </div>
+  </div>
+  <div *ngIf="showError" class="eu-range-error">{{errors[0]}}</div>
+
 </div>

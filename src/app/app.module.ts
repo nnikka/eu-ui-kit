@@ -13,6 +13,7 @@ import { EuTooltipDirective } from './shared-components/eu-tooltip/eu-tooltip.di
 import { EuRadioComponent } from './shared-components/eu-radio/eu-radio.component';
 import { EuCheckboxComponent } from './shared-components/eu-checkbox/eu-checkbox.component';
 import { EuToggleComponent } from './shared-components/eu-toggle/eu-toggle.component';
+import { EuSliderComponent } from './shared-components/eu-slider/eu-slider.component';
 import { EuRangeComponent } from './shared-components/eu-range/eu-range.component';
 import { EuColumnMenuComponent } from './shared-components/eu-column-menu/eu-column-menu.component'
 
@@ -28,6 +29,7 @@ import { EuColumnMenuComponent } from './shared-components/eu-column-menu/eu-col
     EuRadioComponent,
     EuCheckboxComponent,
     EuToggleComponent,
+    EuSliderComponent,
     EuRangeComponent,
     EuColumnMenuComponent
   ],
