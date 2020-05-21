@@ -30,6 +30,8 @@ export class EuRangeComponent implements OnInit, ControlValueAccessor {
   @Input() valuePrefix: string = '';
   @Input() valueSuffix: string = '';
   @Input() errorMessages: any = {};
+  @Input() minFieldLabel: string = '';
+  @Input() maxFieldLabel: string = '';
 
   @ViewChild('lowerSlide', { read: ElementRef }) lowerSlide: ElementRef;
   @ViewChild('upperSlide', { read: ElementRef }) upperSlide: ElementRef;

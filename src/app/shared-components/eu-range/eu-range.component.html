@@ -1,8 +1,8 @@
 <div class="eu-range-container" [ngStyle]="containerStyle">
   <div *ngIf="showInputs" class="eu-range-fields-container">
-    <eu-input type="number" label="Min. range" suffixIcon="eu-icon-dashboard" [(ngModel)]="inputMin"
+    <eu-input type="number" [label]="minFieldLabel" suffixIcon="eu-icon-dashboard" [(ngModel)]="inputMin"
       (change)="inputValueChanged()"></eu-input>
-    <eu-input type="number" label="Max. range" suffixIcon="eu-icon-dashboard" [(ngModel)]="inputMax"
+    <eu-input type="number" [label]="maxFieldLabel" suffixIcon="eu-icon-dashboard" [(ngModel)]="inputMax"
       (change)="inputValueChanged()"></eu-input>
   </div>
   <div class="eu-range-input-bars-wrapper" [ngClass]="sliderInputsContainerClass">

@@ -267,12 +267,15 @@
 
     <br><br>
     <div style="display: flex;">
-      <eu-range formControlName="range1" min="100" max="10000" step="5" minHeight="auto" padding="20"
-        valueSuffix="₾" [showTooltip]="true" [errorMessages]="errorMessages"></eu-range>
-      <eu-range formControlName="range2" min="100" max="10000" step="5" minHeight="auto" padding="20"
-        valueSuffix="₾" [showInputs]="true" [showClear]="true" [errorMessages]="errorMessages"></eu-range>
-      <eu-range formControlName="range3" min="100" max="10000" step="5" minHeight="auto" padding="20"
-        valueSuffix="₾" [showInputs]="true" [showTooltip]="true" [showClear]="true" [errorMessages]="errorMessages"></eu-range>
+      <eu-range formControlName="range1" min="100" max="10000" step="5" minHeight="auto" padding="20" valueSuffix="₾"
+        [showTooltip]="true" minFieldLabel="Min. range" maxFieldLabel="Max. range" [errorMessages]="errorMessages">
+      </eu-range>
+      <eu-range formControlName="range2" min="100" max="10000" step="5" minHeight="auto" padding="20" valueSuffix="₾"
+        [showInputs]="true" [showClear]="true" minFieldLabel="Min. range" maxFieldLabel="Max. range"
+        [errorMessages]="errorMessages"></eu-range>
+      <eu-range formControlName="range3" min="100" max="10000" step="5" minHeight="auto" padding="20" valueSuffix="₾"
+        [showInputs]="true" [showTooltip]="true" [showClear]="true" minFieldLabel="Min. range"
+        maxFieldLabel="Max. range" [errorMessages]="errorMessages"></eu-range>
     </div>
     <button (click)="formsm()">Submit</button>
   </form>
