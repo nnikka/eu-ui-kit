@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AppRoutingModule } from "./app-routing.module";
 
 import { AppComponent } from './app.component';
 import { EuButtonComponent } from './shared-components/eu-button/eu-button.component';
@@ -15,7 +16,9 @@ import { EuCheckboxComponent } from './shared-components/eu-checkbox/eu-checkbox
 import { EuToggleComponent } from './shared-components/eu-toggle/eu-toggle.component';
 import { EuSliderComponent } from './shared-components/eu-slider/eu-slider.component';
 import { EuRangeComponent } from './shared-components/eu-range/eu-range.component';
-import { EuColumnMenuComponent } from './shared-components/eu-column-menu/eu-column-menu.component'
+import { EuColumnMenuComponent } from './shared-components/eu-column-menu/eu-column-menu.component';
+import { HomeComponent } from './pages/home/home.component';
+import { InputsComponent } from './pages/inputs/inputs.component'
 
 @NgModule({
   declarations: [
@@ -31,13 +34,16 @@ import { EuColumnMenuComponent } from './shared-components/eu-column-menu/eu-col
     EuToggleComponent,
     EuSliderComponent,
     EuRangeComponent,
-    EuColumnMenuComponent
+    EuColumnMenuComponent,
+    HomeComponent,
+    InputsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
