@@ -27,14 +27,35 @@ export class HomeComponent implements OnInit {
     {
       key: 2,
       text: "Options",
-      iconClass: "eu-icon-armchair",
-      uri: ""
+      iconClass: "eu-icon-user",
+      uri: "inputs",
+      label: 2
     },
     {
       key: 3,
-      text: "Transactions",
+      text: "Inputs",
       iconClass: "eu-icon-armchair",
+      uri: "inputs",
+      label: "new"
+    }
+  ];
+  columnMenuItems2: IEuColumnMenuItem[] = [
+    {
+      key: 1,
+      text: "My account",
       uri: ""
+    },
+    {
+      key: 2,
+      text: "Options",
+      uri: "inputs",
+      label: 2
+    },
+    {
+      key: 3,
+      text: "Inputs",
+      uri: "inputs",
+      label: "new"
     }
   ]
   rangeValue: any = {

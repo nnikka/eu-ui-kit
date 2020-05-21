@@ -15,8 +15,4 @@ export class EuColumnMenuComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onItemMouseOver($event) {
-    console.log($event)
-  }
-
 }

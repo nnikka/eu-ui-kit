@@ -15,10 +15,33 @@ $eu-column-menu-icon-color-hovered: $color-white;
 }
 
 .eu-column-menu-item {
+  padding: 0;
+  margin: 0;
+}
+
+.eu-column-menu-item-link {
+  display: block;
+  position: relative;
   padding: 15px 26px 15px 26px;
   background-color: transparent;
+  text-decoration: inherit;
+  color: inherit;
   transition: all 0.2s;
-  // font-weight: 300;
+
+  eu-label {
+    margin-left: 10px;
+  }
+}
+
+.eu-column-menu-item-left-border {
+  position: absolute;
+  left: 0;
+  width: 3px;
+  height: 50%;
+  top: 25%;
+  background: $eu-column-menu-primary;
+  opacity: 0;
+  transition: all 0.2s;
 }
 
 .eu-column-menu-item-icon {
@@ -33,4 +56,24 @@ $eu-column-menu-icon-color-hovered: $color-white;
   font-size: 14px;
   vertical-align: text-top;
   transition: all 0.2s;
+}
+
+.eu-column-menu-item-link-active,
+.eu-column-menu-item-link:hover {
+  background-color: $eu-column-menu-background-hoverd;
+}
+
+.eu-column-menu-item-link-active,
+.eu-column-menu-item-link:hover {
+  .eu-column-menu-item-left-border {
+    opacity: 1;
+  }
+
+  .eu-column-menu-item-icon {
+    color: $eu-column-menu-icon-color-hovered;
+  }
+
+  .eu-column-menu-item-text {
+    color: $eu-column-menu-text-color-hovered;
+  }
 }
