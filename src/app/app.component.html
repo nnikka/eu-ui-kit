@@ -180,40 +180,42 @@
   <br><br>
   <eu-label color="secondary" textColor="grey" size="large" type="round">Buy Bonus Buy</eu-label>
   <br><br>
-  <eu-label color="error" textColor="white" size="large" type="round" iconClass="eu-icon-armchair">Buy Bonus Buy ₾
+  <eu-label color="error" textColor="white" size="large" type="round" prefixIcon="eu-icon-armchair">Buy Bonus Buy ₾
   </eu-label>
   <br>
   <br>
-  <eu-label color="blue" textColor="red" size="small" type="default" iconClass="eu-icon-armchair">Buy Bonus Buy ₾
+  <eu-label color="blue" textColor="red" size="small" type="default" prefixIcon="eu-icon-armchair">Buy Bonus Buy ₾
   </eu-label>
   <br><br>
-  <eu-label color="blue" textColor="red" size="medium" type="default" iconClass="eu-icon-armchair">Buy Bonus Buy ₾
+  <eu-label color="blue" textColor="red" size="medium" type="default" prefixIcon="eu-icon-armchair">Buy Bonus Buy ₾
   </eu-label>
   <br><br>
-  <eu-label color="blue" textColor="red" size="large" type="default" iconClass="eu-icon-armchair">Buy Bonus Buy ₾
+  <eu-label color="blue" textColor="red" size="large" type="default" prefixIcon="eu-icon-armchair">Buy Bonus Buy ₾
   </eu-label>
 
   <br><br>
   <br><br>
   <form [formGroup]="myForm" id="myForm">
-    <eu-input formControlName="email" type="email" label="Email" iconClass="eu-icon-user"
+    <eu-input formControlName="email" type="email" label="Email" prefixIcon="eu-icon-user"
       [errorMessages]="errorMessages" width="320" [minHeight]="'auto'" placeHolder="Enter username"></eu-input><br><br>
-    <eu-input formControlName="username" type="text" label="Name" iconClass="eu-icon-user"
+    <eu-input formControlName="email2" type="email" label="Email" prefixIcon="eu-icon-user" suffixIcon="eu-icon-alarm"
+      [errorMessages]="errorMessages" width="320" [minHeight]="'auto'" placeHolder="Enter username"></eu-input><br><br>
+    <eu-input formControlName="username" type="text" label="Name" prefixIcon="eu-icon-user"
       [errorMessages]="errorMessages"></eu-input><br><br>
-    <eu-input formControlName="number" width="200" type="number" label="" iconClass="eu-icon-user" [clearable]="true">
+    <eu-input formControlName="number" width="200" type="number" label="" prefixIcon="eu-icon-user" [clearable]="true">
     </eu-input><br><br>
-    <eu-input formControlName="disabledUsername" type="text" label="Disabled" iconClass="eu-icon-user"></eu-input>
+    <eu-input formControlName="disabledUsername" type="text" label="Disabled" prefixIcon="eu-icon-user"></eu-input>
     <br><br>
-    <eu-input formControlName="password" type="password" label="Password" iconClass="eu-icon-rounded-lock">
+    <eu-input formControlName="password" type="password" label="Password" prefixIcon="eu-icon-rounded-lock">
     </eu-input><br><br>
-    <eu-input formControlName="password1" type="password" label="Password" iconClass="eu-icon-rounded-lock"
+    <eu-input formControlName="password1" type="password" label="Password" prefixIcon="eu-icon-rounded-lock"
       passStrength="default">
     </eu-input><br><br>
-    <eu-input formControlName="password2" type="password" label="Password" iconClass="eu-icon-rounded-lock"
+    <eu-input formControlName="password2" type="password" label="Password" prefixIcon="eu-icon-rounded-lock"
       passStrength="weak"></eu-input><br><br>
-    <eu-input formControlName="password3" type="password" label="Password" iconClass="eu-icon-rounded-lock"
+    <eu-input formControlName="password3" type="password" label="Password" prefixIcon="eu-icon-rounded-lock"
       passStrength="soso"></eu-input><br><br>
-    <eu-input formControlName="password4" type="password" label="Password" iconClass="eu-icon-rounded-lock"
+    <eu-input formControlName="password4" type="password" label="Password" prefixIcon="eu-icon-rounded-lock"
       passStrength="strong"></eu-input><br><br>
     <eu-input formControlName="errorPassword" type="text" label="Invalid"></eu-input>
     &nbsp;&nbsp;
@@ -258,12 +260,22 @@
     <eu-radio value="value3" formControlName="radio1" label="Option 3"></eu-radio><br>
     <eu-radio value="value4" formControlName="radio1" label="Option 4"></eu-radio>
     <br><br>
-    <eu-range formControlName="range1" min="100" max="10000" step="50" tooltipSuffix="₾" width="500" padding="20"
-      [showTooltip]="true" [errorMessages]="errorMessages" minHeight="125">
-    </eu-range><br><br>
+    <eu-slider formControlName="slider1" min="100" max="10000" step="5" valueSuffix="₾" width="500" padding="20"
+      [showTooltip]="true" [errorMessages]="errorMessages" minHeight="auto">
+    </eu-slider><br><br>
+
 
     <br><br>
+    <div style="display: flex;">
+      <eu-range formControlName="range1" min="100" max="10000" step="5" minHeight="auto" padding="20"
+        valueSuffix="₾" [showTooltip]="true" [errorMessages]="errorMessages"></eu-range>
+      <eu-range formControlName="range2" min="100" max="10000" step="5" minHeight="auto" padding="20"
+        valueSuffix="₾" [showInputs]="true" [showClear]="true" [errorMessages]="errorMessages"></eu-range>
+      <eu-range formControlName="range3" min="100" max="10000" step="5" minHeight="auto" padding="20"
+        valueSuffix="₾" [showInputs]="true" [showTooltip]="true" [showClear]="true" [errorMessages]="errorMessages"></eu-range>
+    </div>
     <button (click)="formsm()">Submit</button>
   </form>
+  <br><br>
   <br><br>
 </div>
