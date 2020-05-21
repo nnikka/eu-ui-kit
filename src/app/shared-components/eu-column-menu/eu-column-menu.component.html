@@ -1,0 +1,11 @@
+<div class="eu-column-menu-container">
+  <div class="eu-column-menu-item" *ngFor="let item of items" (mouseover)="onItemMouseOver($event)">
+    <a class="eu-column-menu-item-link">
+      <span class="eu-column-menu-item-icon" [ngClass]="item.iconClass" *ngIf="item.iconClass"></span>
+      <span class="eu-column-menu-item-text">
+        {{item.text}}
+      </span>
+    </a>
+  </div>
+</div>
+<!-- [routerLinkActiveOptions]="{exact: true}" -->

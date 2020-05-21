@@ -14,6 +14,7 @@ import { EuRadioComponent } from './shared-components/eu-radio/eu-radio.componen
 import { EuCheckboxComponent } from './shared-components/eu-checkbox/eu-checkbox.component';
 import { EuToggleComponent } from './shared-components/eu-toggle/eu-toggle.component';
 import { EuRangeComponent } from './shared-components/eu-range/eu-range.component';
+import { EuColumnMenuComponent } from './shared-components/eu-column-menu/eu-column-menu.component'
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { EuRangeComponent } from './shared-components/eu-range/eu-range.componen
     EuCheckboxComponent,
     EuToggleComponent,
     EuRangeComponent,
+    EuColumnMenuComponent
   ],
   imports: [
     BrowserModule,

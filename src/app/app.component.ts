@@ -4,6 +4,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
+import { IEuColumnMenuItem } from './shared-components/eu-column-menu/eu-column-meu.schematics';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,26 @@ export class AppComponent implements OnInit {
   title = 'ui-kit';
   myForm: FormGroup;
   errorMessages: any = {};
+  columnMenuItems: IEuColumnMenuItem[] = [
+    {
+      key: 1,
+      text: "My account",
+      iconClass: "eu-icon-armchair",
+      uri: ""
+    },
+    {
+      key: 2,
+      text: "Options",
+      iconClass: "eu-icon-armchair",
+      uri: ""
+    },
+    {
+      key: 3,
+      text: "Transactions",
+      iconClass: "eu-icon-armchair",
+      uri: ""
+    }
+  ]
 
   mc(e) {
     console.log('from app');
@@ -46,7 +67,7 @@ export class AppComponent implements OnInit {
         Validators.maxLength(30)
       ]),
       number: new FormControl(''),
-      disabledUsername: new FormControl({value: '', disabled: true}),
+      disabledUsername: new FormControl({ value: '', disabled: true }),
       password: new FormControl(''),
       password1: new FormControl(''),
       password2: new FormControl(''),
@@ -59,14 +80,14 @@ export class AppComponent implements OnInit {
       textarea3: new FormControl(''),
 
       checkbox1: new FormControl(true),
-      checkbox2: new FormControl({value: '', disabled: true}),
+      checkbox2: new FormControl({ value: '', disabled: true }),
       checkbox3: new FormControl(''),
       checkbox4: new FormControl(false, [
         Validators.requiredTrue
       ]),
 
       toggle1: new FormControl(true),
-      toggle2: new FormControl({value: '', disabled: true}),
+      toggle2: new FormControl({ value: '', disabled: true }),
       toggle3: new FormControl(''),
       toggle4: new FormControl(false, [
         Validators.requiredTrue
