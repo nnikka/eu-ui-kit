@@ -1,6 +1,9 @@
-<div class="eu-column-menu-container" [routerLinkActiveOptions]="{exact: true}">
+<div class="eu-column-menu-container">
   <div class="eu-column-menu-item" *ngFor="let item of items">
-    <a [routerLink]="[item.uri]" class="eu-column-menu-item-link" routerLinkActive="eu-column-menu-item-link-active">
+    <a [routerLink]="[item.uri]"
+       class="eu-column-menu-item-link"
+       routerLinkActive="eu-column-menu-item-link-active"
+       [routerLinkActiveOptions]="{exact: true}">
       <span class="eu-column-menu-item-left-border"></span>
       <span class="eu-column-menu-item-icon" [ngClass]="item.iconClass" *ngIf="item.iconClass"></span>
       <span class="eu-column-menu-item-text">
