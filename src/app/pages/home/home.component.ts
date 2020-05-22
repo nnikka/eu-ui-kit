@@ -61,7 +61,33 @@ export class HomeComponent implements OnInit {
   rangeValue: any = {
     upperValue: 5000,
     lowerValue: 1000
-  }
+  };
+  columnIconItems = [
+    {
+      id: 1,
+      iconClass: "eu-icon-user",
+      label: "Choose and add game",
+      labelPosition: "right"
+    },
+    {
+      id: 3,
+      iconClass: "eu-icon-refresh",
+      label: "Choose and add game",
+      labelPosition: "right"
+    },
+    {
+      id: 2,
+      iconClass: "eu-icon-search",
+      label: "Choose and add game",
+      labelPosition: "right"
+    },
+    {
+      id: 2,
+      iconClass: "eu-icon-sport",
+      label: "Choose and add game",
+      labelPosition: "right"
+    }
+  ]
 
   mc(e) {
     console.log('from app');

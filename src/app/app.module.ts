@@ -18,7 +18,8 @@ import { EuSliderComponent } from './shared-components/eu-slider/eu-slider.compo
 import { EuRangeComponent } from './shared-components/eu-range/eu-range.component';
 import { EuColumnMenuComponent } from './shared-components/eu-column-menu/eu-column-menu.component';
 import { HomeComponent } from './pages/home/home.component';
-import { InputsComponent } from './pages/inputs/inputs.component'
+import { InputsComponent } from './pages/inputs/inputs.component';
+import { EuColumnIconOptionsComponent } from './shared-components/eu-column-icon-options/eu-column-icon-options.component'
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { InputsComponent } from './pages/inputs/inputs.component'
     EuRangeComponent,
     EuColumnMenuComponent,
     HomeComponent,
-    InputsComponent
+    InputsComponent,
+    EuColumnIconOptionsComponent
   ],
   imports: [
     AppRoutingModule,
