@@ -19,7 +19,8 @@ import { EuRangeComponent } from './shared-components/eu-range/eu-range.componen
 import { EuColumnMenuComponent } from './shared-components/eu-column-menu/eu-column-menu.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InputsComponent } from './pages/inputs/inputs.component';
-import { EuColumnIconOptionsComponent } from './shared-components/eu-column-icon-options/eu-column-icon-options.component'
+import { EuColumnIconOptionsComponent } from './shared-components/eu-column-icon-options/eu-column-icon-options.component';
+import { EuAccordionComponent } from './shared-components/eu-accordion/eu-accordion.component'
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { EuColumnIconOptionsComponent } from './shared-components/eu-column-icon
     EuColumnMenuComponent,
     HomeComponent,
     InputsComponent,
-    EuColumnIconOptionsComponent
+    EuColumnIconOptionsComponent,
+    EuAccordionComponent
   ],
   imports: [
     AppRoutingModule,
