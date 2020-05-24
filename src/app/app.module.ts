@@ -21,6 +21,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { InputsComponent } from './pages/inputs/inputs.component';
 import { EuColumnIconOptionsComponent } from './shared-components/eu-column-icon-options/eu-column-icon-options.component';
 import { EuAutocompleteComponent } from './shared-components/eu-autocomplete/eu-autocomplete.component'
+import { EuAccordionComponent } from './shared-components/eu-accordion/eu-accordion.component'
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { EuAutocompleteComponent } from './shared-components/eu-autocomplete/eu-
     HomeComponent,
     InputsComponent,
     EuColumnIconOptionsComponent,
-    EuAutocompleteComponent
+    EuAutocompleteComponent,
+    EuAccordionComponent
   ],
   imports: [
     AppRoutingModule,
