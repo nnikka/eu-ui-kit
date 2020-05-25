@@ -87,6 +87,25 @@ export class HomeComponent implements OnInit {
       label: "Choose and add game",
       labelPosition: "right"
     }
+  ];
+
+  accordionItems = [
+    {
+      header: "Header",
+      body: "Body text"
+    },
+    {
+      header: "Header",
+      body: "Body text"
+    },
+    {
+      header: "Header",
+      body: "Body text"
+    },
+    {
+      header: "Header",
+      body: "Body text"
+    }
   ]
 
   mc(e) {
