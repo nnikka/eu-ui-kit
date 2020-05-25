@@ -3,19 +3,19 @@
     [readonly]="readonly" (blur)="onBlur()" (focus)="onFocus()">
   <span class="eb-inpt-bar"></span>
   <div class="eb-inpt-icon-container prefix">
-    <span [ngClass]="prefixIcon" [ngStyle]="iconStyle"></span>
+    <i [ngClass]="prefixIcon" [ngStyle]="iconStyle"></i>
   </div>
   <div class="eb-inpt-icon-container suffix">
-    <span [ngClass]="suffixIcon" [ngStyle]="iconStyle"></span>
+    <i [ngClass]="suffixIcon" [ngStyle]="iconStyle"></i>
   </div>
   <div class="eb-inpt-img-container">
     <img [src]="prefixImg" class="eb-inpt-img"/>
   </div>
-  <span *ngIf="clearable" class="eb-input-clear" [ngClass]="clearIconClass" (click)="onClearInput()"></span>
+  <i *ngIf="clearable" class="eb-input-clear" [ngClass]="clearIconClass" (click)="onClearInput()"></i>
   <div class="eb-inpt-password-spec-container">
     <div class="eb-inpt-password-toggle-btn" (click)="togglePassVisibility()">
       <div class="eb-inpt-password-toggle-text">{{passVisibilityBtntext}}</div>
-      <span [ngClass]="passVisibilityIcon"></span>
+      <i [ngClass]="passVisibilityIcon"></i>
     </div>
     <div *ngIf="usePassStrength" class="eb-inpt-password-strength-container" [ngClass]="passStrengthClass">
       <div class="eb-inpt-password-strength-bar" *ngFor="let number of [0,1,2]"></div>

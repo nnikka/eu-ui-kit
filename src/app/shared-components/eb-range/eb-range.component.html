@@ -1,8 +1,8 @@
 <div class="eb-range-container" [ngStyle]="containerStyle">
   <div *ngIf="showInputs" class="eb-range-fields-container">
-    <eb-input type="number" [label]="minFieldLabel" suffixIcon="eu-icon-dashboard" [(ngModel)]="inputMin"
+    <eb-input type="number" [label]="minFieldLabel" suffixIcon="eb-icon-dashboard" [(ngModel)]="inputMin"
       (change)="inputValueChanged()"></eb-input>
-    <eb-input type="number" [label]="maxFieldLabel" suffixIcon="eu-icon-dashboard" [(ngModel)]="inputMax"
+    <eb-input type="number" [label]="maxFieldLabel" suffixIcon="eb-icon-dashboard" [(ngModel)]="inputMax"
       (change)="inputValueChanged()"></eb-input>
   </div>
   <div class="eb-range-input-bars-wrapper" [ngClass]="sliderInputsContainerClass">
@@ -21,7 +21,7 @@
     <div *ngIf="showClear" class="eb-range-clear-container">
         <div class="eb-range-clear" (click)="clearFields()">
             <span class="eb-range-clear-text">Clear</span>
-            <span class="eu-icon-cancel"></span>
+            <span class="eb-icon-cancel"></span>
         </div>
     </div>
   </div>

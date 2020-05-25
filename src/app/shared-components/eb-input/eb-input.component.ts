@@ -25,11 +25,11 @@ export class EbInputComponent implements OnInit, ControlValueAccessor {
   @Input() errorMessages: any = {};
   @Input() showPassText: string = "show";
   @Input() hidePassText: string = "hide";
-  @Input() visiblePassIconClass: string = "eu-icon-eye-opened";
-  @Input() hiddenPassIConClass: string = "eu-icon-eye-closed";
+  @Input() visiblePassIconClass: string = "eb-icon-eye-opened";
+  @Input() hiddenPassIConClass: string = "eb-icon-eye-closed";
   @Input() passStrength: EEbInputPasswordStrengthType =
     EEbInputPasswordStrength.none;
-  @Input() clearIconClass: string = "eu-icon-cancel";
+  @Input() clearIconClass: string = "eb-icon-cancel";
   @Input() clearable: boolean = false;
   @Input() width: number = null;
   @Input() minHeight: "auto" | number = 75;

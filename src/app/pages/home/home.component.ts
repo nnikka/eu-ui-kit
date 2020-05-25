@@ -15,20 +15,20 @@ export class HomeComponent implements OnInit {
     {
       key: 1,
       text: 'My account',
-      iconClass: 'eu-icon-armchair',
+      iconClass: 'eb-icon-armchair',
       uri: '',
     },
     {
       key: 2,
       text: 'Options',
-      iconClass: 'eu-icon-user',
+      iconClass: 'eb-icon-user',
       uri: 'inputs',
       label: 2,
     },
     {
       key: 3,
       text: 'Inputs',
-      iconClass: 'eu-icon-armchair',
+      iconClass: 'eb-icon-armchair',
       uri: 'inputs',
       label: 'new',
     },
@@ -59,25 +59,25 @@ export class HomeComponent implements OnInit {
   columnIconItems = [
     {
       id: 1,
-      iconClass: 'eu-icon-user',
+      iconClass: 'eb-icon-user',
       label: 'Choose and add game',
       labelPosition: 'right',
     },
     {
       id: 3,
-      iconClass: 'eu-icon-refresh',
+      iconClass: 'eb-icon-refresh',
       label: 'Choose and add game',
       labelPosition: 'right',
     },
     {
       id: 2,
-      iconClass: 'eu-icon-search',
+      iconClass: 'eb-icon-search',
       label: 'Choose and add game',
       labelPosition: 'right',
     },
     {
       id: 2,
-      iconClass: "eu-icon-sport",
+      iconClass: "eb-icon-sport",
       label: "Choose and add game",
       labelPosition: "right"
     }

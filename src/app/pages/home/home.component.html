@@ -1,13 +1,17 @@
 <div style="padding: 50px; background-color: rgba(23, 23, 24, 1); font-family: sans-serif;">
-
-  <eb-button text="button" size="small" iconClass="eu-icon-armchair" color="secondary" type="default"
+  <div style="color: white;">
+    <i class="eb-icon-armchair"></i>
+  </div>
+  <br>
+  <br>
+  <eb-button text="button" size="small" iconClass="eb-icon-armchair" color="secondary" type="default"
     contentPosition="left" [label]="4" labelColor="red" labelTextColor="black">
   </eb-button>
   &nbsp; &nbsp; &nbsp;
-  <eb-button size="small" iconClass="eu-icon-armchair" color="secondary" type="default" [rounded]="'true'" label="4">
+  <eb-button size="small" iconClass="eb-icon-armchair" color="secondary" type="default" [rounded]="'true'" label="4">
   </eb-button>
   <br><br>
-  <eb-button text="button" size="small" iconClass="eu-icon-armchair" color="primary" type="default"
+  <eb-button text="button" size="small" iconClass="eb-icon-armchair" color="primary" type="default"
     contentPosition="left">
   </eb-button>
   <br><br>
@@ -17,7 +21,7 @@
       textColor: "white",
       maxWidth: 200,
       position: "top"
-    }' text="button" size="small" iconClass="eu-icon-armchair" color="secondary" type="default" contentPosition="left"
+    }' text="button" size="small" iconClass="eb-icon-armchair" color="secondary" type="default" contentPosition="left"
     [label]="4" labelColor="red" labelTextColor="secondary">
   </eb-button>
   &nbsp; &nbsp; &nbsp;
@@ -27,7 +31,7 @@
       textColor: "white",
       maxWidth: 200,
       position: "left"
-    }' size="small" iconClass="eu-icon-armchair" color="secondary" type="default" [rounded]="'true'" label="4">
+    }' size="small" iconClass="eb-icon-armchair" color="secondary" type="default" [rounded]="'true'" label="4">
   </eb-button>
   <br><br>
   <eb-button ebTooltip [ebTooltipOptions]='{
@@ -36,7 +40,7 @@
       textColor: "white",
       maxWidth: 200,
       position: "right"
-    }' text="button" size="small" iconClass="eu-icon-armchair" color="primary" type="default" contentPosition="left">
+    }' text="button" size="small" iconClass="eb-icon-armchair" color="primary" type="default" contentPosition="left">
   </eb-button>
   &nbsp; &nbsp; &nbsp;
   <eb-button ebTooltip [ebTooltipOptions]='{
@@ -45,30 +49,30 @@
       textColor: "white",
       maxWidth: 200,
       position: "bottom"
-    }' size="small" iconClass="eu-icon-armchair" color="primary" type="default" [rounded]="'true'">
+    }' size="small" iconClass="eb-icon-armchair" color="primary" type="default" [rounded]="'true'">
   </eb-button>
   <br><br>
-  <eb-button text="button" size="small" width="small" iconClass="eu-icon-armchair" color="error" type="default"
+  <eb-button text="button" size="small" width="small" iconClass="eb-icon-armchair" color="error" type="default"
     [loading]="'true'">
   </eb-button>
   <br><br>
-  <eb-button text="button" size="small" width="small" iconClass="eu-icon-armchair" color="error" type="outline"
+  <eb-button text="button" size="small" width="small" iconClass="eb-icon-armchair" color="error" type="outline"
     [loading]="'true'">
   </eb-button>
   <br><br>
-  <eb-button text="button" size="small" width="small" iconClass="eu-icon-armchair" color="success" type="text"
+  <eb-button text="button" size="small" width="small" iconClass="eb-icon-armchair" color="success" type="text"
     [loading]="'true'">
   </eb-button>
   <br><br>
-  <eb-button text="button" size="small" width="small" iconClass="eu-icon-armchair" color="error" type="default"
+  <eb-button text="button" size="small" width="small" iconClass="eb-icon-armchair" color="error" type="default"
     [loading]="'true'">
   </eb-button>
   <br><br>
-  <eb-button text="button" size="medium" width="small" iconClass="eu-icon-armchair" color="error" type="default"
+  <eb-button text="button" size="medium" width="small" iconClass="eb-icon-armchair" color="error" type="default"
     [loading]="'true'">
   </eb-button>
   <br><br>
-  <eb-button text="button" (click)="mc($event)" size="large" width="small" iconClass="eu-icon-armchair" color="success"
+  <eb-button text="button" (click)="mc($event)" size="large" width="small" iconClass="eb-icon-armchair" color="success"
     type="default" [loading]="'true'">
   </eb-button>
   <br><br>
@@ -79,19 +83,19 @@
   </eb-button>
   <br><br>
 
-  <eb-button text="button" size="medium" width="medium" iconClass="eu-icon-armchair" color="error" type="default"
+  <eb-button text="button" size="medium" width="medium" iconClass="eb-icon-armchair" color="error" type="default"
     contentPosition="left">
   </eb-button>
   &nbsp;&nbsp;
-  <eb-button size="medium" width="medium" [rounded]="'true'" iconClass="eu-icon-armchair" color="secondary"
+  <eb-button size="medium" width="medium" [rounded]="'true'" iconClass="eb-icon-armchair" color="secondary"
     type="default">
   </eb-button>
   <br><br>
-  <eb-button text="button" (click)="mc($event)" size="medium" iconClass="eu-icon-armchair" width="medium"
+  <eb-button text="button" (click)="mc($event)" size="medium" iconClass="eb-icon-armchair" width="medium"
     color="primary" type="default" [disabled]="'true'">
   </eb-button>
   &nbsp;&nbsp;
-  <eb-button (click)="mc($event)" size="medium" iconClass="eu-icon-armchair" width="medium" color="primary"
+  <eb-button (click)="mc($event)" size="medium" iconClass="eb-icon-armchair" width="medium" color="primary"
     type="default" [disabled]="'true'" [rounded]="'true'">
   </eb-button>
   <br><br>
@@ -166,42 +170,42 @@
   <br><br>
   <eb-label color="secondary" textColor="grey" size="large" type="round">Buy Bonus Buy</eb-label>
   <br><br>
-  <eb-label color="error" textColor="white" size="large" type="round" prefixIcon="eu-icon-armchair">Buy Bonus Buy ₾
+  <eb-label color="error" textColor="white" size="large" type="round" prefixIcon="eb-icon-armchair">Buy Bonus Buy ₾
   </eb-label>
   <br>
   <br>
-  <eb-label color="blue" textColor="red" size="small" type="default" prefixIcon="eu-icon-armchair">Buy Bonus Buy ₾
+  <eb-label color="blue" textColor="red" size="small" type="default" prefixIcon="eb-icon-armchair">Buy Bonus Buy ₾
   </eb-label>
   <br><br>
-  <eb-label color="blue" textColor="red" size="medium" type="default" prefixIcon="eu-icon-armchair">Buy Bonus Buy ₾
+  <eb-label color="blue" textColor="red" size="medium" type="default" prefixIcon="eb-icon-armchair">Buy Bonus Buy ₾
   </eb-label>
   <br><br>
-  <eb-label color="blue" textColor="red" size="large" type="default" prefixIcon="eu-icon-armchair">Buy Bonus Buy ₾
+  <eb-label color="blue" textColor="red" size="large" type="default" prefixIcon="eb-icon-armchair">Buy Bonus Buy ₾
   </eb-label>
 
   <br><br>
   <br><br>
   <form [formGroup]="myForm" id="myForm">
-    <eb-input formControlName="email" type="email" label="Email" prefixIcon="eu-icon-user"
+    <eb-input formControlName="email" type="email" label="Email" prefixIcon="eb-icon-user"
       [errorMessages]="errorMessages" width="320" [minHeight]="'auto'" placeHolder="Enter username"></eb-input><br><br>
-    <eb-input formControlName="email2" type="email" label="Email" prefixIcon="eu-icon-user" suffixIcon="eu-icon-alarm"
+    <eb-input formControlName="email2" type="email" label="Email" prefixIcon="eb-icon-user" suffixIcon="eb-icon-alarm"
       [errorMessages]="errorMessages" width="320" [minHeight]="'auto'" placeHolder="Enter username"></eb-input><br><br>
-    <eb-input formControlName="username" type="text" label="Name" prefixIcon="eu-icon-user"
+    <eb-input formControlName="username" type="text" label="Name" prefixIcon="eb-icon-user"
       [errorMessages]="errorMessages"></eb-input><br><br>
-    <eb-input formControlName="number" width="200" type="number" label="" prefixIcon="eu-icon-user" [clearable]="true">
+    <eb-input formControlName="number" width="200" type="number" label="" prefixIcon="eb-icon-user" [clearable]="true">
     </eb-input><br><br>
-    <eb-input formControlName="disabledUsername" type="text" label="Disabled" prefixIcon="eu-icon-user"></eb-input>
+    <eb-input formControlName="disabledUsername" type="text" label="Disabled" prefixIcon="eb-icon-user"></eb-input>
     <br><br>
-    <eb-input formControlName="password" type="password" label="Password" prefixIcon="eu-icon-rounded-lock">
+    <eb-input formControlName="password" type="password" label="Password" prefixIcon="eb-icon-rounded-lock">
     </eb-input><br><br>
-    <eb-input formControlName="password1" type="password" label="Password" prefixIcon="eu-icon-rounded-lock"
+    <eb-input formControlName="password1" type="password" label="Password" prefixIcon="eb-icon-rounded-lock"
       passStrength="default">
     </eb-input><br><br>
-    <eb-input formControlName="password2" type="password" label="Password" prefixIcon="eu-icon-rounded-lock"
+    <eb-input formControlName="password2" type="password" label="Password" prefixIcon="eb-icon-rounded-lock"
       passStrength="weak"></eb-input><br><br>
-    <eb-input formControlName="password3" type="password" label="Password" prefixIcon="eu-icon-rounded-lock"
+    <eb-input formControlName="password3" type="password" label="Password" prefixIcon="eb-icon-rounded-lock"
       passStrength="soso"></eb-input><br><br>
-    <eb-input formControlName="password4" type="password" label="Password" prefixIcon="eu-icon-rounded-lock"
+    <eb-input formControlName="password4" type="password" label="Password" prefixIcon="eb-icon-rounded-lock"
       passStrength="strong"></eb-input><br><br>
     <eb-input formControlName="errorPassword" type="text" label="Invalid"></eb-input>
     &nbsp;&nbsp;
@@ -210,7 +214,7 @@
     <eb-textarea formControlName="textarea2" label="Textarea" [required]="true"></eb-textarea><br><br>
     <eb-textarea formControlName="textarea3" label="Textarea"></eb-textarea><br><br>
 
-    <div class="eu-vertically-center-area">
+    <div class="eb-vertically-center-area">
       <eb-checkbox formControlName="checkbox1" label="Checkbox checked" minHeight="auto"></eb-checkbox>
       &nbsp;
       <eb-label size="small" type="default">new
@@ -266,12 +270,12 @@
     <br><br>
 
     <eb-autocomplete formControlName="autocomplete1" width="320" [items]="countries" [errorMessages]="errorMessages"
-      minHeight="100" placeHolder="Choose your hero" label="Countries" prefixIcon="eu-icon-globe" ></eb-autocomplete>
+      minHeight="100" placeHolder="Choose your hero" label="Countries" prefixIcon="eb-icon-globe" ></eb-autocomplete>
     <br><br>
 
     <eb-select formControlName="select1" width="320" [items]="countries" [errorMessages]="errorMessages"
-      minHeight="100" placeHolder="Choose your hero" label="Credit cards" suffixIcon="eu-icon-arrow-down" 
-      actionLabel="Add new card" actionIcon="eu-icon-plus"></eb-select>
+      minHeight="100" placeHolder="Choose your hero" label="Credit cards" suffixIcon="eb-icon-arrow-down" 
+      actionLabel="Add new card" actionIcon="eb-icon-plus"></eb-select>
     <!-- <p style="color: aliceblue;">{{select.value | json}}</p> -->
     <br><br>
 

@@ -6,7 +6,7 @@
   <div *ngIf="showDropdown" class="eb-select-options-container" [ngClass]="optionsClass">
     <div class="eb-select-scroll-wrapper" #dropdown>
       <div class="eb-select-option eb-select-action-button" (click)="actionButtonClicked($event)">
-          <div class="eb-select-action-icon-container"><span [ngClass]="actionIcon"></span></div>
+          <div class="eb-select-action-icon-container"><i [ngClass]="actionIcon"></i></div>
           <span class="eb-select-option-text"> {{actionLabel}} </span>
       </div>
       <div *ngFor="let item of myItems" class="eb-select-option" (click)="choose(item)" (mouseenter)="activateItem($event.target)">
