@@ -77,10 +77,29 @@ export class HomeComponent implements OnInit {
     },
     {
       id: 2,
-      iconClass: 'eu-icon-sport',
-      label: 'Choose and add game',
-      labelPosition: 'right',
+      iconClass: "eu-icon-sport",
+      label: "Choose and add game",
+      labelPosition: "right"
+    }
+  ];
+
+  accordionItems = [
+    {
+      header: "Header",
+      body: "Body text"
     },
+    {
+      header: "Header",
+      body: "Body text"
+    },
+    {
+      header: "Header",
+      body: "Body text"
+    },
+    {
+      header: "Header",
+      body: "Body text"
+    }
   ];
 
   mc(e) {
