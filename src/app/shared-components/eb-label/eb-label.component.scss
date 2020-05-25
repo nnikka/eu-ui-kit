@@ -1,0 +1,91 @@
+@import "abstracts/variables";
+
+$eb-lbl-primary: $primary;
+$eb-lbl-secondary: $secondary;
+$eb-lbl-success: $color-success;
+$eb-lbl-error: $color-error;
+$eb-lbl-warning: $element-color-yellow;
+$eb-lbl-white: $color-white;
+$eb-lbl-grey: $color-grey;
+$eb-lbl-black: $color-dark-black;
+
+:host {
+  font-weight: normal;
+  display: inline-block;
+}
+
+.eb-lbl-container {
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/// ----------------------------
+/// Label colors
+/// ----------------------------
+$eb-lbl-colors: (primary: $eb-lbl-primary,
+  secondary: $eb-lbl-secondary,
+  success: $eb-lbl-success,
+  error: $eb-lbl-error,
+  warning: $eb-lbl-warning,
+  white: $eb-lbl-white);
+
+@each $name,
+$color in $eb-lbl-colors {
+  .eb-lbl-color-#{"" + $name} {
+    background-color: $color;
+  }
+}
+
+$eb-lbl-text-colors: (black: $eb-lbl-black,
+  white: $eb-lbl-white,
+  grey: $eb-lbl-grey);
+
+@each $name,
+$color in $eb-lbl-text-colors {
+  .eb-lbl-text-color-#{"" + $name} {
+    color: $color;
+  }
+}
+
+/// ----------------------------
+/// Label sizes
+/// ----------------------------
+$eb-lbl-paddings: (small: 2px 4px,
+  medium: 4px 6px,
+  large: 7px 9px);
+
+$eb-lbl-font-sizes: (small: 11px,
+  medium: 12px,
+  large: 13px);
+
+@each $name,
+$padding in $eb-lbl-paddings {
+  .eb-lbl-size-#{"" + $name} {
+    padding: $padding;
+    font-size: map-get($eb-lbl-font-sizes, $name)
+  }
+}
+
+
+/// ----------------------------
+/// Label types
+/// ----------------------------
+$eb-lbl-types: (round: 20px,
+  default: 3px);
+
+@each $name,
+$radius in $eb-lbl-types {
+  .eb-lbl-type-#{"" + $name} {
+    border-radius: $radius;
+  }
+}
+
+
+/// ----------------------------
+/// Icons
+/// ----------------------------
+.eb-lbl-icon {
+  font-size: inherit;
+  margin-right: 8px;
+}

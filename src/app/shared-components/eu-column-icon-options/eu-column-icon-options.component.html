@@ -1,9 +1,0 @@
-<div>
-  <div *ngFor="let item of items">
-    <div class="eu-column-icon-options-item" [euTooltip]="item.label"
-      [euTooltipOptions]="{position: item.labelPosition}"
-      (click)="onItemClick($event, item)">
-      <span [ngClass]="item.iconClass"></span>
-    </div>
-  </div>
-</div>

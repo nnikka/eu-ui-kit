@@ -1,0 +1,251 @@
+@import "abstracts/variables";
+
+$eb-btn-primary: $primary;
+$eb-btn-secondary: $secondary;
+$eb-btn-success: $color-success;
+$eb-btn-error: $color-error;
+$eb-btn-warning: $element-color-yellow;
+$eb-btn-white: $color-white;
+$eb-btn-disabled-background: $color-swamp;
+$eb-btn-disabled-color: $color-medium-grey;
+
+:host {
+  position: relative;
+  font-size: 15px;
+  font-weight: normal;
+  color: $color-white;
+}
+
+.eb-btn {
+  display: block;
+  width: 100%;
+  border-radius: 3px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+/// ----------------------------
+/// Button sizes
+/// ----------------------------
+$eb-btn-paddings: (small: 8px 12px,
+  medium: 15px 22px,
+  large: 15px 32px);
+
+$eb-btn-font-sizes: (small: 15px,
+  medium: 15px,
+  large: 22px);
+
+$eb-btn-loader-sizes: (small: 22px,
+  medium: 28px,
+  large: 34px);
+
+$eb-btn-rounded-sizes: (small: 36px,
+  medium: 48px,
+  large: 58px);
+
+@each $name,
+$padding in $eb-btn-paddings {
+  .eb-btn-size-#{"" + $name} {
+    padding: $padding;
+    font-size: map-get($eb-btn-font-sizes, $name);
+  }
+
+  .eb-btn-size-#{"" + $name} .eb-btn-lds-ring div {
+    width: map-get($eb-btn-loader-sizes, $name);
+    height: map-get($eb-btn-loader-sizes, $name);
+    margin-top: calc(-1 * #{map-get($eb-btn-loader-sizes, $name)} / 2);
+    margin-left: calc(-1 * #{map-get($eb-btn-loader-sizes, $name)} / 2);
+  }
+
+  .eb-btn-size-#{"" + $name}.eb-btn-rounded {
+    padding: 0;
+    border-radius: 50%;
+    width: map-get($eb-btn-rounded-sizes, $name);
+    height: map-get($eb-btn-rounded-sizes, $name);
+  }
+}
+
+/// ----------------------------
+/// Button widthes
+/// ----------------------------
+$eb-btn-widthes: (small: 112px,
+  medium: 180px,
+  large: 270px,
+  xlarge: 360px,
+  full: 100%);
+
+@each $name,
+$size in $eb-btn-widthes {
+  .eb-btn-width-#{"" + $name} {
+    width: $size;
+  }
+}
+
+/// ----------------------------
+/// Button colors
+/// ----------------------------
+$eb-btn-colors: (primary: $eb-btn-primary,
+  secondary: $eb-btn-secondary,
+  success: $eb-btn-success,
+  error: $eb-btn-error,
+  warning: $eb-btn-warning,
+  white: $eb-btn-white);
+
+@each $name,
+$color in $eb-btn-colors {
+  .eb-btn-color-#{"" + $name} {
+    background: $color;
+    border-color: $color;
+    color: $color;
+  }
+
+  .eb-btn-color-#{"" + $name}.eb-btn-type-default .eb-btn-lds-ring div {
+    border-color: $color-white transparent transparent transparent;
+  }
+
+  .eb-btn-color-#{"" + $name}.eb-btn-type-text .eb-btn-lds-ring div {
+    border-color: #{$color} transparent transparent transparent;
+  }
+
+  .eb-btn-color-#{"" + $name}.eb-btn-type-outline .eb-btn-lds-ring div {
+    border-color: #{$color} transparent transparent transparent;
+  }
+}
+
+/// ----------------------------
+/// Button types
+/// ----------------------------
+.eb-btn-type-default {
+  border: none;
+  color: $color-white;
+}
+
+.eb-btn-type-outline {
+  border: 1px solid;
+  background-color: transparent;
+}
+
+.eb-btn-type-text {
+  border: none;
+  background: none;
+}
+
+/// ----------------------------
+/// Content positions
+/// ----------------------------
+.eb-btn-content-left {
+  text-align: center;
+}
+
+.eb-btn-content-left {
+  text-align: left;
+}
+
+.eb-btn-content-right {
+  text-align: right;
+}
+
+/// ----------------------------
+/// Icons
+/// ----------------------------
+.eb-btn-icon {
+  font-size: inherit;
+}
+
+/// ----------------------------
+/// Cirle hover
+/// ----------------------------
+.eb-btn-circle-hover {
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  position: absolute;
+  background-color: rgba(82, 82, 82, 0.25);
+  transition: all 0.4s ease;
+}
+
+.eb-btn-circle-hover:active {
+  background-color: rgba(82, 82, 82, 0.35);
+}
+
+.eb-btn-circle-hover-wrapper {
+  position: absolute;
+}
+
+/// ----------------------------
+/// Loader
+/// ----------------------------
+.eb-btn-lds-ring {
+  left: 0;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  display: inline-block;
+}
+
+.eb-btn-lds-ring div {
+  box-sizing: border-box;
+  display: inline-block;
+  position: absolute;
+  border: 1px solid;
+  border-radius: 50%;
+  animation: eb-btn-lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.eb-btn-lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+
+.eb-btn-lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+
+.eb-btn-lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+
+@keyframes eb-btn-lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/// ----------------------------
+/// Button label
+/// ----------------------------
+.eb-btn-label {
+  position: absolute;
+  top: -2px;
+  right: -12px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background-color: $eb-btn-primary;
+  font-size: 12px;
+}
+
+/// ----------------------------
+/// Button states
+/// ----------------------------
+.eb-btn:focus {
+  outline: none;
+}
+
+.eb-btn-disabled {
+  cursor: auto;
+  background-color: $eb-btn-disabled-background;
+  color: $eb-btn-disabled-color;
+  border: none;
+}
+
+.eb-btn-loading {
+  cursor: progress;
+}

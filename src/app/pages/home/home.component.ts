@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { IEuColumnMenuItem } from '../../shared-components/eu-column-menu/eu-column-meu.schematics';
+import { IEbColumnMenuItem } from '../../shared-components/eb-column-menu/eb-column-meu.schematics';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   title = 'ui-kit';
   myForm: FormGroup;
   errorMessages: any = {};
-  columnMenuItems: IEuColumnMenuItem[] = [
+  columnMenuItems: IEbColumnMenuItem[] = [
     {
       key: 1,
       text: 'My account',
@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
       label: 'new',
     },
   ];
-  columnMenuItems2: IEuColumnMenuItem[] = [
+  columnMenuItems2: IEbColumnMenuItem[] = [
     {
       key: 1,
       text: 'My account',

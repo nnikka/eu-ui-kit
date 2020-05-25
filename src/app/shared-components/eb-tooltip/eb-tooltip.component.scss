@@ -1,0 +1,123 @@
+@import "abstracts/variables";
+
+$eb-tooltip-primary: $primary;
+$eb-tooltip-secondary: $secondary;
+$eb-tooltip-success: $color-success;
+$eb-tooltip-error: $color-error;
+$eb-tooltip-warning: $element-color-yellow;
+$eb-tooltip-white: $color-white;
+
+:host {
+  position: absolute;
+  display: block;
+  z-index: 1000;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+:host.eb-tooltip-show {
+  opacity: 1;
+}
+
+.eb-tooltip {
+  border-radius: 5px;
+  padding: 8px 14px;
+}
+
+.eb-tooltip-text {
+  display: inline-block;
+  font-size: 14px;
+  text-align: left;
+  color: $eb-tooltip-white;
+  word-break: break-all;
+}
+
+/// ----------------------------
+/// Tooltip background
+/// ----------------------------
+$eb-tooltip-colors: (primary: $eb-tooltip-primary,
+  secondary: $eb-tooltip-secondary,
+  success: $eb-tooltip-success,
+  error: $eb-tooltip-error,
+  warning: $eb-tooltip-warning,
+  white: $eb-tooltip-white);
+
+@each $name,
+$color in $eb-tooltip-colors {
+  .eb-tooltip-background-#{"" + $name} {
+    background-color: $color;
+  }
+  .eb-tooltip-background-#{"" + $name}.eb-tooltip-position-top:after {
+    border-color: $color transparent transparent transparent;
+  }
+  .eb-tooltip-background-#{"" + $name}.eb-tooltip-position-bottom:after {
+    border-color: transparent transparent $color transparent;
+  }
+  .eb-tooltip-background-#{"" + $name}.eb-tooltip-position-left:after {
+    border-color: transparent transparent transparent $color;
+  }
+  .eb-tooltip-background-#{"" + $name}.eb-tooltip-position-right:after {
+    border-color: transparent $color transparent transparent;
+  }
+}
+
+/// ----------------------------
+/// Tooltip position
+/// ----------------------------
+.eb-tooltip-position-top:after {
+  border: solid 5px;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 1000;
+  content: '';
+  top: 100%;
+  left: 50%;
+  height: 0;
+  width: 0;
+}
+
+.eb-tooltip-position-bottom:after {
+  border: solid 5px;
+  border-right: solid 5px transparent;
+  border-left: solid 5px transparent;
+  border-top: solid 5px transparent;
+  border-bottom: solid 5px #e15915;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 1000;
+  content: "";
+  top: -10px;
+  left: 50%;
+  height: 0;
+  width: 0;
+}
+
+.eb-tooltip-position-left:after {
+  border-left: solid 5px #e15915;
+  border-right: solid 5px transparent;
+  border-top: solid 5px transparent;
+  border-bottom: solid 5px transparent;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 1000;
+  content: '';
+  top: 50%;
+  left: 100%;
+  height: 0;
+  width: 0;
+}
+
+.eb-tooltip-position-right:after {
+  border-right: solid 5px #e15915;
+  border-left: solid 5px transparent;
+  border-top: solid 5px transparent;
+  border-bottom: solid 5px transparent;
+  transform: translateY(-50%);
+  position: absolute;
+  z-index: 1000;
+  content: '';
+  top: 50%;
+  left: -10px;
+  height: 0;
+  width: 0;
+}

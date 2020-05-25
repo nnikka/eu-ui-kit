@@ -1,0 +1,27 @@
+<div class="eb-inpt-container" [ngClass]="inptClass" [ngStyle]="inputContainerStyle">
+  <input class="eb-inpt" [type]="type" [placeholder]="placeHolderValue" [(ngModel)]="value" [disabled]="disabled"
+    [readonly]="readonly" (blur)="onBlur()" (focus)="onFocus()">
+  <span class="eb-inpt-bar"></span>
+  <div class="eb-inpt-icon-container prefix">
+    <span [ngClass]="prefixIcon" [ngStyle]="iconStyle"></span>
+  </div>
+  <div class="eb-inpt-icon-container suffix">
+    <span [ngClass]="suffixIcon" [ngStyle]="iconStyle"></span>
+  </div>
+  <div class="eb-inpt-img-container">
+    <img [src]="prefixImg" class="eb-inpt-img"/>
+  </div>
+  <span *ngIf="clearable" class="eb-input-clear" [ngClass]="clearIconClass" (click)="onClearInput()"></span>
+  <div class="eb-inpt-password-spec-container">
+    <div class="eb-inpt-password-toggle-btn" (click)="togglePassVisibility()">
+      <div class="eb-inpt-password-toggle-text">{{passVisibilityBtntext}}</div>
+      <span [ngClass]="passVisibilityIcon"></span>
+    </div>
+    <div *ngIf="usePassStrength" class="eb-inpt-password-strength-container" [ngClass]="passStrengthClass">
+      <div class="eb-inpt-password-strength-bar" *ngFor="let number of [0,1,2]"></div>
+      <div class="eb-inpt-password-strength-text"></div>
+    </div>
+  </div>
+  <label class="eb-inpt-label">{{label}}</label>
+  <div *ngIf="showErrorMessage && showError" class="eb-inpt-error">{{errors[0]}}</div>
+</div>

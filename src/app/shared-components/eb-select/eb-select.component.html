@@ -1,0 +1,19 @@
+<div class="eb-select-container" [ngStyle]="inputSelectStyle">
+  <eb-input [label]="label" [readonly]="true" (inputFocus)="onFocus()" [(ngModel)]="inputValue"
+    (click)="$event.stopPropagation()" minHeight="50" [placeHolder]="placeHolder" [prefixIcon]="prefixIcon"
+    [suffixIcon]="suffixIcon" [clearable]="clearable" [disabled]="disabled" iconSize="8" [prefixImg]="currentImage">
+  </eb-input>
+  <div *ngIf="showDropdown" class="eb-select-options-container" [ngClass]="optionsClass">
+    <div class="eb-select-scroll-wrapper" #dropdown>
+      <div class="eb-select-option eb-select-action-button" (click)="actionButtonClicked($event)">
+          <div class="eb-select-action-icon-container"><span [ngClass]="actionIcon"></span></div>
+          <span class="eb-select-option-text"> {{actionLabel}} </span>
+      </div>
+      <div *ngFor="let item of myItems" class="eb-select-option" (click)="choose(item)" (mouseenter)="activateItem($event.target)">
+        <img *ngIf="item.img" [src]="item.img" class="eb-select-img">
+        <span class="eb-select-option-text">{{getDisplayName(item)}}</span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="showError" class="eb-select-error">{{errors[0]}}</div>
+</div>

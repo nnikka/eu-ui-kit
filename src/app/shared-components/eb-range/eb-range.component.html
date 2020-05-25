@@ -1,0 +1,30 @@
+<div class="eb-range-container" [ngStyle]="containerStyle">
+  <div *ngIf="showInputs" class="eb-range-fields-container">
+    <eb-input type="number" [label]="minFieldLabel" suffixIcon="eu-icon-dashboard" [(ngModel)]="inputMin"
+      (change)="inputValueChanged()"></eb-input>
+    <eb-input type="number" [label]="maxFieldLabel" suffixIcon="eu-icon-dashboard" [(ngModel)]="inputMax"
+      (change)="inputValueChanged()"></eb-input>
+  </div>
+  <div class="eb-range-input-bars-wrapper" [ngClass]="sliderInputsContainerClass">
+    <div class="eb-range-tooltip-value" [ngStyle]="lowerTooltipStyle"><span>{{valuePrefix}}{{ngValue.lowerValue}}{{valueSuffix}}</span></div>
+    <div class="eb-range-tooltip-value" [ngStyle]="upperTooltipStyle"><span>{{valuePrefix}}{{ngValue.upperValue}}{{valueSuffix}}</span></div>
+    <div class="eb-range-bars-container">
+      <div class="eb-range-input-bar"></div>
+      <span class="eb-range-fill-bar" [ngStyle]="sliderStyle"></span>
+    </div>
+    <div class="eb-range-inputs-container">
+      <input class="eb-range-input" type="range" [ngClass]="upperSliderClass" [min]="min" [max]="max" [value]="max"
+        [step]="step" #upperSlide (input)="upperSlideOnInput($event)" [(ngModel)]="ngValue.upperValue">
+      <input class="eb-range-input" type="range" [ngClass]="lowerSliderClass" [min]="min" [max]="max" [value]="min"
+        [step]="step" #lowerSlide (input)="lowerSlideOnInput($event)" [(ngModel)]="ngValue.lowerValue">
+    </div>
+    <div *ngIf="showClear" class="eb-range-clear-container">
+        <div class="eb-range-clear" (click)="clearFields()">
+            <span class="eb-range-clear-text">Clear</span>
+            <span class="eu-icon-cancel"></span>
+        </div>
+    </div>
+  </div>
+  <div *ngIf="showError" class="eb-range-error">{{errors[0]}}</div>
+
+</div>

@@ -1,0 +1,16 @@
+<div class="eb-column-menu-container">
+  <div class="eb-column-menu-item" *ngFor="let item of items">
+    <a [routerLink]="[item.uri]"
+       class="eb-column-menu-item-link"
+       routerLinkActive="eb-column-menu-item-link-active"
+       [routerLinkActiveOptions]="{exact: true}">
+      <span class="eb-column-menu-item-left-border"></span>
+      <span class="eb-column-menu-item-icon" [ngClass]="item.iconClass" *ngIf="item.iconClass"></span>
+      <span class="eb-column-menu-item-text">
+        {{item.text}}
+      </span>
+      <eb-label *ngIf="item.label" size="small">{{item.label}}</eb-label>
+    </a>
+  </div>
+</div>
+<!-- [routerLinkActiveOptions]="{exact: true}" -->

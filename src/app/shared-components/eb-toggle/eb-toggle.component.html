@@ -1,0 +1,11 @@
+<div class="eb-toggle" [ngClass]="toggleClass" [ngStyle]="toggleStyle">
+  <label class="eb-toggle-label">
+    <input type="checkbox" class="eb-toggle-input" (change)="onInputChange($event)" (blur)="onBlur()"
+      [disabled]="disabled" [checked]="checked">
+    <span>
+      <small></small>
+    </span>
+    <span>{{label}}</span>
+  </label>
+  <div *ngIf="showError" class="eb-toggle-error">{{errors[0]}}</div>
+</div>

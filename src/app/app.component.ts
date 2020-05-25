@@ -4,7 +4,7 @@ import {
   FormControl,
   Validators,
 } from '@angular/forms';
-import { IEuColumnMenuItem } from './shared-components/eu-column-menu/eu-column-meu.schematics';
+import { IEbColumnMenuItem } from './shared-components/eb-column-menu/eb-column-meu.schematics';
 
 @Component({
   selector: 'app-root',

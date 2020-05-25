@@ -1,0 +1,9 @@
+<div>
+  <div *ngFor="let item of items">
+    <div class="eb-column-icon-options-item" [ebTooltip]="item.label"
+      [ebTooltipOptions]="{position: item.labelPosition}"
+      (click)="onItemClick($event, item)">
+      <span [ngClass]="item.iconClass"></span>
+    </div>
+  </div>
+</div>

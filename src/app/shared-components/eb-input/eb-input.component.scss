@@ -1,0 +1,302 @@
+@import "abstracts/variables";
+
+$eb-inpt-medium-grey: $color-medium-grey;
+$eb-inpt-dark-grey: $color-dark-grey;
+$eb-inpt-light-black: $color-light-black;
+$eb-inpt-error: $color-error;
+$eb-inpt-yellow: $element-color-yellow;
+$eb-inpt-success: $color-success;
+$eb-inpt-primary: $primary;
+$eb-inpt-color-white: $color-white;
+$eb-inpt-color-red: $element-color-red;
+
+:host {
+  display: block;
+}
+
+
+/* form starting stylings ------------------------------- */
+.eb-inpt-container {
+  position: relative;
+  width: 100%;
+}
+
+.eb-inpt-password-input.eb-inpt-container {
+  min-height: 105px;
+}
+
+/* input stylings ------------------------------- */
+
+.eb-inpt {
+  font-size: 15px;
+  padding: 20px 0px 9px 0px;
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid $eb-inpt-medium-grey;
+  box-sizing: border-box;
+  caret-color: $eb-inpt-color-white;
+  color: $eb-inpt-color-white;
+}
+
+.eb-inpt:focus {
+  outline: none;
+}
+
+/* LABEL ======================================= */
+.eb-inpt-label {
+  color: $eb-inpt-medium-grey;
+  font-size: 15px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0px;
+  top: 20px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+.eb-inpt:focus~.eb-inpt-label,
+.eb-inpt-opened .eb-inpt-label {
+  top: 2px;
+  font-size: 13px;
+}
+
+.eb-inpt:focus~.eb-inpt-label {
+  color: $eb-inpt-primary;
+}
+
+
+/* BOTTOM BARS ================================= */
+.eb-inpt-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.eb-inpt-bar:before,
+.eb-inpt-bar:after {
+  content: '';
+  height: 1px;
+  width: 0;
+  bottom: -1px;
+  position: absolute;
+  background-color: $eb-inpt-color-white;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.eb-inpt-bar:before {
+  left: 50%;
+}
+
+.eb-inpt-bar:after {
+  right: 50%;
+}
+
+/* active state */
+.eb-inpt:focus~.eb-inpt-bar:before,
+.eb-inpt:focus~.eb-inpt-bar:after {
+  width: 50%;
+}
+
+/* Icons and images =================================== */
+
+.eb-inpt-icon-container {
+  display: none;
+  position: absolute;
+  top: 20px;
+  color: $eb-inpt-medium-grey;
+}
+
+.eb-inpt-img-container {
+  display: none;
+  position: absolute;
+  top: 15px;
+}
+
+.eb-inpt-pre-icon-input .eb-inpt-icon-container,
+.eb-inpt-suf-icon-input .eb-inpt-icon-container ,
+.eb-inpt-pre-img-input .eb-inpt-img-container {
+  display: block;
+}
+
+.eb-inpt-pre-icon-input .eb-inpt,
+.eb-inpt-suf-icon-input .eb-inpt {
+  padding-top: 20px;
+  padding-bottom: 9px;
+  padding-right: 23px;
+}
+
+.eb-inpt-pre-icon-input .eb-inpt {
+  padding-left: 23px;
+}
+
+.eb-inpt-pre-icon-input .eb-inpt-label {
+  left: 23px;
+}
+
+.eb-inpt-icon-container.suffix {
+  right: 0;
+}
+
+.eb-inpt-pre-img-input .eb-inpt {
+  padding-left: 40px;
+}
+.eb-inpt-pre-img-input .eb-inpt-label {
+  left: 40px;
+}
+.eb-inpt-img-container img {
+  height: 24px;
+}
+/* Errors =================================== */
+
+.eb-inpt-error {
+  color: $eb-inpt-color-red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.eb-inpt-error-input .eb-inpt {
+  border-bottom: 1px solid $eb-inpt-color-red;
+}
+
+// .eb-inpt-error-input .eb-inpt-label {
+//   color: $eb-inpt-color-red !important;
+// }
+
+.eb-inpt-error-input .eb-inpt-bar:before,
+.eb-inpt-error-input .eb-inpt-bar:after {
+  background-color: $eb-inpt-color-red;
+}
+
+/* Password type =================================== */
+
+.eb-inpt-password-input .eb-inpt {
+  padding-right: 65px !important;
+}
+
+.eb-inpt-password-spec-container {
+  display: none;
+}
+
+.eb-inpt-password-input .eb-inpt-password-spec-container {
+  display: flex;
+}
+
+.eb-inpt-password-toggle-btn {
+  position: absolute;
+  right: 0;
+  top: 20px;
+  font-size: 15px;
+  color: $eb-inpt-medium-grey;
+}
+
+.eb-inpt-password-input .eb-inpt-password-toggle-btn {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.eb-inpt-password-toggle-text {
+  margin-right: 6px;
+  -webkit-user-select: none;
+  /* Safari */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* IE10+/Edge */
+  user-select: none;
+  /* Standard */
+}
+
+.eb-inpt-password-strength-container {
+  display: flex;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.eb-inpt-password-strength-bar:not(:last-child) {
+  width: 30px;
+  height: 8px;
+  background-color: $eb-inpt-dark-grey;
+  margin-right: 8px;
+  border-radius: 10px;
+}
+
+.eb-inpt-password-strength-text {
+  margin-left: 4px;
+  font-size: 15px;
+}
+
+$eb-inpt-pass-strengthes: (default: $eb-inpt-dark-grey,
+  weak: $eb-inpt-error,
+  soso: $eb-inpt-yellow,
+  strong: $eb-inpt-success);
+
+$eb-inpt-pass-strength-nums: (default: 0,
+  weak: 1,
+  soso: 2,
+  strong: 3);
+
+$eb-inpt-pass-strength-names: (default: '',
+  weak: 'Weak',
+  soso: 'So-so',
+  strong: 'Strong');
+
+@each $name,
+$color in $eb-inpt-pass-strengthes {
+  .eb-inpt-password-strength-#{$name}>.eb-inpt-password-strength-bar:nth-child(-n + #{map-get($eb-inpt-pass-strength-nums, $name)}) {
+    background-color: $color;
+  }
+
+  .eb-inpt-password-strength-#{$name} {
+    color: $color;
+  }
+
+  .eb-inpt-password-strength-#{$name}>.eb-inpt-password-strength-text:before {
+    content: map-get($eb-inpt-pass-strength-names, $name);
+  }
+}
+
+/* Clear ======================================= */
+.eb-input-clear {
+  position: absolute;
+  top: 21px;
+  right: 0px;
+  color: $eb-inpt-primary;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+// Override browser defaults ===================================
+// Chrome, Safari, Edge, Opera
+:host input::-webkit-outer-spin-button,
+:host input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+// Firefox
+:host input[type=number] {
+  -moz-appearance: textfield;
+}
+
+// :host input:-webkit-autofill {
+//   background-color: red !important;
+//   background-image:none !important;
+//   color: #000000 !important;
+// }
+
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff !important;
+}

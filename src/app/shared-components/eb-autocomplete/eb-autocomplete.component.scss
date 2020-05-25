@@ -1,0 +1,93 @@
+@import "abstracts/variables";
+
+$eb-acmplt-primary: $primary;
+$eb-acmplt-secondary: $secondary;
+$eb-acmplt-grey: $color-grey;
+$eb-acmplt-medium-grey: $color-medium-grey;
+$eb-acmplt-dark-grey: $color-dark-grey;
+$eb-acmplt-white: $color-white;
+$eb-acmplt-red: $element-color-red;
+$eb-acmplt-medium-black: $color-medium-black;
+$eb-acmplt-light-black: $color-light-black;
+$eb-acmplt-swamp: $color-swamp;
+$eb-acmplt-light-primary: $light-primary;
+$eb-acmplt-color-red: $element-color-red;
+
+:host {
+    display: block;
+}
+
+.eb-acmplt-dropdown {
+    padding-right: 10px;
+}
+
+.eb-acmplt-container {
+    position: relative;
+    box-sizing: border-box;
+}
+
+.eb-acmplt-options-container {
+    color: $eb-acmplt-white;
+    width: 100%;
+    background-color: $eb-acmplt-light-black;
+    position: absolute;
+    top: 55px;
+    border-radius: 8px;
+    z-index: 1000;
+    box-sizing: border-box;
+    padding: 10px;
+    transition: opacity .2s ease, visibility .2s ease;
+}
+.eb-acmplt-scroll-wrapper {
+    max-height: 320px;
+    overflow-y: scroll;
+    padding: 10px 0px;
+}
+.eb-acmplt-hidden {
+    visibility: hidden;
+    opacity: 0;
+}
+.eb-acmplt-option {
+    min-height: 45px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 15px;
+    line-height: 20px;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.eb-acmplt-option:hover {
+    background-color: $eb-acmplt-secondary;
+}
+
+.eb-acmplt-scroll-wrapper::-webkit-scrollbar-track
+{
+    background-color: transparent;
+}
+
+.eb-acmplt-scroll-wrapper::-webkit-scrollbar
+{
+    width: 3px;
+    background-color: transparent;
+}
+
+.eb-acmplt-scroll-wrapper::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background-color: $eb-acmplt-dark-grey;
+}
+
+.eb-acmplt-error {
+    color: $eb-acmplt-color-red;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  

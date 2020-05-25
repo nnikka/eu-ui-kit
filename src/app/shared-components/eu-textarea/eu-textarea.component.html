@@ -1,9 +1,0 @@
-<div class="eu-txtarea-container" [ngClass]="txtareaClass" [ngStyle]="textareaContainerStyle">
-  <div class="eu-txtarea-field-wrapper">
-    <textarea class="eu-txtarea" [ngStyle]="textareaStyle" [required]="required" [minlength]="minlength"
-      [(ngModel)]="value" [disabled]="disabled" (blur)="onBlur()"></textarea>
-    <span class="eu-txtarea-bar"></span>
-    <label class="eu-txtarea-label">{{label}}</label>
-  </div>
-  <div *ngIf="showError" class="eu-txtarea-error">{{errors[0]}}</div>
-</div>

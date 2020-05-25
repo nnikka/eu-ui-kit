@@ -1,0 +1,13 @@
+<div class="eb-slider-container" [ngStyle]="containerStyle" [ngClass]="containerClass">
+    <div class="eb-slider-bars-container">
+        <div class="eb-slider-input-bar"></div>
+        <div class="eb-slider-fill-bar" [ngStyle]="slideBarStyle"></div>
+        <div class="eb-slider-tooltip-value" [ngStyle]="tooltipStyle"><span>{{valuePrefix}}{{ngValue}}{{valueSuffix}}</span></div>
+    </div>
+    <input class="eb-slider-input" type="range" [step]="step" [(ngModel)]="ngValue" [min]="min" [max]="max" (ngModelChange)="change($event)" />
+    <div class="eb-slider-values">
+        <div class="eb-slider-min-value">{{valuePrefix}}{{min}}{{valueSuffix}}</div>
+        <div class="eb-slider-max-value">{{valuePrefix}}{{max}}{{valueSuffix}}</div>
+    </div>
+    <div *ngIf="showError" class="eb-slider-error">{{errors[0]}}</div>
+</div>

@@ -1,0 +1,98 @@
+@import "abstracts/variables";
+
+$eb-checkbox-primary: $primary;
+$eb-checkbox-grey: $color-grey;
+$eb-checkbox-medium-grey: $color-medium-grey;
+$eb-checkbox-white: $color-white;
+$eb-checkbox-red: $element-color-red;
+
+:host {
+  display: inline-block;
+}
+
+.eb-checkbox {
+  position: relative;
+  // margin-top: 10px;
+}
+
+.eb-checkbox-label {
+  padding-left: 30px;
+  max-width: 100%;
+  font-size: 14px;
+  color: $eb-checkbox-grey;
+  transition: color .3s;
+  line-height: 16px;
+  cursor: pointer;
+  // vertical-align: super;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.eb-checkbox-label:hover {
+  color: $eb-checkbox-white;
+}
+
+.eb-checkbox-input {
+  display: none;
+}
+
+.eb-checkbox-box:before,
+.eb-checkbox-box:after {
+  transition: all .3s;
+}
+
+.eb-checkbox-box:after {
+  position: absolute;
+  left: 0;
+  top: -1px;
+  display: inline-block;
+  content: ' ';
+  width: 14px;
+  height: 14px;
+  border: 2px solid $eb-checkbox-grey;
+  border-radius: 2px;
+}
+
+.eb-checkbox-label:hover .eb-checkbox-box:after {
+  border: 2px solid $eb-checkbox-white;
+}
+
+.eb-checkbox-input:checked+.eb-checkbox-box:after {
+  background-color: $eb-checkbox-primary;
+  border-color: $eb-checkbox-primary !important;
+}
+
+.eb-checkbox-input:checked+.eb-checkbox-box:before {
+  transform: rotate(45deg);
+  position: absolute;
+  left: 6px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border-width: 2px;
+  border-style: solid;
+  border-top: 0;
+  border-left: 0;
+  border-color: $eb-checkbox-white;
+  content: "";
+  z-index: 1;
+}
+
+.eb-checkbox-disabled .eb-checkbox-box:after,
+.eb-checkbox-disabled:hover .eb-checkbox-box:after {
+  border: 2px solid $eb-checkbox-medium-grey;
+}
+
+.eb-checkbox-disabled .eb-checkbox-label,
+.eb-checkbox-disabled .eb-checkbox-label:hover {
+  color: $eb-checkbox-medium-grey;
+}
+
+.eb-checkbox-error {
+  color: $eb-checkbox-red;
+  font-size: 14px;
+  margin-top: 10px;
+}

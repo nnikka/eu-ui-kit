@@ -1,0 +1,161 @@
+@import "abstracts/variables";
+
+$eb-txtarea-medium-grey: $color-medium-grey;
+$eb-txtarea-error: $color-error;
+$eb-txtarea-primary: $primary;
+$eb-txtarea-color-white: $color-white;
+$eb-txtarea-color-red: $element-color-red;
+
+$lower-border-gap: 6px;
+
+:host {
+  display: block;
+}
+
+/* form starting stylings ------------------------------- */
+.eb-txtarea-container {
+  position: relative;
+  width: 100%;
+  // min-height: 105px;
+  box-sizing: border-box;
+}
+
+.eb-txtarea-field-wrapper {
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: $lower-border-gap;
+  border-bottom: 1px solid $eb-txtarea-medium-grey;
+}
+
+/* input stylings ------------------------------- */
+
+.eb-txtarea {
+  font-size: 15px;
+  padding: 0;
+  display: block;
+  width: calc(100% - 40px);
+  padding-right: 40px;
+  padding-top: 5px;
+  background: transparent;
+  border: none;
+  caret-color: $eb-txtarea-color-white;
+  color: $eb-txtarea-color-white;
+  resize: vertical;
+  // min-height: 45px;
+  line-height: 15px;
+  max-width: calc(100% - 40px);
+}
+
+.eb-txtarea:focus {
+  outline: none;
+}
+
+/* LABEL ======================================= */
+.eb-txtarea-label {
+  color: $color-medium-grey;
+  font-size: 15px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0px;
+  top: 20px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+.eb-txtarea:focus~.eb-txtarea-label,
+.eb-txtarea-opened .eb-txtarea-label {
+  top: 2px;
+  font-size: 13px;
+}
+
+
+.eb-txtarea:focus~.eb-txtarea-label {
+  color: $eb-txtarea-primary;
+}
+
+/* BOTTOM BARS ================================= */
+.eb-txtarea-bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.eb-txtarea-bar:before,
+.eb-txtarea-bar:after {
+  content: '';
+  height: 1px;
+  width: 0;
+  bottom: calc(-1 * #{$lower-border-gap});
+  position: absolute;
+  background-color: $eb-txtarea-color-white;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.eb-txtarea-bar:before {
+  left: 50%;
+}
+
+.eb-txtarea-bar:after {
+  right: 50%;
+}
+
+/* active state */
+.eb-txtarea:focus~.eb-txtarea-bar:before,
+.eb-txtarea:focus~.eb-txtarea-bar:after {
+  width: 50%;
+}
+
+/* Errors =================================== */
+
+.eb-txtarea-error {
+  color: $eb-txtarea-color-red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+// .eb-txtarea-error-txtarea .eb-txtarea-label {
+//   color: $eb-txtarea-color-red !important;
+// }
+
+.eb-txtarea-error-txtarea .eb-txtarea-bar:before,
+.eb-txtarea-error-txtarea .eb-txtarea-bar:after {
+  background-color: $eb-txtarea-color-red;
+}
+
+.eb-txtarea-error-txtarea .eb-txtarea-field-wrapper {
+  border-bottom: 1px solid $eb-txtarea-color-red;
+}
+
+/* Scrollbar ================================== */
+:host textarea::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+:host textarea::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+}
+
+:host textarea::-webkit-scrollbar-thumb {
+  background-color: $eb-txtarea-color-white;
+}
+
+:host textarea::-webkit-scrollbar-corner {
+  background-color: $eb-txtarea-color-white;;
+}
+
+// :host textarea::-webkit-resizer {
+//   background: url('https://pixabay.com/static/uploads/photo/2015/10/07/10/55/arrow-975992_960_720.png') no-repeat center center;
+//   background-size: cover;
+// }
+
+// :host textarea::-webkit-scrollbar-button:start:decrement,
+// :host textarea::-webkit-scrollbar-button:end:increment {
+//   background: url('https://pixabay.com/static/uploads/photo/2015/10/07/10/55/arrow-975992_960_720.png') no-repeat center center;
+//   background-size: cover;
+// }

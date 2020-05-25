@@ -1,0 +1,79 @@
+@import "abstracts/variables";
+
+$eb-column-menu-primary: $primary;
+$eb-column-menu-backgound: $color-light-black;
+$eb-column-menu-background-hoverd: $secondary;
+$eb-column-menu-text-color: $color-grey;
+$eb-column-menu-icon-color: $color-medium-grey;
+$eb-column-menu-text-color-hovered: $color-white;
+$eb-column-menu-icon-color-hovered: $color-white;
+
+:host {
+  padding: 12px 0px 12px 0px;
+  background-color: $eb-column-menu-backgound;
+  border-radius: 8px;
+}
+
+.eb-column-menu-item {
+  padding: 0;
+  margin: 0;
+}
+
+.eb-column-menu-item-link {
+  display: block;
+  position: relative;
+  padding: 15px 26px 15px 26px;
+  background-color: transparent;
+  text-decoration: inherit;
+  color: inherit;
+  transition: all 0.2s;
+
+  eb-label {
+    margin-left: 10px;
+  }
+}
+
+.eb-column-menu-item-left-border {
+  position: absolute;
+  left: 0;
+  width: 3px;
+  height: 50%;
+  top: 25%;
+  background: $eb-column-menu-primary;
+  opacity: 0;
+  transition: all 0.2s;
+}
+
+.eb-column-menu-item-icon {
+  color: $eb-column-menu-icon-color;
+  padding-right: 18px;
+  font-size: 18px;
+  transition: all 0.2s;
+}
+
+.eb-column-menu-item-text {
+  color: $eb-column-menu-text-color;
+  font-size: 14px;
+  vertical-align: text-top;
+  transition: all 0.2s;
+}
+
+.eb-column-menu-item-link-active,
+.eb-column-menu-item-link:hover {
+  background-color: $eb-column-menu-background-hoverd;
+}
+
+.eb-column-menu-item-link-active,
+.eb-column-menu-item-link:hover {
+  .eb-column-menu-item-left-border {
+    opacity: 1;
+  }
+
+  .eb-column-menu-item-icon {
+    color: $eb-column-menu-icon-color-hovered;
+  }
+
+  .eb-column-menu-item-text {
+    color: $eb-column-menu-text-color-hovered;
+  }
+}

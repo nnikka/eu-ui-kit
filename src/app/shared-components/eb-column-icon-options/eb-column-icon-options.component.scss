@@ -1,0 +1,26 @@
+@import "abstracts/variables";
+
+$eb-column-icon-options-background-color: $color-light-black;
+$eb-column-icon-options-icon-color: $color-medium-grey;
+$eb-column-icon-options-hovered-icon-color: $color-grey;
+
+:host {
+  display: inline-block;
+  width: 45px;
+  padding: 5px 0px;
+  margin: 0;
+  background-color: $eb-column-icon-options-background-color;
+  border-radius: 3px;
+}
+
+.eb-column-icon-options-item {
+  color: $eb-column-icon-options-icon-color;
+  padding: 12px 0px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.eb-column-icon-options-item:hover {
+  color: $eb-column-icon-options-hovered-icon-color;
+}

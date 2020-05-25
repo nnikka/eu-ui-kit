@@ -4,55 +4,55 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { AppRoutingModule } from "./app-routing.module";
 
 import { AppComponent } from './app.component';
-import { EuButtonComponent } from './shared-components/eu-button/eu-button.component';
-import { EuTooltipComponent } from './shared-components/eu-tooltip/eu-tooltip.component';
-import { EuLabelComponent } from './shared-components/eu-label/eu-label.component';
-import { EuInputComponent } from './shared-components/eu-input/eu-input.component';
+import { EbButtonComponent } from './shared-components/eb-button/eb-button.component';
+import { EbTooltipComponent } from './shared-components/eb-tooltip/eb-tooltip.component';
+import { EbLabelComponent } from './shared-components/eb-label/eb-label.component';
+import { EbInputComponent } from './shared-components/eb-input/eb-input.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { EuTextareaComponent } from './shared-components/eu-textarea/eu-textarea.component';
-import { EuTooltipDirective } from './shared-components/eu-tooltip/eu-tooltip.directive';
-import { EuRadioComponent } from './shared-components/eu-radio/eu-radio.component';
-import { EuCheckboxComponent } from './shared-components/eu-checkbox/eu-checkbox.component';
-import { EuToggleComponent } from './shared-components/eu-toggle/eu-toggle.component';
-import { EuSliderComponent } from './shared-components/eu-slider/eu-slider.component';
-import { EuRangeComponent } from './shared-components/eu-range/eu-range.component';
-import { EuColumnMenuComponent } from './shared-components/eu-column-menu/eu-column-menu.component';
+import { EbTextareaComponent } from './shared-components/eb-textarea/eb-textarea.component';
+import { EbTooltipDirective } from './shared-components/eb-tooltip/eb-tooltip.directive';
+import { EbRadioComponent } from './shared-components/eb-radio/eb-radio.component';
+import { EbCheckboxComponent } from './shared-components/eb-checkbox/eb-checkbox.component';
+import { EbToggleComponent } from './shared-components/eb-toggle/eb-toggle.component';
+import { EbSliderComponent } from './shared-components/eb-slider/eb-slider.component';
+import { EbRangeComponent } from './shared-components/eb-range/eb-range.component';
+import { EbColumnMenuComponent } from './shared-components/eb-column-menu/eb-column-menu.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InputsComponent } from './pages/inputs/inputs.component';
-import { EuColumnIconOptionsComponent } from './shared-components/eu-column-icon-options/eu-column-icon-options.component';
-import { EuAccordionItemComponent } from './shared-components/eu-accordion/eu-accordion-item/eu-accordion-item.component';
-import { EuAccordionHeaderComponent } from './shared-components/eu-accordion/eu-accordion-header/eu-accordion-header.component';
-import { EuAccordionBodyComponent } from './shared-components/eu-accordion/eu-accordion-body/eu-accordion-body.component'
-import { EuAutocompleteComponent } from './shared-components/eu-autocomplete/eu-autocomplete.component'
-import { EuAccordionComponent } from './shared-components/eu-accordion/eu-accordion.component';
-import { EuSelectComponent } from './shared-components/eu-select/eu-select.component'
+import { EbColumnIconOptionsComponent } from './shared-components/eb-column-icon-options/eb-column-icon-options.component';
+import { EbAccordionItemComponent } from './shared-components/eb-accordion/eb-accordion-item/eb-accordion-item.component';
+import { EbAccordionHeaderComponent } from './shared-components/eb-accordion/eb-accordion-header/eb-accordion-header.component';
+import { EbAccordionBodyComponent } from './shared-components/eb-accordion/eb-accordion-body/eb-accordion-body.component'
+import { EbAutocompleteComponent } from './shared-components/eb-autocomplete/eb-autocomplete.component'
+import { EbAccordionComponent } from './shared-components/eb-accordion/eb-accordion.component';
+import { EbSelectComponent } from './shared-components/eb-select/eb-select.component'
 
 @NgModule({
   declarations: [
     AppComponent,
-    EuButtonComponent,
-    EuTooltipComponent,
-    EuLabelComponent,
-    EuInputComponent,
-    EuTextareaComponent,
-    EuTooltipDirective,
-    EuRadioComponent,
-    EuCheckboxComponent,
-    EuToggleComponent,
-    EuSliderComponent,
-    EuRangeComponent,
-    EuColumnMenuComponent,
+    EbButtonComponent,
+    EbTooltipComponent,
+    EbLabelComponent,
+    EbInputComponent,
+    EbTextareaComponent,
+    EbTooltipDirective,
+    EbRadioComponent,
+    EbCheckboxComponent,
+    EbToggleComponent,
+    EbSliderComponent,
+    EbRangeComponent,
+    EbColumnMenuComponent,
     HomeComponent,
     InputsComponent,
-    EuColumnIconOptionsComponent,
-    EuAutocompleteComponent,
-    EuAccordionComponent,
-    EuSelectComponent,
-    EuAccordionComponent,
-    EuAccordionItemComponent,
-    EuAccordionHeaderComponent,
-    EuAccordionBodyComponent,
-    EuAutocompleteComponent
+    EbColumnIconOptionsComponent,
+    EbAutocompleteComponent,
+    EbAccordionComponent,
+    EbSelectComponent,
+    EbAccordionComponent,
+    EbAccordionItemComponent,
+    EbAccordionHeaderComponent,
+    EbAccordionBodyComponent,
+    EbAutocompleteComponent
   ],
   imports: [
     AppRoutingModule,

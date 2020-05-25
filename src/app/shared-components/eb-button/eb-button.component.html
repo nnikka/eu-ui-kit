@@ -1,0 +1,26 @@
+<button class="eb-btn" [ngClass]="btnClass" [ngStyle]="btnStyle" [disabled]="disabled || loading"
+  (mouseenter)="!disabled && mouseEnter($event)" (mouseleave)="!disabled && mouseLeave($event)" #btnElement>
+
+  <div class="eb-btn-lds-ring" *ngIf="loading">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <span *ngIf="loading">&nbsp;</span>
+
+  <span class="eb-btn-content-container" *ngIf="!loading">
+    <span class="eb-btn-icon" [ngClass]="iconClass" *ngIf="iconClass"></span>
+    <span *ngIf="text && iconClass">&nbsp;&nbsp;</span>
+    <span *ngIf="text">{{text}}</span>
+
+    <span>
+      <ng-content></ng-content>
+    </span>
+  </span>
+
+  <div class="eb-btn-circle-hover-wrapper" #hoverBackdrop *ngIf="!loading">
+    <div class="eb-btn-circle-hover" #hoverBackdropCircle></div>
+  </div>
+</button>
+<span class="eb-btn-label" [ngStyle]="labelStyle" *ngIf="label">{{ label }}</span>
