@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Self, Optional, HostBinding, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, Input, Self, Optional, HostBinding, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import {
   EEuInputTypeType,
@@ -32,6 +32,9 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
   @Input() clearable: boolean = false;
   @Input() width: number = null;
   @Input() minHeight: "auto" | number = 75;
+
+  @Output() inputFocus = new EventEmitter();
+  @Output() inputBlur = new EventEmitter();
 
   @HostBinding('style.display') hostElementDisplay = 'inline-block';
   @HostBinding('style.width') hostElementWidth = '100%';
@@ -138,10 +141,12 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
   }
 
   onFocus() {
+    this.inputFocus.emit();
     this.showPlaceHolder = true;
   }
 
   onBlur() {
+    this.inputBlur.emit();
     this._onTouch();
     this.showPlaceHolder = false;
   }

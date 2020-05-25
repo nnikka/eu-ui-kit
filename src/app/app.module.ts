@@ -20,10 +20,11 @@ import { EuColumnMenuComponent } from './shared-components/eu-column-menu/eu-col
 import { HomeComponent } from './pages/home/home.component';
 import { InputsComponent } from './pages/inputs/inputs.component';
 import { EuColumnIconOptionsComponent } from './shared-components/eu-column-icon-options/eu-column-icon-options.component';
-import { EuAccordionComponent } from './shared-components/eu-accordion/eu-accordion.component';
 import { EuAccordionItemComponent } from './shared-components/eu-accordion/eu-accordion-item/eu-accordion-item.component';
 import { EuAccordionHeaderComponent } from './shared-components/eu-accordion/eu-accordion-header/eu-accordion-header.component';
 import { EuAccordionBodyComponent } from './shared-components/eu-accordion/eu-accordion-body/eu-accordion-body.component'
+import { EuAutocompleteComponent } from './shared-components/eu-autocomplete/eu-autocomplete.component'
+import { EuAccordionComponent } from './shared-components/eu-accordion/eu-accordion.component'
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { EuAccordionBodyComponent } from './shared-components/eu-accordion/eu-ac
     EuAccordionComponent,
     EuAccordionItemComponent,
     EuAccordionHeaderComponent,
-    EuAccordionBodyComponent
+    EuAccordionBodyComponent,
+    EuAutocompleteComponent
   ],
   imports: [
     AppRoutingModule,
