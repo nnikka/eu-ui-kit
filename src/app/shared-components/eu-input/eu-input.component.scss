@@ -104,18 +104,24 @@ $eu-inpt-color-red: $element-color-red;
   width: 50%;
 }
 
-/* Icons =================================== */
+/* Icons and images =================================== */
 
 .eu-inpt-icon-container {
   display: none;
   position: absolute;
   top: 20px;
-  font-size: 15px;
   color: $eu-inpt-medium-grey;
 }
 
+.eu-inpt-img-container {
+  display: none;
+  position: absolute;
+  top: 15px;
+}
+
 .eu-inpt-pre-icon-input .eu-inpt-icon-container,
-.eu-inpt-suf-icon-input .eu-inpt-icon-container {
+.eu-inpt-suf-icon-input .eu-inpt-icon-container ,
+.eu-inpt-pre-img-input .eu-inpt-img-container {
   display: block;
 }
 
@@ -138,7 +144,15 @@ $eu-inpt-color-red: $element-color-red;
   right: 0;
 }
 
-
+.eu-inpt-pre-img-input .eu-inpt {
+  padding-left: 40px;
+}
+.eu-inpt-pre-img-input .eu-inpt-label {
+  left: 40px;
+}
+.eu-inpt-img-container img {
+  height: 24px;
+}
 /* Errors =================================== */
 
 .eu-inpt-error {

@@ -1,0 +1,114 @@
+@import "abstracts/variables";
+
+$eu-select-primary: $primary;
+$eu-select-secondary: $secondary;
+$eu-select-grey: $color-grey;
+$eu-select-medium-grey: $color-medium-grey;
+$eu-select-dark-grey: $color-dark-grey;
+$eu-select-white: $color-white;
+$eu-select-red: $element-color-red;
+$eu-select-medium-black: $color-medium-black;
+$eu-select-light-black: $color-light-black;
+$eu-select-swamp: $color-swamp;
+$eu-select-light-primary: $light-primary;
+$eu-select-color-red: $element-color-red;
+
+:host {
+  display: block;
+}
+
+.eu-select-dropdown {
+  padding-right: 10px;
+}
+
+.eu-select-container {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.eu-select-options-container {
+  color: $eu-select-white;
+  width: 100%;
+  background-color: $eu-select-light-black;
+  position: absolute;
+  top: 55px;
+  border-radius: 8px;
+  z-index: 1000;
+  box-sizing: border-box;
+  padding: 10px;
+  transition: opacity .2s ease, visibility .2s ease;
+}
+
+.eu-select-scroll-wrapper {
+  max-height: 320px;
+  overflow-y: scroll;
+  padding: 10px 0px;
+}
+
+.eu-select-hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.eu-select-option {
+  min-height: 45px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: 4px;
+  font-size: 15px;
+  line-height: 20px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.eu-select-option.active {
+  background-color: $eu-select-secondary;
+}
+
+.eu-select-scroll-wrapper::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.eu-select-scroll-wrapper::-webkit-scrollbar {
+  width: 3px;
+  background-color: transparent;
+}
+
+.eu-select-scroll-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: $eu-select-dark-grey;
+}
+
+.eu-select-error {
+  color: $eu-select-color-red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.eu-select-img {
+  height: 30px;
+  margin-right: 14px;
+}
+
+.eu-select-action-button {
+    color: $eu-select-primary;
+}
+
+.eu-select-action-icon-container {
+    width: 30px;
+    margin-right: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eu-select-action-icon-container span {
+    font-weight: bold;
+}

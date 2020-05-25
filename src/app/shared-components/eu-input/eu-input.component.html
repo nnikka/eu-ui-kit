@@ -1,12 +1,15 @@
 <div class="eu-inpt-container" [ngClass]="inptClass" [ngStyle]="inputContainerStyle">
   <input class="eu-inpt" [type]="type" [placeholder]="placeHolderValue" [(ngModel)]="value" [disabled]="disabled"
-    (blur)="onBlur()" (focus)="onFocus()">
+    [readonly]="readonly" (blur)="onBlur()" (focus)="onFocus()">
   <span class="eu-inpt-bar"></span>
   <div class="eu-inpt-icon-container prefix">
-    <span [ngClass]="prefixIcon"></span>
+    <span [ngClass]="prefixIcon" [ngStyle]="iconStyle"></span>
   </div>
   <div class="eu-inpt-icon-container suffix">
-    <span [ngClass]="suffixIcon"></span>
+    <span [ngClass]="suffixIcon" [ngStyle]="iconStyle"></span>
+  </div>
+  <div class="eu-inpt-img-container">
+    <img [src]="prefixImg" class="eu-inpt-img"/>
   </div>
   <span *ngIf="clearable" class="eu-input-clear" [ngClass]="clearIconClass" (click)="onClearInput()"></span>
   <div class="eu-inpt-password-spec-container">

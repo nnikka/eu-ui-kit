@@ -99,8 +99,8 @@ export class HomeComponent implements OnInit {
     return this.myForm.get('slider1');
   }
 
-  get autocomplete() {
-    return this.myForm.get('autocomplete1');
+  get select() {
+    return this.myForm.get('select1');
   }
 
   ngOnInit(): void {
@@ -154,12 +154,15 @@ export class HomeComponent implements OnInit {
 
       radio1: new FormControl('value1'),
       autocomplete1: new FormControl(null, [this.autocmpltVialidationFn]),
+      select1: new FormControl({}, [this.autocmpltVialidationFn]),
+
     });
     this.myForm.get('checkbox4').markAsTouched();
     this.myForm.get('toggle4').markAsTouched();
     this.myForm.get('slider1').markAsTouched();
     this.myForm.get('range3').markAsTouched();
     this.myForm.get('autocomplete1').markAsTouched();
+    this.myForm.get('select1').markAsTouched();
   }
 
   rangeVialidationFn(control: FormControl) {
@@ -182,10 +185,12 @@ export class HomeComponent implements OnInit {
     {
       name: 'Afghanistan',
       value: 'AF',
+      img: 'https://icons.iconarchive.com/icons/designbolts/credit-card-payment/256/Visa-icon.png'
     },
     {
       name: 'Albania',
       value: 'AL',
+      img: 'https://icons.iconarchive.com/icons/designbolts/credit-card-payment/256/Master-Card-Blue-icon.png'
     },
     {
       name: 'Algeria',
@@ -194,6 +199,7 @@ export class HomeComponent implements OnInit {
     {
       name: 'American Samoa',
       value: 'AS',
+      img: 'https://icons.iconarchive.com/icons/designbolts/credit-card-payment/256/Visa-icon.png'
     },
     {
       name: 'Andorra',
@@ -202,30 +208,69 @@ export class HomeComponent implements OnInit {
     {
       name: 'Angola',
       value: 'AO',
+      img: 'https://icons.iconarchive.com/icons/designbolts/credit-card-payment/256/Master-Card-Blue-icon.png'
     },
     {
       name: 'Anguilla',
       value: 'AI',
+      img: 'https://icons.iconarchive.com/icons/designbolts/credit-card-payment/256/Visa-icon.png'
     },
     {
-      name: 'Antarctica',
+      name: 'Bntarctica',
       value: 'AQ',
+      img: 'https://icons.iconarchive.com/icons/designbolts/credit-card-payment/256/Master-Card-Blue-icon.png'
     },
     {
-      name: 'Antigua and Barbuda',
+      name: 'Bntigua and Barbuda',
       value: 'AG',
     },
     {
-      name: 'Argentina',
+      name: 'Krgentina',
       value: 'AR',
     },
     {
-      name: 'Armenia',
+      name: 'Drmenia',
       value: 'AM',
     },
     {
-      name: 'Aruba',
+      name: 'Druba',
       value: 'AW',
+    },
+    {
+      name: 'Druba',
+      value: 'DW',
+    },
+    {
+      name: 'Eruba',
+      value: 'EW',
+    },
+    {
+      name: 'Erubo',
+      value: 'ER',
+    },
+    {
+      name: 'Fruba',
+      value: 'FR',
+    },
+    {
+      name: 'Gruba',
+      value: 'GR',
+    },
+    {
+      name: 'Hruba',
+      value: 'HR',
+    },
+    {
+      name: 'Iruba',
+      value: 'IR',
+    },
+    {
+      name: 'Jruba',
+      value: 'JR',
+    },
+    {
+      name: 'Kruba',
+      value: 'KR',
     },
   ];
 }

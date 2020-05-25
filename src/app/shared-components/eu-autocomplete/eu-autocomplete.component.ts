@@ -14,7 +14,7 @@ import { NgControl } from '@angular/forms';
 import { EEuAutocompleteType } from './eu-autocomplete.schematics'
 
 @Component({
-  selector: 'app-eu-autocomplete',
+  selector: 'eu-autocomplete',
   templateUrl: './eu-autocomplete.component.html',
   styleUrls: ['./eu-autocomplete.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -26,12 +26,13 @@ export class EuAutocompleteComponent implements OnInit {
   @Input() label: string;
   @Input() width: number = null;
   @Input() items: Array<any> = [];
-  @Input() myItems: Array<any> = [];
+  @Input() innerItems: Array<any> = [];
   @Input() type: string = EEuAutocompleteType.default;
   @Input() minHeight: "auto" | number = 75;
   @Input() placeHolder: string = "";
   @Input() errorMessages: any = {};
   @Input() clearable: boolean = false;
+  @Input() disabled: boolean = false;
 
   @HostBinding('style.width') hostElementWidth = '100%';
   @HostBinding('style.display') hostElementDisplay = 'inline-block';
@@ -60,7 +61,7 @@ export class EuAutocompleteComponent implements OnInit {
       this.hostElementDisplay = 'inline-block';
       this.hostElementWidth = this.width + 'px';
     }
-    this.myItems = [...this.items];
+    this.innerItems = [...this.items];
   }
 
   get invalid(): boolean {
@@ -123,13 +124,13 @@ export class EuAutocompleteComponent implements OnInit {
       if (value) {
         const filtered = this.items.filter((item) => item.name.toLowerCase().includes(value.toLowerCase()));
         const chosenItem = this.items.find((item) => item.name.toLowerCase() == value.toLowerCase());
-        this.myItems = [...filtered];
-        this.showDropdown = !!this.myItems.length;
+        this.innerItems = [...filtered];
+        this.showDropdown = !!this.innerItems.length;
         if(chosenItem) this.change(chosenItem)
         else this.change(null);
       } else {
-        this.myItems = [...this.items];
-        this.showDropdown = !!this.myItems.length;
+        this.innerItems = [...this.items];
+        this.showDropdown = !!this.innerItems.length;
         this.change(null);
       }
       this.inputValue = value;
@@ -155,7 +156,7 @@ export class EuAutocompleteComponent implements OnInit {
   }
 
   setDisabledState?(isDisabled: boolean): void {
-    // this.disabled = isDisabled;
+    this.disabled = isDisabled;
   }
 
   change(value) {

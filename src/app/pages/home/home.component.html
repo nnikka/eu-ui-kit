@@ -265,9 +265,14 @@
     </div>
     <br><br>
 
-    <app-eu-autocomplete formControlName="autocomplete1" width="320" [items]="countries" [errorMessages]="errorMessages"
-      minHeight="100" placeHolder="Choose your hero" label="Countries" prefixIcon="eu-icon-globe" ></app-eu-autocomplete>
-    <!-- <p style="color: aliceblue;">{{autocomplete.value | json}}</p> -->
+    <eu-autocomplete formControlName="autocomplete1" width="320" [items]="countries" [errorMessages]="errorMessages"
+      minHeight="100" placeHolder="Choose your hero" label="Countries" prefixIcon="eu-icon-globe" ></eu-autocomplete>
+    <br><br>
+
+    <eu-select formControlName="select1" width="320" [items]="countries" [errorMessages]="errorMessages"
+      minHeight="100" placeHolder="Choose your hero" label="Credit cards" suffixIcon="eu-icon-arrow-down" 
+      actionLabel="Add new card" actionIcon="eu-icon-plus"></eu-select>
+    <!-- <p style="color: aliceblue;">{{select.value | json}}</p> -->
     <br><br>
 
     <button (click)="formsm()">Submit</button>

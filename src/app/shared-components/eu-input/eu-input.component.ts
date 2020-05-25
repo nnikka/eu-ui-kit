@@ -20,6 +20,7 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
   @Input() placeHolder: string = "";
   @Input() type: EEuInputTypeType = EEuInputType.text;
   @Input() disabled: boolean;
+  @Input() readonly: boolean = false;
   @Input() showErrorMessage: boolean = true;
   @Input() errorMessages: any = {};
   @Input() showPassText: string = "show";
@@ -32,7 +33,9 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
   @Input() clearable: boolean = false;
   @Input() width: number = null;
   @Input() minHeight: "auto" | number = 75;
-
+  @Input() iconSize: number = 15;
+  @Input() prefixImg: string;
+  
   @Output() inputFocus = new EventEmitter();
   @Output() inputBlur = new EventEmitter();
 
@@ -79,11 +82,12 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
   get inptClass(): string {
     let prefixIconClass = this.prefixIcon ? 'eu-inpt-pre-icon-input' : '';
     let suffixIconClass = this.suffixIcon ? 'eu-inpt-suf-icon-input' : '';
+    let prefixImgClass = this.prefixImg ? 'eu-inpt-pre-img-input' : '';
     let errorClass = this.showError ? 'eu-inpt-error-input' : '';
     let passwordClass =
       this.type === 'password' ? 'eu-inpt-password-input' : '';
     let inputOpenedClass = this.value ? 'eu-inpt-opened' : '';
-    return `${prefixIconClass} ${suffixIconClass} ${errorClass} ${passwordClass} ${inputOpenedClass}`;
+    return `${prefixIconClass} ${suffixIconClass} ${errorClass} ${passwordClass} ${inputOpenedClass} ${prefixImgClass}`;
   }
 
   get passStrengthClass(): string {
@@ -129,11 +133,21 @@ export class EuInputComponent implements OnInit, ControlValueAccessor {
     return styleObj;
   }
 
+  get iconStyle() {
+    let styleObj = {};
+    if (this.iconSize) {
+      styleObj['font-size'] = this.iconSize + "px";
+      styleObj['vertical-align'] = 'bottom';
+    }
+    return styleObj;
+  }
+
   ngOnInit(): void {
     if (this.width) {
       this.hostElementDisplay = "inline-block";
       this.hostElementWidth = this.width + "px";
     }
+    if (this.prefixImg) this.prefixIcon = undefined;
   }
 
   onClearInput() {
